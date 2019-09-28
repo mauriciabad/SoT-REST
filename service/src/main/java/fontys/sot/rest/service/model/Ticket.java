@@ -3,55 +3,58 @@ package fontys.sot.rest.service.model;
 import java.util.Objects;
 
 public class Ticket {
-    private int id;
-    private String origin;
-    private String destination;
 
-    public Ticket() {
+    // Attributes
+    private String ref;
+    private int flight_number;
+    private int price;
+    private String currency = "EUR";
+    private String seat;
+    private boolean for_sale = true;
+
+
+    // Constructors
+    public Ticket() {}
+    public Ticket(String ref, int flight_number, int price, String currency, String seat, boolean for_sale) {
+        this.ref = ref;
+        this.flight_number = flight_number;
+        this.price = price;
+        this.currency = currency;
+        this.seat = seat;
+        this.for_sale = for_sale;
     }
 
-    public Ticket(int id, String origin, String destination) {
-        this.id = id;
-        this.origin = origin;
-        this.destination = destination;
-    }
 
-    public int getId() {
-        return id;
-    }
+    // Default Getters and Setters
+    public String getRef() { return ref; }
+    public void setRef(String ref) { this.ref = ref; }
+    public int getFlight_number() { return flight_number; }
+    public void setFlight_number(int flight_number) { this.flight_number = flight_number; }
+    public int getPrice() { return price; }
+    public void setPrice(int price) { this.price = price; }
+    public String getCurrency() { return currency; }
+    public void setCurrency(String currency) { this.currency = currency; }
+    public String getSeat() { return seat; }
+    public void setSeat(String seat) { this.seat = seat; }
+    public boolean isFor_sale() { return for_sale; }
+    public void setFor_sale(boolean for_sale) { this.for_sale = for_sale; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public String getOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(String origin) {
-        this.origin = origin;
-    }
-
-    public String getDestination() {
-        return destination;
-    }
-
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
-
+    // Extra methods
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ticket ticket = (Ticket) o;
-        return id == ticket.id &&
-                origin.equals(ticket.origin) &&
-                destination.equals(ticket.destination);
+        return flight_number == ticket.flight_number &&
+                price == ticket.price &&
+                for_sale == ticket.for_sale &&
+                ref.equals(ticket.ref) &&
+                currency.equals(ticket.currency) &&
+                seat.equals(ticket.seat);
     }
-
     @Override
     public int hashCode() {
-        return Objects.hash(id, origin, destination);
+        return Objects.hash(ref, flight_number, price, currency, seat, for_sale);
     }
 }

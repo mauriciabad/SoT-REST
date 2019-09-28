@@ -28,7 +28,7 @@ dependencies {
 }
 
 // create serviceModel.jar in directory /service/build/libs/
-// with /fontys/sot/rest/model/Ticket.class
+// with /fontys/sot/rest/model/Flight.class
 task createModelJar(type: Jar, dependsOn: compileJava) {
     archiveFileName = "serviceModel.jar"
     from sourceSets.main.output include "fontys/sot/rest/model/*"

@@ -15,17 +15,17 @@ public class Tester {
     public static void main(String[] args) {
         String base_url = "http://localhost:8080";
 
-//        test(base_url+"/tickets");
-//        test("POST", base_url+"/tickets", "{\"id\":3,\"name\":\"Maurici Abad\"}");
-//        test("PUT", base_url+"/tickets", "{\"id\":0,\"name\":\"Maurici Abad\"}");
-//        test(base_url+"/tickets");
-//        test(base_url+"/tickets/2");
-//        test("DELETE", base_url+"/tickets/2");
-//        test(base_url+"/tickets?id=2");
-//        test(base_url+"/tickets/first");
-//        test(base_url+"/tickets/hello");
-//        test(base_url+"/tickets/count");
-//        test(base_url+"/tickets/first");
+//        test(base_url+"/flights");
+//        test("POST", base_url+"/flights", "{\"id\":3,\"name\":\"Maurici Abad\"}");
+//        test("PUT", base_url+"/flights", "{\"id\":0,\"name\":\"Maurici Abad\"}");
+//        test(base_url+"/flights");
+//        test(base_url+"/flights/2");
+//        test("DELETE", base_url+"/flights/2");
+//        test(base_url+"/flights?id=2");
+//        test(base_url+"/flights/first");
+//        test(base_url+"/flights/hello");
+//        test(base_url+"/flights/count");
+//        test(base_url+"/flights/first");
 
         System.out.println("Finished");
     }
