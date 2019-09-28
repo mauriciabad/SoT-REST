@@ -18,6 +18,10 @@ public class TicketsResources {
         tickets.add(new Ticket(0, "BCN", "EIN"));
         tickets.add(new Ticket(1, "LHR", "CDG"));
         tickets.add(new Ticket(2, "FRA", "MAD"));
+        tickets.add(new Ticket(3, "ATL", "BCN"));
+        tickets.add(new Ticket(4, "HND", "PVG"));
+        tickets.add(new Ticket(5, "BCN", "MAD"));
+        tickets.add(new Ticket(6, "EIN", "BCN"));
     }
 
     @GET
