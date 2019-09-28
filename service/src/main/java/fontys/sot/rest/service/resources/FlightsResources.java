@@ -6,11 +6,11 @@ import fontys.sot.rest.service.model.FlightsCollection;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.time.LocalDate;
-import java.time.ZoneId;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -31,41 +31,73 @@ public class FlightsResources {
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Flight> getFlightByQuery(
+    public Response getFlightByQuery(
             @QueryParam("flight_number") Integer flight_number,
             @QueryParam("origin") String origin,
             @QueryParam("destination") String destination,
-            @QueryParam("departure") Date departure,
-            @QueryParam("departure_before") Date departure_before,
-            @QueryParam("departure_after") Date departure_after,
-            @QueryParam("arrival") Date arrival,
-            @QueryParam("arrival_before") Date arrival_before,
-            @QueryParam("arrival_after") Date arrival_after,
+            @QueryParam("departure") String departure,
+            @QueryParam("departure_before") String departure_before,
+            @QueryParam("departure_after") String departure_after,
+            @QueryParam("arrival") String arrival,
+            @QueryParam("arrival_before") String arrival_before,
+            @QueryParam("arrival_after") String arrival_after,
             @QueryParam("price") Integer price,
             @QueryParam("max_price") Integer max_price,
             @QueryParam("airline") String airline) {
+
+        String date_format = "yyyy-MM-dd";
+
+
         Stream<Flight> filteredFlights = flights.getAll().stream();
 
-        if (flight_number != null)    filteredFlights = filteredFlights.filter(flight -> flight.getFlight_number() == flight_number);
-        if (price != null)            filteredFlights = filteredFlights.filter(flight -> flight.getPrice().equals(price));
-        if (max_price != null)        filteredFlights = filteredFlights.filter(flight -> flight.getPrice() <= max_price);
-        if (origin != null)           filteredFlights = filteredFlights.filter(flight -> flight.getOrigin().equals(origin));
-        if (destination != null)      filteredFlights = filteredFlights.filter(flight -> flight.getDestination().equals(destination));
-        if (airline != null)          filteredFlights = filteredFlights.filter(flight -> flight.getAirline().equals(airline));
-        if (departure != null)        filteredFlights = filteredFlights.filter(flight -> isSameDay(flight.getDeparture(), departure));
-        if (arrival != null)          filteredFlights = filteredFlights.filter(flight -> isSameDay(flight.getArrival(), arrival));
-        if (departure_before != null) filteredFlights = filteredFlights.filter(flight -> flight.getDeparture().before(departure_before));
-        if (departure_after != null)  filteredFlights = filteredFlights.filter(flight -> flight.getDeparture().after(departure_after));
-        if (arrival_before != null)   filteredFlights = filteredFlights.filter(flight -> flight.getArrival().before(arrival_before));
-        if (arrival_after != null)    filteredFlights = filteredFlights.filter(flight -> flight.getArrival().after(arrival_after));
+        if (flight_number != null) filteredFlights = filteredFlights.filter(flight -> flight.getFlight_number() == flight_number);
+        if (price != null)         filteredFlights = filteredFlights.filter(flight -> flight.getPrice().equals(price));
+        if (max_price != null)     filteredFlights = filteredFlights.filter(flight -> flight.getPrice() <= max_price);
+        if (origin != null)        filteredFlights = filteredFlights.filter(flight -> flight.getOrigin().equals(origin));
+        if (destination != null)   filteredFlights = filteredFlights.filter(flight -> flight.getDestination().equals(destination));
+        if (airline != null)       filteredFlights = filteredFlights.filter(flight -> flight.getAirline().equals(airline));
+        if (departure != null) {
+            Date departureDate = getDateFromString(departure, date_format);
+            if (departureDate == null) return Response.serverError().entity("Query parameter 'departure' must be in this format: " + date_format).build();
+            filteredFlights = filteredFlights.filter(flight -> flight.getDeparture().equals(departureDate));
+        }
+        if (arrival != null) {
+            Date arrivalDate = getDateFromString(arrival, date_format);
+            if (arrivalDate == null) return Response.serverError().entity("Query parameter 'arrival' must be in this format: " + date_format).build();
+            filteredFlights = filteredFlights.filter(flight -> flight.getArrival().equals(arrivalDate));
+        }
+        if (departure_before != null) {
+            Date departure_beforeDate = getDateFromString(departure_before, date_format);
+            if (departure_beforeDate == null) return Response.serverError().entity("Query parameter 'departure_before' must be in this format: " + date_format).build();
+            filteredFlights = filteredFlights.filter(flight -> flight.getDeparture().before(departure_beforeDate));
+        }
+        if (departure_after != null) {
+            Date departure_afterDate = getDateFromString(departure_after, date_format);
+            if (departure_afterDate == null) return Response.serverError().entity("Query parameter 'departure_after' must be in this format: " + date_format).build();
+            filteredFlights = filteredFlights.filter(flight -> flight.getDeparture().after(departure_afterDate));
+        }
+        if (arrival_before != null) {
+            Date arrival_beforeDate = getDateFromString(arrival_before, date_format);
+            if (arrival_beforeDate == null) return Response.serverError().entity("Query parameter 'arrival_before' must be in this format: " + date_format).build();
+            filteredFlights = filteredFlights.filter(flight -> flight.getArrival().before(arrival_beforeDate));
+        }
+        if (arrival_after != null) {
+            Date arrival_afterDate = getDateFromString(arrival_after, date_format);
+            if (arrival_afterDate == null) return Response.serverError().entity("Query parameter 'arrival_after' must be in this format: " + date_format).build();
+            filteredFlights = filteredFlights.filter(flight -> flight.getArrival().after(arrival_afterDate));
+        }
 
-        return filteredFlights.collect(Collectors.toList());
+        return Response.ok().entity(filteredFlights.collect(Collectors.toList())).build();
     }
 
-    private boolean isSameDay(Date date1, Date date2){
-        LocalDate localDate1 = date1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        LocalDate localDate2 = date2.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        return localDate1.equals(localDate2);
+    private Date getDateFromString(String dateString, String format) {
+        try {
+            DateFormat df = new SimpleDateFormat(format);
+            Date date = df.parse(dateString);
+            return date;
+        } catch (ParseException e) {
+            return null;
+        }
     }
 
     @POST
@@ -81,9 +113,24 @@ public class FlightsResources {
 
     @POST
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
-    public Response createFlight(@FormParam("flight_number") Integer flight_number, @FormParam("origin") String origin, @FormParam("destination") String destination, @FormParam("departure") Date departure, @FormParam("arrival") Date arrival, @FormParam("airline") String airline) {
+    public Response createFlight(@FormParam("flight_number") Integer flight_number, @FormParam("origin") String origin, @FormParam("destination") String destination, @FormParam("departure") String departure, @FormParam("arrival") String arrival, @FormParam("airline") String airline) {
         if(!flights.exists(flight_number)){
-            flights.add(new Flight(flight_number, origin, destination, departure, arrival, airline));
+            String date_format = "yyyy-MM-ddThh:mm";
+
+            // Check that departure format is right
+            Date departureDate = null;
+            if (departure != null) {
+                departureDate = getDateFromString(departure, date_format);
+                if (departureDate == null) return Response.serverError().entity("Query parameter 'departure' must be in this format: " + date_format).build();
+            }
+            // Check that arrival format is right
+            Date arrivalDate = null;
+            if (arrival != null) {
+                arrivalDate = getDateFromString(arrival, date_format);
+                if (arrivalDate == null) return Response.serverError().entity("Query parameter 'arrival' must be in this format: " + date_format).build();
+            }
+
+            flights.add(new Flight(flight_number, origin, destination, departureDate, arrivalDate, airline));
             return Response.noContent().build();
         }else{
             return Response.serverError().entity("Flight with flight_number " + flight_number + " already exist").build();
