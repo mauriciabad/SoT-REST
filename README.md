@@ -41,3 +41,12 @@ Quickly review all available resources for Airline's API 1.0 with this reference
 | DELETE | /flights/{flight_number}/tickets/{ticket_id} | Delete a ticket |
 | POST   | /flights/{flight_number}/tickets/{ticket_id}/buy | Buy a specific ticket |
 
+### Users
+
+| Method | Endpoint | Function |
+|--------|----------|----------|
+| GET    | /users | Get all users |
+| POST   | /users | Create a new user |
+| GET    | /users/{user_id} | Get information about a specific user |
+| PATCH  | /users/{user_id} | Update a user |
+| DELETE | /users/{user_id} | Delete a user |
