@@ -6,6 +6,7 @@
 
 Quickly review all available resources for Our Airline's API 1.0 with this reference overview.
 
+> **Base URL**: http://localhost:8080/airline/v1/
 
 ### API Root
 
