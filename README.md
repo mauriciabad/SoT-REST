@@ -1,4 +1,4 @@
-# SoT-REST
+# SoT REST assignment | Airline
 
 ✈ First assignment for SoT 2019 in Fontys.
 
