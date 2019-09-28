@@ -43,11 +43,17 @@ public class FlightsResources {
         Stream<Flight> filteredFlights = flights.getAll().stream();
 
         if (flight_number != null) filteredFlights = filteredFlights.filter(flight -> flight_number == flight.getFlight_number());
-        if (price != null)         filteredFlights = filteredFlights.filter(flight -> price.equals(flight.getPrice()));
-        if (max_price != null)     filteredFlights = filteredFlights.filter(flight -> flight.getPrice() <= max_price);
         if (origin != null)        filteredFlights = filteredFlights.filter(flight -> origin.equals(flight.getOrigin()));
         if (destination != null)   filteredFlights = filteredFlights.filter(flight -> destination.equals(flight.getDestination()));
         if (airline != null)       filteredFlights = filteredFlights.filter(flight -> airline.equals(flight.getAirline()));
+        if (price != null)         filteredFlights = filteredFlights.filter(flight -> price.equals(flight.getPrice()));
+
+        if (max_price != null) {
+            filteredFlights = filteredFlights.filter(flight -> {
+                Integer flight_price = flight.getPrice();
+                return flight_price != null && flight_price <= max_price;
+            });
+        }
 
         String date_format = "yyyy-MM-dd";
         if (departure != null) {
