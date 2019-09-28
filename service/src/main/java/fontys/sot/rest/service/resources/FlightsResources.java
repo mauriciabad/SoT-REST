@@ -17,17 +17,13 @@ import java.util.stream.Stream;
 @Path("flights")
 public class FlightsResources {
 
-    private FlightsCollection flights = new FlightsCollection();
+    /*  - - - - - - - - - -  Data  - - - - - - - - - -  */
 
-    public FlightsResources() {
-        flights.add(new Flight(0, "BCN", "EIN", new GregorianCalendar(2019,9,28,8,20), new GregorianCalendar(2019,9,28,10,20), "Ryanair"));
-        flights.add(new Flight(1, "LHR", "CDG", new GregorianCalendar(2019,9,29,10,10), new GregorianCalendar(2019,9,29,12,10), "Transavia"));
-        flights.add(new Flight(2, "FRA", "MAD", new GregorianCalendar(2019,9,28,8,25), new GregorianCalendar(2019,9,28,13,10), "Ryanair"));
-        flights.add(new Flight(3, "ATL", "BCN", new GregorianCalendar(2019,10,1,21,50), new GregorianCalendar(2019,10,1,22,50), "Vueling"));
-        flights.add(new Flight(4, "HND", "PVG", new GregorianCalendar(2019,10,13,17,30), new GregorianCalendar(2019,10,13,18,0), "Vueling"));
-        flights.add(new Flight(5, "BCN", "MAD", new GregorianCalendar(2019,10,25,12,15), new GregorianCalendar(2019,10,25,13,30), "Transavia"));
-        flights.add(new Flight(6, "EIN", "BCN", new GregorianCalendar(2019,10,19,6,45), new GregorianCalendar(2019,10,19,15,30), "Ryanair"));
-    }
+    private FlightsCollection flights = FlightsCollection.getInstance();
+
+
+
+    /*  - - - - - - - - - -  Endpoints  - - - - - - - - - -  */
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -46,63 +42,55 @@ public class FlightsResources {
             @QueryParam("airline") String airline) {
         Stream<Flight> filteredFlights = flights.getAll().stream();
 
-        if (flight_number != null) filteredFlights = filteredFlights.filter(flight -> flight.getFlight_number() == flight_number);
-        if (price != null)         filteredFlights = filteredFlights.filter(flight -> flight.getPrice().equals(price));
+        if (flight_number != null) filteredFlights = filteredFlights.filter(flight -> flight_number == flight.getFlight_number());
+        if (price != null)         filteredFlights = filteredFlights.filter(flight -> price.equals(flight.getPrice()));
         if (max_price != null)     filteredFlights = filteredFlights.filter(flight -> flight.getPrice() <= max_price);
-        if (origin != null)        filteredFlights = filteredFlights.filter(flight -> flight.getOrigin().equals(origin));
-        if (destination != null)   filteredFlights = filteredFlights.filter(flight -> flight.getDestination().equals(destination));
-        if (airline != null)       filteredFlights = filteredFlights.filter(flight -> flight.getAirline().equals(airline));
+        if (origin != null)        filteredFlights = filteredFlights.filter(flight -> origin.equals(flight.getOrigin()));
+        if (destination != null)   filteredFlights = filteredFlights.filter(flight -> destination.equals(flight.getDestination()));
+        if (airline != null)       filteredFlights = filteredFlights.filter(flight -> airline.equals(flight.getAirline()));
 
         String date_format = "yyyy-MM-dd";
         if (departure != null) {
             Date departureDate = getDateFromString(departure, date_format);
             if (departureDate == null) return Response.serverError().entity("Query parameter 'departure' must be in this format: " + date_format).build();
-            filteredFlights = filteredFlights.filter(flight -> flight.getDeparture().equals(departureDate));
+            filteredFlights = filteredFlights.filter(flight -> departureDate.equals(flight.getDeparture()));
         }
         if (arrival != null) {
             Date arrivalDate = getDateFromString(arrival, date_format);
             if (arrivalDate == null) return Response.serverError().entity("Query parameter 'arrival' must be in this format: " + date_format).build();
-            filteredFlights = filteredFlights.filter(flight -> flight.getArrival().equals(arrivalDate));
+            filteredFlights = filteredFlights.filter(flight -> arrivalDate.equals(flight.getArrival()));
         }
         if (departure_before != null) {
             Date departure_beforeDate = getDateFromString(departure_before, date_format);
             if (departure_beforeDate == null) return Response.serverError().entity("Query parameter 'departure_before' must be in this format: " + date_format).build();
-            filteredFlights = filteredFlights.filter(flight -> flight.getDeparture().before(departure_beforeDate));
+            filteredFlights = filteredFlights.filter(flight -> departure_beforeDate.before(flight.getDeparture()));
         }
         if (departure_after != null) {
             Date departure_afterDate = getDateFromString(departure_after, date_format);
             if (departure_afterDate == null) return Response.serverError().entity("Query parameter 'departure_after' must be in this format: " + date_format).build();
-            filteredFlights = filteredFlights.filter(flight -> flight.getDeparture().after(departure_afterDate));
+            filteredFlights = filteredFlights.filter(flight -> departure_afterDate.after(flight.getDeparture()));
         }
         if (arrival_before != null) {
             Date arrival_beforeDate = getDateFromString(arrival_before, date_format);
             if (arrival_beforeDate == null) return Response.serverError().entity("Query parameter 'arrival_before' must be in this format: " + date_format).build();
-            filteredFlights = filteredFlights.filter(flight -> flight.getArrival().before(arrival_beforeDate));
+            filteredFlights = filteredFlights.filter(flight -> arrival_beforeDate.before(flight.getArrival()));
         }
         if (arrival_after != null) {
             Date arrival_afterDate = getDateFromString(arrival_after, date_format);
             if (arrival_afterDate == null) return Response.serverError().entity("Query parameter 'arrival_after' must be in this format: " + date_format).build();
-            filteredFlights = filteredFlights.filter(flight -> flight.getArrival().after(arrival_afterDate));
+            filteredFlights = filteredFlights.filter(flight -> arrival_afterDate.after(flight.getArrival()));
         }
 
         return Response.ok().entity(filteredFlights.collect(Collectors.toList())).build();
-    }
-
-    private Date getDateFromString(String dateString, String format) {
-        try {
-            DateFormat df = new SimpleDateFormat(format);
-            Date date = df.parse(dateString);
-            return date;
-        } catch (ParseException e) {
-            return null;
-        }
     }
 
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public Response createFlight(Flight flight) {
         if(!flights.exists(flight.getFlight_number())){
+
             flights.add(flight);
+
             return Response.noContent().build();
         }else{
             return Response.serverError().entity("Flight with flight_number " + flight.getFlight_number() + " already exist").build();
@@ -113,15 +101,14 @@ public class FlightsResources {
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
     public Response createFlight(@FormParam("flight_number") Integer flight_number, @FormParam("origin") String origin, @FormParam("destination") String destination, @FormParam("departure") String departure, @FormParam("arrival") String arrival, @FormParam("airline") String airline) {
         if(!flights.exists(flight_number)){
-            String date_format = "yyyy-MM-ddThh:mm";
 
-            // Check that departure format is right
+            // Validate dates' format
+            String date_format = "yyyy-MM-ddThh:mm";
             Date departureDate = null;
             if (departure != null) {
                 departureDate = getDateFromString(departure, date_format);
                 if (departureDate == null) return Response.serverError().entity("Query parameter 'departure' must be in this format: " + date_format).build();
             }
-            // Check that arrival format is right
             Date arrivalDate = null;
             if (arrival != null) {
                 arrivalDate = getDateFromString(arrival, date_format);
@@ -129,6 +116,7 @@ public class FlightsResources {
             }
 
             flights.add(new Flight(flight_number, origin, destination, departureDate, arrivalDate, airline));
+
             return Response.noContent().build();
         }else{
             return Response.serverError().entity("Flight with flight_number " + flight_number + " already exist").build();
@@ -164,10 +152,18 @@ public class FlightsResources {
         return Response.noContent().build();
     }
 
-    @GET
-    @Path("total")
-    @Produces({MediaType.APPLICATION_JSON})
-    public Response getTotalFlights() {
-        return Response.ok().entity(flights.total()).build();
+
+
+    /*  - - - - - - - - - -  Helper methods  - - - - - - - - - -  */
+
+    private Date getDateFromString(String dateString, String format) {
+        try {
+            DateFormat df = new SimpleDateFormat(format);
+            Date date = df.parse(dateString);
+            return date;
+        } catch (ParseException e) {
+            return null;
+        }
     }
+
 }
