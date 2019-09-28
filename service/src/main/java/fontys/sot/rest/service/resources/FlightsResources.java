@@ -44,10 +44,6 @@ public class FlightsResources {
             @QueryParam("price") Integer price,
             @QueryParam("max_price") Integer max_price,
             @QueryParam("airline") String airline) {
-
-        String date_format = "yyyy-MM-dd";
-
-
         Stream<Flight> filteredFlights = flights.getAll().stream();
 
         if (flight_number != null) filteredFlights = filteredFlights.filter(flight -> flight.getFlight_number() == flight_number);
@@ -56,6 +52,8 @@ public class FlightsResources {
         if (origin != null)        filteredFlights = filteredFlights.filter(flight -> flight.getOrigin().equals(origin));
         if (destination != null)   filteredFlights = filteredFlights.filter(flight -> flight.getDestination().equals(destination));
         if (airline != null)       filteredFlights = filteredFlights.filter(flight -> flight.getAirline().equals(airline));
+
+        String date_format = "yyyy-MM-dd";
         if (departure != null) {
             Date departureDate = getDateFromString(departure, date_format);
             if (departureDate == null) return Response.serverError().entity("Query parameter 'departure' must be in this format: " + date_format).build();
