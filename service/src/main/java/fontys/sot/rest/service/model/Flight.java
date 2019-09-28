@@ -11,7 +11,7 @@ public class Flight {
     private Date departure;
     private Date arrival;
     private String airline; // IATA code
-    private List<Ticket> tickets;
+    private List<Ticket> tickets = new ArrayList<>();
     // Price: of the cheapest ticket
 
     // Constructors
