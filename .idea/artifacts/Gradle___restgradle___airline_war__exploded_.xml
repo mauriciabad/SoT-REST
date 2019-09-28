@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="Gradle : rest‐gradle : school.war (exploded)">
-    <output-path>$PROJECT_DIR$/service/build/libs/exploded/school.war</output-path>
+  <artifact type="exploded-war" name="Gradle : rest‐gradle : airline.war (exploded)">
+    <output-path>$PROJECT_DIR$/service/build/libs/exploded/airline.war</output-path>
     <properties id="gradle-properties">
       <options external-project-path="$PROJECT_DIR$/service">
         <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQoNCg==</manifest>
@@ -8,9 +8,9 @@
     </properties>
     <root id="root">
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/service/build/libs/exploded/school.war/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/service/build/libs/exploded/airline.war/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="service.main/web/Web Gradle : school.war" />
+      <element id="javaee-facet-resources" facet="service.main/web/Web Gradle : airline.war" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="service.main" />
