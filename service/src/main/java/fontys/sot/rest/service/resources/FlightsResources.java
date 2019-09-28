@@ -1,14 +1,18 @@
 package fontys.sot.rest.service.resources;
 
-import fontys.sot.rest.service.model.FlightsCollection;
 import fontys.sot.rest.service.model.Flight;
+import fontys.sot.rest.service.model.FlightsCollection;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Path("flights")
 public class FlightsResources {
@@ -27,8 +31,41 @@ public class FlightsResources {
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Flight> getFlightByQuery(@QueryParam("flight_number") Integer flight_number, @QueryParam("origin") String origin, @QueryParam("destination") String destination, @QueryParam("departure") Date departure, @QueryParam("arrival") Date arrival, @QueryParam("airline") String airline) {
-        return flights.filter(flight_number, origin, destination, departure, arrival, airline);
+    public List<Flight> getFlightByQuery(
+            @QueryParam("flight_number") Integer flight_number,
+            @QueryParam("origin") String origin,
+            @QueryParam("destination") String destination,
+            @QueryParam("departure") Date departure,
+            @QueryParam("departure_before") Date departure_before,
+            @QueryParam("departure_after") Date departure_after,
+            @QueryParam("arrival") Date arrival,
+            @QueryParam("arrival_before") Date arrival_before,
+            @QueryParam("arrival_after") Date arrival_after,
+            @QueryParam("price") Integer price,
+            @QueryParam("max_price") Integer max_price,
+            @QueryParam("airline") String airline) {
+        Stream<Flight> filteredFlights = flights.getAll().stream();
+
+        if (flight_number != null)    filteredFlights = filteredFlights.filter(flight -> flight.getFlight_number() == flight_number);
+        if (price != null)            filteredFlights = filteredFlights.filter(flight -> flight.getPrice().equals(price));
+        if (max_price != null)        filteredFlights = filteredFlights.filter(flight -> flight.getPrice() <= max_price);
+        if (origin != null)           filteredFlights = filteredFlights.filter(flight -> flight.getOrigin().equals(origin));
+        if (destination != null)      filteredFlights = filteredFlights.filter(flight -> flight.getDestination().equals(destination));
+        if (airline != null)          filteredFlights = filteredFlights.filter(flight -> flight.getAirline().equals(airline));
+        if (departure != null)        filteredFlights = filteredFlights.filter(flight -> isSameDay(flight.getDeparture(), departure));
+        if (arrival != null)          filteredFlights = filteredFlights.filter(flight -> isSameDay(flight.getArrival(), arrival));
+        if (departure_before != null) filteredFlights = filteredFlights.filter(flight -> flight.getDeparture().before(departure_before));
+        if (departure_after != null)  filteredFlights = filteredFlights.filter(flight -> flight.getDeparture().after(departure_after));
+        if (arrival_before != null)   filteredFlights = filteredFlights.filter(flight -> flight.getArrival().before(arrival_before));
+        if (arrival_after != null)    filteredFlights = filteredFlights.filter(flight -> flight.getArrival().after(arrival_after));
+
+        return filteredFlights.collect(Collectors.toList());
+    }
+
+    private boolean isSameDay(Date date1, Date date2){
+        LocalDate localDate1 = date1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate localDate2 = date2.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return localDate1.equals(localDate2);
     }
 
     @POST

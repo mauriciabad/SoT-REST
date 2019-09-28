@@ -57,10 +57,6 @@ public class Flight {
         Ticket cheapestTicket = getCheapestTicket();
         return cheapestTicket != null ? cheapestTicket.getPrice() : null;
     }
-    public String getCurrency() {
-        Ticket cheapestTicket = getCheapestTicket();
-        return cheapestTicket != null ? cheapestTicket.getCurrency() : null;
-    }
 
 
 }

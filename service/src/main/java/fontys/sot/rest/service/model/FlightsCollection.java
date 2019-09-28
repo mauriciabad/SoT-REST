@@ -11,19 +11,6 @@ public class FlightsCollection {
         return new ArrayList<>(flights.values());
     }
 
-    public List<Flight> filter(Integer flight_number, String origin, String destination, Date departure, Date arrival, String airline) {
-        Stream<Flight> filteredFlights = flights.values().stream();
-
-        if (flight_number != null) filteredFlights = filteredFlights.filter(flight -> flight.getFlight_number() == flight_number);
-        if (origin != null)        filteredFlights = filteredFlights.filter(flight -> flight.getOrigin().equals(origin));
-        if (destination != null)   filteredFlights = filteredFlights.filter(flight -> flight.getDestination().equals(destination));
-        if (departure != null)     filteredFlights = filteredFlights.filter(flight -> flight.getDeparture().equals(departure));
-        if (arrival != null)       filteredFlights = filteredFlights.filter(flight -> flight.getArrival().equals(arrival));
-        if (airline != null)       filteredFlights = filteredFlights.filter(flight -> flight.getAirline().equals(airline));
-
-        return filteredFlights.collect(Collectors.toList());
-    }
-
     public int total() {
         return flights.size();
     }
