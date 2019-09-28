@@ -2,11 +2,13 @@
 
 ✈ First assignment for SoT 2019 in Fontys.
 
-## Overview
+> Make a REST service and client(s) for the required case: **searching and buying flight tickets (for travlling with an airplane)**. You may make it simple or advanced, for example: clients can create account, search for flight tickets and buy them, etc.
 
-Quickly review all available resources for Our Airline's API 1.0 with this reference overview.
+## API Reference
 
-> **Base URL**: http://localhost:8080/airline/v1/
+Quickly review all available resources for Airline's API 1.0 with this reference overview.
+
+> **Base URL**: [http://localhost:8080/airline/v1/](http://localhost:8080/airline/v1/)
 
 ### API Root
 
