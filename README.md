@@ -59,7 +59,7 @@ Quickly review all available resources for Airline's API 1.0 with this reference
 | departure | String |
 | arrival | String |
 | airline | String |
-| tickets | Array<Ticket> |
+| tickets | Array\<Ticket\> |
 
 #### Ticket
 
