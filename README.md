@@ -18,34 +18,34 @@ Quickly review all available resources for Airline's API 1.0 with this reference
 
 #### Flights
 
-| Method | Endpoint | Function |
-|--------|----------|----------|
-| GET    | /flights | Get all flights filtered by the Query parameters: <br>`flight_number`, `origin`, `destination`, `departure`, `departure_before`, `departure_after`, `arrival`, `arrival_before`, `arrival_after`, `price`, `max_price` and/or `airline` |
-| POST   | /flights | Create a new flight <br>Also accepts `x-www-form-urlencoded` |
-| GET    | /flights/{flight_number} | Get information about a specific flight |
-| PUT    | /flights/{flight_number} | Update a flight |
-| DELETE | /flights/{flight_number} | Delete a flight |
+| Method | Endpoint | Description | Response |
+|--------|----------|-------------|----------|
+| GET    | /flights | Get all flights filtered by the Query parameters: <br>`flight_number`, `origin`, `destination`, `departure`, `departure_before`, `departure_after`, `arrival`, `arrival_before`, `arrival_after`, `price`, `max_price` and/or `airline` | Array\<Flight\> |
+| POST   | /flights | Create a new flight <br>Also accepts `x-www-form-urlencoded` | Flight |
+| GET    | /flights/{flight_number} | Get information about a specific flight | Flight |
+| PUT    | /flights/{flight_number} | Update `origin`, `destination`, `departure`, `arrival` and/or `airline` of a flight. | Flight |
+| DELETE | /flights/{flight_number} | Delete a flight | |
 
 #### Flights Tickets
 
-| Method | Endpoint | Function |
-|--------|----------|----------|
-| GET    | /flights/{flight_number}/tickets | Get all tickets |
-| POST   | /flights/{flight_number}/tickets | Create a new ticket |
-| GET    | /flights/{flight_number}/tickets/{ticket_id} | Get information about a specific ticket |
-| PUT    | /flights/{flight_number}/tickets/{ticket_id} | Update a ticket |
-| DELETE | /flights/{flight_number}/tickets/{ticket_id} | Delete a ticket |
-| POST   | /flights/{flight_number}/tickets/{ticket_id}/buy | Buy a specific ticket |
+| Method | Endpoint | Description | Response |
+|--------|----------|-------------|----------|
+| GET    | /flights/{flight_number}/tickets | Get all tickets | Array\<Ticket\> |
+| POST   | /flights/{flight_number}/tickets | Create a new ticket | Ticket |
+| GET    | /flights/{flight_number}/tickets/{ticket_id} | Get information about a specific ticket | Ticket |
+| PUT    | /flights/{flight_number}/tickets/{ticket_id} | Update a ticket | Ticket |
+| DELETE | /flights/{flight_number}/tickets/{ticket_id} | Delete a ticket | |
+| POST   | /flights/{flight_number}/tickets/{ticket_id}/buy | Buy a specific ticket | |
 
 #### Users
 
-| Method | Endpoint | Function |
-|--------|----------|----------|
-| GET    | /users | Get all users |
-| POST   | /users | Create a new user |
-| GET    | /users/{user_id} | Get information about a specific user |
-| PUT    | /users/{user_id} | Update a user |
-| DELETE | /users/{user_id} | Delete a user |
+| Method | Endpoint | Description | Response |
+|--------|----------|-------------|----------|
+| GET    | /users | Get all users | Array\<User\> |
+| POST   | /users | Create a new user | User |
+| GET    | /users/{user_id} | Get information about a specific user | User |
+| PUT    | /users/{user_id} | Update a user | User |
+| DELETE | /users/{user_id} | Delete a user | |
 
 ### Objects
 
