@@ -80,7 +80,9 @@ Quickly review all available resources for Airline's API 1.0 with this reference
 
 ## HTTP messages
 
-Between client and server. 
+Real HTTP messages being transferred between client and server. 
+
+We can see the input and output of some CRUD operations of `/flights` and different kinds of encodings.
 
 | Request | Response |
 |:-------:|:--------:|
