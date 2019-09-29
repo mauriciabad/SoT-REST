@@ -77,6 +77,7 @@ This are all the available resources for Airline's API 1.0.
 | Name | Type |
 |------|------|
 | user_id | int |
+| name | String |
 
 ## Error handling
 
