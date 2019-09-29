@@ -78,6 +78,24 @@ Quickly review all available resources for Airline's API 1.0 with this reference
 |------|------|
 | user_id | int |
 
+## Error handling
+
+Some errors can occur when:
+- A required parameter is missing.
+- The specified item does not exist.
+- Date parameter has wrong format.
+
+Example custom error messages:
+
+```json
+{
+    "error": true,
+    "error_message": "Flight with flight_number 999 doesn't exist",
+    "http_status": 404,
+    "http_status_name": "Not Found"
+}
+```
+
 ## HTTP messages
 
 Real HTTP messages being transferred between client and server. 
