@@ -84,6 +84,6 @@ Between client and server.
 
 | Request | Response |
 |:-------:|:--------:|
-| ![Burp screenshot 1](documentation/burp1.png) | ![Burp screenshot 2](documentation/burp2.png) |
-| ![Burp screenshot 3](documentation/burp3.png) | ![Burp screenshot 4](documentation/burp4.png) |
-| ![Burp screenshot 5](documentation/burp5.png) | ![Burp screenshot 6](documentation/burp6.png) |
+| ![Burp screenshot 1](documentation/burp1.png) `/flights` | ![Burp screenshot 2](documentation/burp2.png) /flights |
+| ![Burp screenshot 3](documentation/burp3.png) **/flights** | ![Burp screenshot 4](documentation/burp4.png) /flights |
+| ![Burp screenshot 5](documentation/burp5.png) */flights* | ![Burp screenshot 6](documentation/burp6.png) /flights |
