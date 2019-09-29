@@ -10,7 +10,7 @@ Detailed assessment criteria can be found here: [SOT Module Description and Assi
 
 ## API Reference
 
-Quickly review all available resources for Airline's API 1.0 with this reference overview.
+This are all the available resources for Airline's API 1.0.
 
 > **Base URL**: [http://localhost:8080/airline/v1/](http://localhost:8080/airline/v1/)
 
