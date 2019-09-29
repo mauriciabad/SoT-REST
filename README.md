@@ -14,23 +14,19 @@ Quickly review all available resources for Airline's API 1.0 with this reference
 
 > **Base URL**: [http://localhost:8080/airline/v1/](http://localhost:8080/airline/v1/)
 
-### API Root
+### Endpoints
+
+#### Flights
 
 | Method | Endpoint | Function |
 |--------|----------|----------|
-| GET    | /        | API Root |
-
-### Flights
-
-| Method | Endpoint | Function |
-|--------|----------|----------|
-| GET    | /flights | Get all flights |
-| POST   | /flights | Create a new flight |
+| GET    | /flights | Get all flights filtered by the Query parameters: <br>`flight_number`, `origin`, `destination`, `departure`, `departure_before`, `departure_after`, `arrival`, `arrival_before`, `arrival_after`, `price`, `max_price` and/or `airline` |
+| POST   | /flights | Create a new flight <br>Also accepts `x-www-form-urlencoded` |
 | GET    | /flights/{flight_number} | Get information about a specific flight |
 | PATCH  | /flights/{flight_number} | Update a flight |
 | DELETE | /flights/{flight_number} | Delete a flight |
 
-### Flights Tickets
+#### Flights Tickets
 
 | Method | Endpoint | Function |
 |--------|----------|----------|
@@ -41,7 +37,7 @@ Quickly review all available resources for Airline's API 1.0 with this reference
 | DELETE | /flights/{flight_number}/tickets/{ticket_id} | Delete a ticket |
 | POST   | /flights/{flight_number}/tickets/{ticket_id}/buy | Buy a specific ticket |
 
-### Users
+#### Users
 
 | Method | Endpoint | Function |
 |--------|----------|----------|
@@ -50,3 +46,34 @@ Quickly review all available resources for Airline's API 1.0 with this reference
 | GET    | /users/{user_id} | Get information about a specific user |
 | PATCH  | /users/{user_id} | Update a user |
 | DELETE | /users/{user_id} | Delete a user |
+
+### Objects
+
+#### Flight
+
+| Name | Type |
+|------|------|
+| flight_number | int |
+| origin | String |
+| destination | String |
+| departure | String |
+| arrival | String |
+| airline | String |
+| tickets | Array<Ticket> |
+
+#### Ticket
+
+| Name | Type |
+|------|------|
+| ref | int |
+| flight_number | int |
+| price | int |
+| seat | String |
+| buyer_id | int |
+| for_sale | bool |
+
+#### User
+
+| Name | Type |
+|------|------|
+| user_id | int |
