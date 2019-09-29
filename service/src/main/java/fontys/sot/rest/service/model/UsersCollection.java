@@ -33,22 +33,22 @@ public class UsersCollection {
     public int total() {
         return users.size();
     }
-    public User get(int user_number) {
-        return users.get(user_number);
+    public User get(int userId) {
+        return users.get(userId);
     }
-    public boolean exists(int user_number){
-        return users.containsKey(user_number);
+    public boolean exists(int userId){
+        return users.containsKey(userId);
     }
-    public void remove(int user_number){
-        users.remove(user_number);
+    public void remove(int userId){
+        users.remove(userId);
     }
     public int add(User user) {
-        user.setUser_id(getNewId());
-        users.putIfAbsent(user.getUser_id(), user);
-        return user.getUser_id();
+        user.setUserId(getNewId());
+        users.putIfAbsent(user.getUserId(), user);
+        return user.getUserId();
     }
     public User update(User user) {
-        return users.replace(user.getUser_id(), user);
+        return users.replace(user.getUserId(), user);
     }
     public int getNewId() { return ++idCount; }
 }

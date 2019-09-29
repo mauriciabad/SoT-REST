@@ -1,15 +1,16 @@
 package fontys.sot.rest.service.model;
 
 public class User {
-    private int user_id;
+    private int userId;
     private String name;
 
+    public User(){}
     public User(String name) {
         this.name = name;
     }
 
-    public int getUser_id() { return user_id; }
-    public void setUser_id(int user_id) { this.user_id = user_id; }
+    public int getUserId() { return userId; }
+    public void setUserId(int userId) { this.userId = userId; }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 }

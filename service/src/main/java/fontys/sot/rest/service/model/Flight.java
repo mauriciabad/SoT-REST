@@ -8,7 +8,7 @@ import java.util.*;
 public class Flight {
 
     // Attributes
-    private int flight_number;
+    private int flightNumber;
     private String origin;
     private String destination;
     private String departure;
@@ -33,11 +33,11 @@ public class Flight {
         this.arrival = arrival;
         this.airline = airline;
     }
-    public Flight(int flight_number, String origin, String destination, String departure, String arrival, String airline) {
+    public Flight(int flightNumber, String origin, String destination, String departure, String arrival, String airline) {
         // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-dd hh:mm");
         // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: YYYY-MM-dd hh:mm");
 
-        this.flight_number = flight_number;
+        this.flightNumber = flightNumber;
         this.origin = origin;
         this.destination = destination;
         this.departure = departure;
@@ -47,8 +47,8 @@ public class Flight {
 
 
     // Default Getters and Setters
-    public int getFlight_number() { return flight_number; }
-    public void setFlight_number(int flight_number) { this.flight_number = flight_number; }
+    public int getFlightNumber() { return flightNumber; }
+    public void setFlightNumber(int flightNumber) { this.flightNumber = flightNumber; }
     public String getOrigin() { return origin; }
     public void setOrigin(String origin) { this.origin = origin; }
     public String getDestination() { return destination; }

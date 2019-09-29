@@ -13,19 +13,19 @@ import java.net.URI;
 public class Tester {
 
     public static void main(String[] args) {
-        String base_url = "http://localhost:8080";
+        String baseUrl = "http://localhost:8080";
 
-//        test(base_url+"/flights");
-//        test("POST", base_url+"/flights", "{\"id\":3,\"name\":\"Maurici Abad\"}");
-//        test("PUT", base_url+"/flights", "{\"id\":0,\"name\":\"Maurici Abad\"}");
-//        test(base_url+"/flights");
-//        test(base_url+"/flights/2");
-//        test("DELETE", base_url+"/flights/2");
-//        test(base_url+"/flights?id=2");
-//        test(base_url+"/flights/first");
-//        test(base_url+"/flights/hello");
-//        test(base_url+"/flights/count");
-//        test(base_url+"/flights/first");
+//        test(baseUrl+"/flights");
+//        test("POST", baseUrl+"/flights", "{\"id\":3,\"name\":\"Maurici Abad\"}");
+//        test("PUT", baseUrl+"/flights", "{\"id\":0,\"name\":\"Maurici Abad\"}");
+//        test(baseUrl+"/flights");
+//        test(baseUrl+"/flights/2");
+//        test("DELETE", baseUrl+"/flights/2");
+//        test(baseUrl+"/flights?id=2");
+//        test(baseUrl+"/flights/first");
+//        test(baseUrl+"/flights/hello");
+//        test(baseUrl+"/flights/count");
+//        test(baseUrl+"/flights/first");
 
         System.out.println("Finished");
     }

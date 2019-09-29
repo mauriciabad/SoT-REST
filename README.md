@@ -4,7 +4,7 @@
 
 ## Assignment statement
 
-Make a REST service and client(s) for the required case: **searching and buying flight tickets (for travlling with an airplane)**. You may make it simple or advanced, for example: clients can create account, search for flight tickets and buy them, etc.
+Make a REST service and client(s) for the required case: **searching and buying flight tickets (for travelling with an airplane)**. You may make it simple or advanced, for example: clients can create account, search for flight tickets and buy them, etc.
 
 Detailed assessment criteria can be found here: [SOT Module Description and Assignments](SOT_Module_Description_and_Assignments.pdf) 
 
@@ -20,22 +20,22 @@ This are all the available resources for Airline's API 1.0.
 
 | Method | Endpoint | Description | Response |
 |--------|----------|-------------|----------|
-| GET    | /flights | Get all flights filtered by the Query parameters: <br>`flight_number`, `origin`, `destination`, `departure`, `departure_before`, `departure_after`, `arrival`, `arrival_before`, `arrival_after`, `price`, `max_price` and/or `airline` | Array\<Flight\> |
+| GET    | /flights | Get all flights filtered by the Query parameters: <br>`flightNumber`, `origin`, `destination`, `departure`, `departureBefore`, `departureAfter`, `arrival`, `arrivalBefore`, `arrivalAfter`, `price`, `maxPrice` and/or `airline` | Array\<Flight\> |
 | POST   | /flights | Create a new flight <br>Also accepts `x-www-form-urlencoded` | Flight |
-| GET    | /flights/{flight_number} | Get information about a specific flight | Flight |
-| PUT    | /flights/{flight_number} | Update `origin`, `destination`, `departure`, `arrival` and/or `airline` of a flight. | Flight |
-| DELETE | /flights/{flight_number} | Delete a flight | |
+| GET    | /flights/{flightNumber} | Get information about a specific flight | Flight |
+| PUT    | /flights/{flightNumber} | Update `origin`, `destination`, `departure`, `arrival` and/or `airline` of a flight. | Flight |
+| DELETE | /flights/{flightNumber} | Delete a flight | |
 
 #### Flights Tickets
 
 | Method | Endpoint | Description | Response |
 |--------|----------|-------------|----------|
-| GET    | /flights/{flight_number}/tickets | Get all tickets | Array\<Ticket\> |
-| POST   | /flights/{flight_number}/tickets | Create a new ticket | Ticket |
-| GET    | /flights/{flight_number}/tickets/{ticket_id} | Get information about a specific ticket | Ticket |
-| PUT    | /flights/{flight_number}/tickets/{ticket_id} | Update a ticket | Ticket |
-| DELETE | /flights/{flight_number}/tickets/{ticket_id} | Delete a ticket | |
-| POST   | /flights/{flight_number}/tickets/{ticket_id}/buy | Buy a specific ticket | |
+| GET    | /flights/{flightNumber}/tickets | Get all tickets | Array\<Ticket\> |
+| POST   | /flights/{flightNumber}/tickets | Create a new ticket | Ticket |
+| GET    | /flights/{flightNumber}/tickets/{ticketId} | Get information about a specific ticket | Ticket |
+| PUT    | /flights/{flightNumber}/tickets/{ticketId} | Update a ticket | Ticket |
+| DELETE | /flights/{flightNumber}/tickets/{ticketId} | Delete a ticket | |
+| POST   | /flights/{flightNumber}/tickets/{ticketId}/buy | Buy a specific ticket | |
 
 #### Users
 
@@ -43,9 +43,9 @@ This are all the available resources for Airline's API 1.0.
 |--------|----------|-------------|----------|
 | GET    | /users | Get all users | Array\<User\> |
 | POST   | /users | Create a new user | User |
-| GET    | /users/{user_id} | Get information about a specific user | User |
-| PUT    | /users/{user_id} | Update a user | User |
-| DELETE | /users/{user_id} | Delete a user | |
+| GET    | /users/{userId} | Get information about a specific user | User |
+| PUT    | /users/{userId} | Update a user | User |
+| DELETE | /users/{userId} | Delete a user | |
 
 ### Objects
 
@@ -53,7 +53,7 @@ This are all the available resources for Airline's API 1.0.
 
 | Name | Type |
 |------|------|
-| flight_number | int |
+| flightNumber | int |
 | origin | String |
 | destination | String |
 | departure | String |
@@ -66,17 +66,17 @@ This are all the available resources for Airline's API 1.0.
 | Name | Type |
 |------|------|
 | ref | int |
-| flight_number | int |
+| flightNumber | int |
 | price | int |
 | seat | String |
-| buyer_id | int |
-| for_sale | bool |
+| buyerId | int |
+| forSale | bool |
 
 #### User
 
 | Name | Type |
 |------|------|
-| user_id | int |
+| userId | int |
 
 ## Error handling
 
@@ -90,9 +90,9 @@ Example custom error messages:
 ```json
 {
     "error": true,
-    "error_message": "Flight with flight_number 999 doesn't exist",
-    "http_status": 404,
-    "http_status_name": "Not Found"
+    "message": "Flight with flightNumber 999 doesn't exist",
+    "status": 404,
+    "statusName": "Not Found"
 }
 ```
 

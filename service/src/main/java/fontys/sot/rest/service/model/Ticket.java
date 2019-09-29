@@ -6,42 +6,43 @@ public class Ticket {
 
     // Attributes
     private int ref;
-    private int flight_number;
+    private int flightNumber;
     private int price;
     private String seat;
-    private Integer buyer_id = null;
-    private Boolean for_sale = true;
+    private Integer buyerId = null;
+    private Boolean forSale = true;
 
 
     // Constructors
     public Ticket() {}
-    public Ticket(int ref, int flight_number, int price, String seat, Integer buyer_id, boolean for_sale) {
+    public Ticket(int ref, int flightNumber, int price, String seat, Integer buyerId, boolean forSale) {
         this.ref = ref;
-        this.flight_number = flight_number;
+        this.flightNumber = flightNumber;
         this.price = price;
         this.seat = seat;
-        this.buyer_id = buyer_id;
-        this.for_sale = for_sale;
+        this.buyerId = buyerId;
+        this.forSale = forSale;
     }
 
     // Default Getters and Setters
     public int getRef() { return ref; }
     public void setRef(int ref) { this.ref = ref; }
-    public int getFlight_number() { return flight_number; }
-    public void setFlight_number(int flight_number) { this.flight_number = flight_number; }
+    public int getFlightNumber() { return flightNumber; }
+    public void setFlightNumber(int flightNumber) { this.flightNumber = flightNumber; }
     public int getPrice() { return price; }
     public void setPrice(int price) { this.price = price; }
     public String getSeat() { return seat; }
     public void setSeat(String seat) { this.seat = seat; }
-    public Integer getBuyer_id() { return buyer_id; }
-    public void setBuyer_id(Integer buyer_id) { this.buyer_id = buyer_id; }
-    public boolean isFor_sale() { return for_sale; }
-    public void setFor_sale(boolean for_sale) { this.for_sale = for_sale; }
+    public Integer getBuyerId() { return buyerId; }
+    public void setBuyerId(Integer buyerId) { this.buyerId = buyerId; }
+    public boolean isForSale() { return forSale; }
+    public void setForSale(boolean forSale) { this.forSale = forSale; }
 
     // Methods
-    public boolean buy(){
-        if(for_sale) {
-            for_sale = false;
+    public boolean buy(int buyerId){
+        if(forSale) {
+            forSale = false;
+            this.buyerId = buyerId;
             return true;
         }else{
             return false;

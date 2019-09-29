@@ -31,9 +31,9 @@ public class UsersResources {
     public Response createUser(User user) {
         if (user.getName() == null) return new ResponseError(422, "Missing 'name' parameter").build();
 
-        int user_id = users.add(user);
+        int userId = users.add(user);
 
-        return Response.ok().entity(users.get(user_id)).build();
+        return Response.ok().entity(users.get(userId)).build();
     }
 
     @POST
@@ -41,43 +41,43 @@ public class UsersResources {
     public Response createUser(@FormParam("name") String name) {
         if (name == null) return new ResponseError(422, "Missing 'name' parameter").build();
 
-        int user_id = users.add(new User(name));
+        int userId = users.add(new User(name));
 
-        return Response.ok().entity(users.get(user_id)).build();
+        return Response.ok().entity(users.get(userId)).build();
     }
 
     @PUT
-    @Path("{user_id}")
+    @Path("{userId}")
     @Consumes({MediaType.APPLICATION_JSON})
-    public Response updateUser(User user, @PathParam("user_id") int user_id) {
-        if (users.exists(user_id)){
-            User oldUser = users.get(user_id);
+    public Response updateUser(User user, @PathParam("userId") int userId) {
+        if (users.exists(userId)){
+            User oldUser = users.get(userId);
 
             if (user.getName() != null) oldUser.setName(user.getName());
 
             users.update(oldUser);
 
-            return Response.ok().entity(users.get(user_id)).build();
+            return Response.ok().entity(users.get(userId)).build();
         }else{
-            return new ResponseError(404, "User with user_id " + user_id + " doesn't exist").build();
+            return new ResponseError(404, "User with userId " + userId + " doesn't exist").build();
         }
     }
 
     @GET
-    @Path("{user_id}")
+    @Path("{userId}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response getUserById(@PathParam("user_id") int user_id) {
-        if (users.exists(user_id)) {
-            return Response.ok().entity(users.get(user_id)).build();
+    public Response getUserById(@PathParam("userId") int userId) {
+        if (users.exists(userId)) {
+            return Response.ok().entity(users.get(userId)).build();
         } else {
-            return new ResponseError(404, "User with user_id " + user_id + " doesn't exist").build();
+            return new ResponseError(404, "User with userId " + userId + " doesn't exist").build();
         }
     }
 
     @DELETE
-    @Path("{user_id}")
-    public Response deleteUser(@PathParam("user_id") int user_id) {
-        users.remove(user_id);
+    @Path("{userId}")
+    public Response deleteUser(@PathParam("userId") int userId) {
+        users.remove(userId);
         return Response.noContent().build();
     }
 }

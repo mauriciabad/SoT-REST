@@ -3,23 +3,23 @@ package fontys.sot.rest.service.model;
 import javax.ws.rs.core.Response;
 
 public class ResponseError {
-    private int http_status = 400;
-    private String error_message = "Generic error";
+    private int status = 400;
+    private String message = "Generic error";
 
-    public ResponseError(int http_status, String error_message) {
-        this.http_status = http_status;
-        this.error_message = error_message;
+    public ResponseError(int status, String message) {
+        this.status = status;
+        this.message = message;
     }
 
     public Response build(){
-        return Response.status(http_status).entity(this).build();
+        return Response.status(status).entity(this).build();
     }
 
-    public int getHttp_status() { return http_status; }
-    public String getError_message() { return error_message; }
+    public int getStatus() { return status; }
+    public String getMessage() { return message; }
     public boolean getError() { return true; }
-    public String getHttp_status_name() {
-        switch (http_status){
+    public String getStatusName() {
+        switch (status){
             case 400: default: return "Bad Request";
             case 401: return "Unauthorized";
             case 402: return "Payment Required";
