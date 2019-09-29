@@ -23,7 +23,7 @@ Quickly review all available resources for Airline's API 1.0 with this reference
 | GET    | /flights | Get all flights filtered by the Query parameters: <br>`flight_number`, `origin`, `destination`, `departure`, `departure_before`, `departure_after`, `arrival`, `arrival_before`, `arrival_after`, `price`, `max_price` and/or `airline` |
 | POST   | /flights | Create a new flight <br>Also accepts `x-www-form-urlencoded` |
 | GET    | /flights/{flight_number} | Get information about a specific flight |
-| PATCH  | /flights/{flight_number} | Update a flight |
+| PUT    | /flights/{flight_number} | Update a flight |
 | DELETE | /flights/{flight_number} | Delete a flight |
 
 #### Flights Tickets
@@ -33,7 +33,7 @@ Quickly review all available resources for Airline's API 1.0 with this reference
 | GET    | /flights/{flight_number}/tickets | Get all tickets |
 | POST   | /flights/{flight_number}/tickets | Create a new ticket |
 | GET    | /flights/{flight_number}/tickets/{ticket_id} | Get information about a specific ticket |
-| PATCH  | /flights/{flight_number}/tickets/{ticket_id} | Update a ticket |
+| PUT    | /flights/{flight_number}/tickets/{ticket_id} | Update a ticket |
 | DELETE | /flights/{flight_number}/tickets/{ticket_id} | Delete a ticket |
 | POST   | /flights/{flight_number}/tickets/{ticket_id}/buy | Buy a specific ticket |
 
@@ -44,7 +44,7 @@ Quickly review all available resources for Airline's API 1.0 with this reference
 | GET    | /users | Get all users |
 | POST   | /users | Create a new user |
 | GET    | /users/{user_id} | Get information about a specific user |
-| PATCH  | /users/{user_id} | Update a user |
+| PUT    | /users/{user_id} | Update a user |
 | DELETE | /users/{user_id} | Delete a user |
 
 ### Objects
@@ -84,12 +84,12 @@ Between client and server.
 
 | Request | Response |
 |:-------:|:--------:|
-| ![Burp screenshot 05](documentation/burp000005.png) `GET` `/flights` | ![Burp screenshot 06](documentation/burp000006.png) `GET` `/flights` |
+| ![Burp screenshot 05](documentation/burp000005.png) `GET` `/flights/1` | ![Burp screenshot 06](documentation/burp000006.png) `GET` `/flights/1` |
 | ![Burp screenshot 07](documentation/burp000007.png) `GET` `/flights` | ![Burp screenshot 08](documentation/burp000008.png) `GET` `/flights` |
-| ![Burp screenshot 09](documentation/burp000009.png) `GET` `/flights` | ![Burp screenshot 10](documentation/burp000010.png) `GET` `/flights` |
-| ![Burp screenshot 11](documentation/burp000011.png) `GET` `/flights` | ![Burp screenshot 12](documentation/burp000012.png) `GET` `/flights` |
-| ![Burp screenshot 13](documentation/burp000013.png) `GET` `/flights` | ![Burp screenshot 14](documentation/burp000014.png) `GET` `/flights` |
-| ![Burp screenshot 15](documentation/burp000015.png) `GET` `/flights` | ![Burp screenshot 16](documentation/burp000016.png) `GET` `/flights` |
-| ![Burp screenshot 17](documentation/burp000017.png) `GET` `/flights` | ![Burp screenshot 18](documentation/burp000018.png) `GET` `/flights` |
-| ![Burp screenshot 19](documentation/burp000019.png) `GET` `/flights` | ![Burp screenshot 20](documentation/burp000020.png) `GET` `/flights` |
+| ![Burp screenshot 09](documentation/burp000009.png) `GET` `/flights?origin=BCN` query | ![Burp screenshot 10](documentation/burp000010.png) `GET` `/flights?origin=BCN` query |
+| ![Burp screenshot 11](documentation/burp000011.png) `POST` `/flights` json | ![Burp screenshot 12](documentation/burp000012.png) `POST` `/flights` json |
+| ![Burp screenshot 13](documentation/burp000013.png) `POST` `/flights` form | ![Burp screenshot 14](documentation/burp000014.png) `POST` `/flights` form |
+| ![Burp screenshot 15](documentation/burp000015.png) `POST` `/flights` json | ![Burp screenshot 16](documentation/burp000016.png) `POST` `/flights` json |
+| ![Burp screenshot 17](documentation/burp000017.png) `PUT` `/flights/1` json | ![Burp screenshot 18](documentation/burp000018.png) `PUT` `/flights/1` json |
+| ![Burp screenshot 19](documentation/burp000019.png) `DELETE` `/flights/1` | ![Burp screenshot 20](documentation/burp000020.png) `DELETE` `/flights/1` |
 | ![Burp screenshot 21](documentation/burp000021.png) `GET` `/flights` | ![Burp screenshot 22](documentation/burp000022.png) `GET` `/flights` |
