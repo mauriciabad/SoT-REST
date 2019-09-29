@@ -84,6 +84,12 @@ Between client and server.
 
 | Request | Response |
 |:-------:|:--------:|
-| ![Burp screenshot 1](documentation/burp1.png) `/flights` | ![Burp screenshot 2](documentation/burp2.png) /flights |
-| ![Burp screenshot 3](documentation/burp3.png) **/flights** | ![Burp screenshot 4](documentation/burp4.png) /flights |
-| ![Burp screenshot 5](documentation/burp5.png) */flights* | ![Burp screenshot 6](documentation/burp6.png) /flights |
+| ![Burp screenshot 05](documentation/burp000005.png) `GET` `/flights` | ![Burp screenshot 06](documentation/burp000006.png) `GET` `/flights` |
+| ![Burp screenshot 07](documentation/burp000007.png) `GET` `/flights` | ![Burp screenshot 08](documentation/burp000008.png) `GET` `/flights` |
+| ![Burp screenshot 09](documentation/burp000009.png) `GET` `/flights` | ![Burp screenshot 10](documentation/burp000010.png) `GET` `/flights` |
+| ![Burp screenshot 11](documentation/burp000011.png) `GET` `/flights` | ![Burp screenshot 12](documentation/burp000012.png) `GET` `/flights` |
+| ![Burp screenshot 13](documentation/burp000013.png) `GET` `/flights` | ![Burp screenshot 14](documentation/burp000014.png) `GET` `/flights` |
+| ![Burp screenshot 15](documentation/burp000015.png) `GET` `/flights` | ![Burp screenshot 16](documentation/burp000016.png) `GET` `/flights` |
+| ![Burp screenshot 17](documentation/burp000017.png) `GET` `/flights` | ![Burp screenshot 18](documentation/burp000018.png) `GET` `/flights` |
+| ![Burp screenshot 19](documentation/burp000019.png) `GET` `/flights` | ![Burp screenshot 20](documentation/burp000020.png) `GET` `/flights` |
+| ![Burp screenshot 21](documentation/burp000021.png) `GET` `/flights` | ![Burp screenshot 22](documentation/burp000022.png) `GET` `/flights` |
