@@ -77,3 +77,14 @@ Quickly review all available resources for Airline's API 1.0 with this reference
 | Name | Type |
 |------|------|
 | user_id | int |
+
+## HTTP messages
+
+Between client and server. 
+
+<img src="documentation/burp1.png" width="50%" alt="Burp screenshot 1">
+<img src="documentation/burp2.png" width="50%" alt="Burp screenshot 2">
+<img src="documentation/burp3.png" width="50%" alt="Burp screenshot 3">
+<img src="documentation/burp4.png" width="50%" alt="Burp screenshot 4">
+<img src="documentation/burp5.png" width="50%" alt="Burp screenshot 5">
+<img src="documentation/burp6.png" width="50%" alt="Burp screenshot 6">
