@@ -84,6 +84,6 @@ Between client and server.
 
 | Request | Response |
 |:-------:|:--------:|
-| ![Burp screenshot 1](documentation/burp1.png) | <img src="documentation/burp2.png" alt="Burp screenshot 2"> |
-| <img src="documentation/burp3.png" alt="Burp screenshot 3"> | <img src="documentation/burp4.png" alt="Burp screenshot 4"> |
-| <img src="documentation/burp5.png" alt="Burp screenshot 5"> | <img src="documentation/burp6.png" alt="Burp screenshot 6"> |
+| ![Burp screenshot 1](documentation/burp1.png) | ![Burp screenshot 2](documentation/burp2.png) |
+| ![Burp screenshot 3](documentation/burp3.png) | ![Burp screenshot 4](documentation/burp4.png) |
+| ![Burp screenshot 5](documentation/burp5.png) | ![Burp screenshot 6](documentation/burp6.png) |
