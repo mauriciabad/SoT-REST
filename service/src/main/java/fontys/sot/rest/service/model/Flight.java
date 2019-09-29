@@ -71,7 +71,8 @@ public class Flight {
 
     // Extra Getters
     public Ticket getCheapestTicket() {
-        return tickets.stream().reduce(null, (cheapestTicket, ticket) -> ticket.getPrice() < cheapestTicket.getPrice() ? ticket : cheapestTicket);
+        if (tickets.isEmpty()) return null;
+        else return tickets.stream().min(Comparator.comparing(Ticket::getPrice)).get();
     }
     public Integer getPrice() {
         Ticket cheapestTicket = getCheapestTicket();
