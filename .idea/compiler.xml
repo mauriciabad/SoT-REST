@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="client.main" target="11" />
       <module name="client.test" target="11" />
+      <module name="rest-gradle.client.main" target="11" />
+      <module name="rest-gradle.client.test" target="11" />
       <module name="service.main" target="11" />
       <module name="service.test" target="11" />
     </bytecodeTargetLevel>
