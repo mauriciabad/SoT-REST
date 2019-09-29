@@ -20,7 +20,7 @@ This are all the available resources for Airline's API 1.0.
 
 | Method | Endpoint | Description | Response |
 |--------|----------|-------------|----------|
-| GET    | /flights | Get all flights filtered by the Query parameters: <br>`flightNumber`, `origin`, `destination`, `departure`, `departureBefore`, `departureAfter`, `arrival`, `arrivalBefore`, `arrivalAfter`, `price`, `maxPrice` and/or `airline` | Array\<Flight\> |
+| GET    | /flights | Get all flights filtered by the Query parameters: <br>`flightNumber`, `origin`, `destination`, `departure`, `departureBefore`, `departureAfter`, `arrival`, `arrivalBefore`, `arrivalAfter`, `price`, `maxPrice` and/or `airline`. <br>This dates must have this format: `YYYYY-MM-dd` | Array\<Flight\> |
 | POST   | /flights | Create a new flight <br>Also accepts `x-www-form-urlencoded` | Flight |
 | GET    | /flights/{flightNumber} | Get information about a specific flight | Flight |
 | PUT    | /flights/{flightNumber} | Update `origin`, `destination`, `departure`, `arrival` and/or `airline` of a flight. | Flight |
@@ -56,8 +56,8 @@ This are all the available resources for Airline's API 1.0.
 | flightNumber | int |
 | origin | String |
 | destination | String |
-| departure | String |
-| arrival | String |
+| departure | String `YYYYY-MM-dd hh:mm` |
+| arrival | String `YYYYY-MM-dd hh:mm` |
 | airline | String |
 | tickets | Array\<Ticket\> |
 
@@ -77,6 +77,12 @@ This are all the available resources for Airline's API 1.0.
 | Name | Type |
 |------|------|
 | userId | int |
+| name | String |
+
+### General comments
+
+- All the data is encoded in `json` format.
+- ID's are generated automatically, if you provide one in a POST or PUT request this will be ignored.
 
 ## Error handling
 
