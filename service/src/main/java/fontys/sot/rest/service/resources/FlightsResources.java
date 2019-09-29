@@ -77,7 +77,7 @@ public class FlightsResources {
             filteredFlights = filteredFlights.filter(flight -> Flight.getDateFromString(arrivalAfter).before(Flight.getDateFromString(flight.getArrival())));
         }
 
-        return Response.ok().entity(filteredFlights.collect(Collectors.toList())).build();
+        return Response.ok().entity(filteredFlights.collect(Collectors.toList())).header("Access-Control-Allow-Origin", "*").build();
     }
 
     @POST
@@ -93,7 +93,7 @@ public class FlightsResources {
 
         int flightNumber = flights.add(flight);
 
-        return Response.ok().entity(flights.get(flightNumber)).build();
+        return Response.ok().entity(flights.get(flightNumber)).header("Access-Control-Allow-Origin", "*").build();
     }
 
     @POST
@@ -109,7 +109,7 @@ public class FlightsResources {
 
         int flightNumber = flights.add(new Flight(origin, destination, departure, arrival, airline));
 
-        return Response.ok().entity(flights.get(flightNumber)).build();
+        return Response.ok().entity(flights.get(flightNumber)).header("Access-Control-Allow-Origin", "*").build();
     }
 
     @PUT
@@ -130,7 +130,7 @@ public class FlightsResources {
 
             flights.update(oldFlight);
 
-            return Response.ok().entity(flights.get(flightNumber)).build();
+            return Response.ok().entity(flights.get(flightNumber)).header("Access-Control-Allow-Origin", "*").build();
         }else{
             return new ResponseError(404, "Flight with flightNumber " + flightNumber + " doesn't exist").build();
         }
@@ -141,7 +141,7 @@ public class FlightsResources {
     @Produces({MediaType.APPLICATION_JSON})
     public Response getFlightById(@PathParam("flightNumber") int flightNumber) {
         if (flights.exists(flightNumber)) {
-            return Response.ok().entity(flights.get(flightNumber)).build();
+            return Response.ok().entity(flights.get(flightNumber)).header("Access-Control-Allow-Origin", "*").build();
         } else {
             return new ResponseError(404, "Flight with flightNumber " + flightNumber + " doesn't exist").build();
         }
