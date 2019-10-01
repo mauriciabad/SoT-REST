@@ -204,9 +204,49 @@ public class Interface {
     }
 
     private void goToMenuUserUpdate() {
-        console.write("\nUpdate User menu");
-        console.write("Work in progress, try again in next update.");
-        goToMenuUser();
+        // Display instructions
+        console.write("\nEnter a userId:");
+
+        // Get input
+        Integer userId = (Integer) console.read(Integer.class);
+
+        // Check that user exists
+        int statusGet = tester.test("GET", "/users/"+userId);
+        if (statusGet >= 200 && statusGet < 300){
+
+            // Ask for confirmation
+            boolean answerConfirmation = console.ask("\nDo you want to update this user?");
+            if(answerConfirmation) {
+
+                console.write("\nWhat do you want to update?");
+                console.write("  name. User's name");
+                console.write("  cancel. Don't update any attribute");
+
+                String attribute = console.read().toLowerCase();
+                String askValueMessage = "\nEnter the new value for "+attribute;
+                switch (attribute){
+                    case "name":
+                        console.write(askValueMessage);
+                        String value = console.read();
+
+                        String body = "{\""+attribute+"\":\""+value+"\"}";
+
+                        // Run request & show result
+                        tester.test("PUT", "/users/"+userId, body);
+                        break;
+                    case "cancel":
+                        break;
+                    default:
+                        console.write("\nInvalid attribute");
+                        break;
+                }
+            }
+        }
+
+        // Ask next action
+        boolean answerRepeat = console.ask("\nDo you want to update another user?");
+        if(answerRepeat) goToMenuUserUpdate();
+        else goToMenuUser();
     }
 
     private void goToMenuUserDelete() {
