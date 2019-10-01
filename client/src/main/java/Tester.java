@@ -40,9 +40,9 @@ public class Tester {
         */
     }
 
-    public void test(String url) { test("GET", url, ""); }
-    public void test(String method, String url) { test(method, url, ""); }
-    public void test(String method, String url, String body){
+    public int test(String url) { return test("GET", url, ""); }
+    public int test(String method, String url) { return test(method, url, ""); }
+    public int test(String method, String url, String body){
         URI baseURI = UriBuilder.fromUri(baseUrl+url).build();
         Invocation.Builder requestBuilder = client.target(baseURI).request();
 
@@ -60,6 +60,8 @@ public class Tester {
 
         System.out.println("\n" + method + " " + url);
         System.out.println(response.getStatus() + " " + prettyJson);
+
+        return response.getStatus();
     }
 
     private String prettifyJson(String rawJson) {
