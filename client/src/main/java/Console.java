@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Console {
 
-    public Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
     public Console() {}
 
