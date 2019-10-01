@@ -77,9 +77,62 @@ public class Interface {
     }
 
     private void goToMenuFlightUpdate() {
-        console.write("\nUpdate Flight menu");
-        console.write("Work in progress, try again in next update.");
-        goToMenuFlight();
+        // Display instructions
+        console.write("\nEnter a flightNumber:");
+
+        // Get input
+        Integer flightNumber = (Integer) console.read(Integer.class);
+
+        // Check that flight exists
+        int statusGet = tester.test("GET", "/flights/"+flightNumber);
+        if (statusGet >= 200 && statusGet < 300){
+
+            // Ask for confirmation
+            boolean answerConfirmation = console.ask("\nDo you want to update this flight?");
+            if(answerConfirmation) {
+
+                console.write("\nWhat do you want to update?");
+                console.write("  airline. Airline name");
+                console.write("  arrival. Arrival date (YYYY-MM-dd hh:mm)");
+                console.write("  departure. Departure date (YYYY-MM-dd hh:mm)");
+                console.write("  destination. Destination airport IATA code");
+                console.write("  origin. Origin airport IATA code");
+                console.write("  tickets. Tickets");
+                console.write("  cancel. Don't update any attribute");
+
+                String attribute = console.read().toLowerCase();
+                String askValueMessage = "\nEnter the new value for "+attribute;
+                switch (attribute){
+                    case "tickets":
+                        console.write("\nFeature unavailable, try again in a future version");
+                        break;
+                    case "arrival":
+                    case "departure":
+                        askValueMessage += " with this format: YYYY-MM-dd hh:mm";
+                    case "airline":
+                    case "destination":
+                    case "origin":
+                        console.write(askValueMessage);
+                        String value = console.read();
+
+                        String body = "{\""+attribute+"\":\""+value+"\"}";
+
+                        // Run request & show result
+                        tester.test("PUT", "/flights/"+flightNumber, body);
+                        break;
+                    case "cancel":
+                        break;
+                    default:
+                        console.write("\nInvalid attribute");
+                        break;
+                }
+            }
+        }
+
+        // Ask next action
+        boolean answerRepeat = console.ask("\nDo you want to update another flight?");
+        if(answerRepeat) goToMenuFlightUpdate();
+        else goToMenuFlight();
     }
 
     private void goToMenuFlightDelete() {
