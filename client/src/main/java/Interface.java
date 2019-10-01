@@ -61,18 +61,19 @@ public class Interface {
     }
 
     private void goToMenuFlightRead() {
-        console.write("\nTo Read Flight give a flightNumber");
-        console.write("flightNumber: ");
+        // Display instructions
+        console.write("\nEnter a flightNumber:");
 
+        // Get input
         Integer flightNumber = (Integer) console.read(Integer.class);
 
+        // Run request & show result
         tester.test("GET", "/flights/"+flightNumber);
 
-        if(console.ask("\nDo you want to read another flight?")){
-            goToMenuFlightRead();
-        }else{
-            goToMenuFlight();
-        }
+        // Ask next action
+        boolean answer = console.ask("\nDo you want to read another flight?");
+        if(answer) goToMenuFlightRead();
+        else goToMenuFlight();
     }
 
     private void goToMenuFlightUpdate() {
@@ -114,9 +115,19 @@ public class Interface {
     }
 
     private void goToMenuUserRead() {
-        console.write("\nRead User menu");
-        console.write("Work in progress, try again in next update.");
-        goToMenuUser();
+        // Display instructions
+        console.write("\nEnter a userId:");
+
+        // Get input
+        Integer userId = (Integer) console.read(Integer.class);
+
+        // Run request & show result
+        tester.test("GET", "/users/"+userId);
+
+        // Ask next action
+        boolean answer = console.ask("\nDo you want to read another user?");
+        if(answer) goToMenuUserRead();
+        else goToMenuUser();
     }
 
     private void goToMenuUserUpdate() {
