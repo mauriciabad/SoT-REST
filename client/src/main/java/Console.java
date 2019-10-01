@@ -12,15 +12,7 @@ public class Console {
     }
 
     public void write(String message) {
-        write(message, true);
-    }
-
-    public void write(String message, boolean endWithNewLine) {
-        if (endWithNewLine){
-            System.out.println(message);
-        }else{
-            System.out.print(message);
-        }
+        System.out.println(message);
     }
 
     public int readLimited(ArrayList<Integer> acceptedValues){
@@ -36,7 +28,7 @@ public class Console {
         switch (read(message + " (y/n) ").toLowerCase()){
             case "y": case "1": case "true": case "yes": case "sure": case "ok": return true;
             case "n": case "0": case "false": case "no": case "nope": case "cancel": case "quit": case "close": case "exit": return false;
-            default: write("Invalid option, try again\n"); return ask(message);
+            default: write("Invalid input, try again:"); return ask(message);
         }
     }
 
@@ -45,12 +37,12 @@ public class Console {
     }
 
     public String read(String message) {
-        write(message,false);
-        return read();
+        write(message);
+        return (String) read(String.class, true);
     }
 
-    public <T> Object read(String message, Class<T> clazz) {
-        write(message,false);
+     public <T> Object read(String message, Class<T> clazz) {
+        write(message);
         return read(clazz, true);
     }
 
