@@ -32,8 +32,21 @@ public class Console {
         return input;
     }
 
+    public boolean ask(String message){
+        switch (read(message + " (y/n) ").toLowerCase()){
+            case "y": case "1": case "true": case "yes": case "sure": case "ok": return true;
+            case "n": case "0": case "false": case "no": case "nope": case "cancel": case "quit": case "close": case "exit": return false;
+            default: write("Invalid option, try again\n"); return ask(message);
+        }
+    }
+
     public String read() {
         return (String) read(String.class, true);
+    }
+
+    public String read(String message) {
+        write(message,false);
+        return read();
     }
 
     public <T> Object read(String message, Class<T> clazz) {

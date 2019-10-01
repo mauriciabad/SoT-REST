@@ -58,9 +58,14 @@ public class Interface {
     }
 
     private void goToMenuFlightRead() {
-        console.write("\nRead Flight menu");
-        console.write("Work in progress, try again in next update.");
-        goToMenuFlight();
+        console.write("\nTo Read Flight give a flightNumber");
+        Integer flightNumber = (Integer) console.read("flightNumber: ", Integer.class);
+
+        if(console.ask("\nDo you want to read another flight?")){
+            goToMenuFlightRead();
+        }else{
+            goToMenuFlight();
+        }
     }
 
     private void goToMenuFlightUpdate() {
