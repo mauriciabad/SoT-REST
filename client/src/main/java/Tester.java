@@ -1,3 +1,7 @@
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import org.glassfish.jersey.client.ClientConfig;
 
 import javax.ws.rs.client.*;
@@ -8,15 +12,20 @@ import java.net.URI;
 
 public class Tester {
 
-    public void run(){
-        String baseUrl = "http://localhost:8080/airline/v1";
+    String baseUrl;
 
-        // test(baseUrl+"/flights");
-        // test("POST", baseUrl+"/flights", "{\"id\":3,\"name\":\"Maurici Abad\"}");
-        // test("PUT", baseUrl+"/flights", "{\"id\":0,\"name\":\"Maurici Abad\"}");
-        // test(baseUrl+"/flights/2");
-        // test("DELETE", baseUrl+"/flights/2");
-        // test(baseUrl+"/flights?origin=BCN");
+    public Tester(String baseUrl) {
+        this.baseUrl = baseUrl;
+    }
+
+    public void run(){
+
+        // test("/flights");
+        // test("POST", "/flights", "{\"id\":3,\"name\":\"Maurici Abad\"}");
+        // test("PUT", "/flights", "{\"id\":0,\"name\":\"Maurici Abad\"}");
+        // test("/flights/2");
+        // test("DELETE", "/flights/2");
+        // test("/flights?origin=BCN");
     }
 
     public int test(String url) {
@@ -31,7 +40,7 @@ public class Tester {
         ClientConfig config = new ClientConfig();
         Client client = ClientBuilder.newClient(config);
 
-        URI baseURI = UriBuilder.fromUri(url).build();
+        URI baseURI = UriBuilder.fromUri(baseUrl+url).build();
         WebTarget serviceTarget = client.target(baseURI);
 
         Invocation.Builder requestBuilder = serviceTarget.request();
@@ -49,12 +58,11 @@ public class Tester {
         System.out.println("\n" + method + " " + url);
         System.out.print(status + " ");
 
-        if(status >= 200 && status < 300 ) {
-            String entity = response.readEntity(String.class);
-            System.out.println(entity);
-        } else{
-            System.out.println(response.getStatusInfo().getReasonPhrase());
-        }
+        String rawJson = response.readEntity(String.class);
+
+        String prettyJson = new GsonBuilder().setPrettyPrinting().create().toJson(new JsonParser().parse(rawJson));
+
+        System.out.println(prettyJson);
 
         return status;
     }

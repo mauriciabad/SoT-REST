@@ -1,6 +1,9 @@
 public class Interface {
 
     private Console console = new Console();
+    private Tester tester = new Tester("http://localhost:8080/airline/v1");
+
+    public Interface() {}
 
     public void run(){
         console.write(  "     _    _      _ _                 _    ____ ___ \n" +
@@ -62,6 +65,8 @@ public class Interface {
         console.write("flightNumber: ");
 
         Integer flightNumber = (Integer) console.read(Integer.class);
+
+        tester.test("GET", "/flights/"+flightNumber);
 
         if(console.ask("\nDo you want to read another flight?")){
             goToMenuFlightRead();
