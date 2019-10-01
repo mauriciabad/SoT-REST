@@ -10,15 +10,15 @@ public class Interface {
                 " /_/   \\_\\_|_|  |_|_|_| |_|\\___| /_/   \\_\\_|  |___|\n" +
                 "                                                   ");
 
-        console.write("Welcome to Airline API ✈\n");
+        console.write("Welcome to Airline API");
 
         goToMenuMain();
 
-        console.write("\nThank you for using our API 😄");
+        console.write("\nThank you for using our API :D");
     }
 
     private void goToMenuMain() {
-        console.write("What Entity you want to work with?");
+        console.write("\nWhat Entity you want to work with?");
         console.write("  1. Flights");
         console.write("  2. Users");
         console.write("  exit. Close");
@@ -32,7 +32,7 @@ public class Interface {
     }
 
     private void goToMenuFlight() {
-        console.write("What do you want to do?");
+        console.write("\nWhat do you want to do?");
         console.write("  C. Create a flight");
         console.write("  R. Read a flight");
         console.write("  U. Update a flight");
@@ -52,31 +52,31 @@ public class Interface {
     }
 
     private void goToMenuFlightCreate() {
-        console.write("Create Flight menu");
-        console.write("Work in progress 🛠‍, try again in next update. 👍");
+        console.write("\nCreate Flight menu");
+        console.write("Work in progress‍, try again in next update.");
         goToMenuFlight();
     }
 
     private void goToMenuFlightRead() {
-        console.write("Read Flight menu");
-        console.write("Work in progress 🛠, try again in next update. 👍");
+        console.write("\nRead Flight menu");
+        console.write("Work in progress, try again in next update.");
         goToMenuFlight();
     }
 
     private void goToMenuFlightUpdate() {
-        console.write("Update Flight menu");
-        console.write("Work in progress 🛠, try again in next update. 👍");
+        console.write("\nUpdate Flight menu");
+        console.write("Work in progress, try again in next update.");
         goToMenuFlight();
     }
 
     private void goToMenuFlightDelete() {
-        console.write("Delete Flight menu");
-        console.write("Work in progress 🛠, try again in next update. 👍");
+        console.write("\nDelete Flight menu");
+        console.write("Work in progress, try again in next update.");
         goToMenuFlight();
     }
 
     private void goToMenuUser() {
-        console.write("What do you want to do?");
+        console.write("\nWhat do you want to do?");
         console.write("  C. Create a user");
         console.write("  R. Read a user");
         console.write("  U. Update a user");
@@ -96,26 +96,26 @@ public class Interface {
     }
 
     private void goToMenuUserCreate() {
-        console.write("Create User menu");
-        console.write("Work in progress 🛠‍, try again in next update. 👍");
+        console.write("\nCreate User menu");
+        console.write("Work in progress‍, try again in next update.");
         goToMenuUser();
     }
 
     private void goToMenuUserRead() {
-        console.write("Read User menu");
-        console.write("Work in progress 🛠, try again in next update. 👍");
+        console.write("\nRead User menu");
+        console.write("Work in progress, try again in next update.");
         goToMenuUser();
     }
 
     private void goToMenuUserUpdate() {
-        console.write("Update User menu");
-        console.write("Work in progress 🛠, try again in next update. 👍");
+        console.write("\nUpdate User menu");
+        console.write("Work in progress, try again in next update.");
         goToMenuUser();
     }
 
     private void goToMenuUserDelete() {
-        console.write("Delete User menu");
-        console.write("Work in progress 🛠, try again in next update. 👍");
+        console.write("\nDelete User menu");
+        console.write("Work in progress, try again in next update.");
         goToMenuUser();
     }
 }

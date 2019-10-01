@@ -27,6 +27,11 @@ jar {
     }
 }
 
+// Allow use of emojis in the code! :D
+apply plugin: 'java'
+compileJava {options.encoding = "UTF-8"}
+compileTestJava {options.encoding = "UTF-8"}
+
 // Don't use this task to run the code, because this program needs input from the user in te command line. If you use this the program will crash.
 // application {
 //     mainClassName = 'Main'
