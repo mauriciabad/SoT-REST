@@ -28,7 +28,7 @@ jar {
 }
 
 application {
-    mainClassName = 'Tester'
+    mainClassName = 'Main'
 }
 
 dependencies {
