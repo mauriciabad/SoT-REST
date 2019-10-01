@@ -59,7 +59,8 @@ public class Tester {
         String prettyJson = prettifyJson(rawJson);
 
         System.out.println("\n" + method + " " + url);
-        System.out.println(response.getStatus() + " " + prettyJson);
+        System.out.println(response.getStatus() + " " + response.getStatusInfo().getReasonPhrase());
+        System.out.println(prettyJson);
 
         return response.getStatus();
     }

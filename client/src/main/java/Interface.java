@@ -71,8 +71,8 @@ public class Interface {
         tester.test("GET", "/flights/"+flightNumber);
 
         // Ask next action
-        boolean answer = console.ask("\nDo you want to read another flight?");
-        if(answer) goToMenuFlightRead();
+        boolean answerRepeat = console.ask("\nDo you want to read another flight?");
+        if(answerRepeat) goToMenuFlightRead();
         else goToMenuFlight();
     }
 
@@ -83,9 +83,29 @@ public class Interface {
     }
 
     private void goToMenuFlightDelete() {
-        console.write("\nDelete Flight menu");
-        console.write("Work in progress, try again in next update.");
-        goToMenuFlight();
+        // Display instructions
+        console.write("\nEnter a flightNumber:");
+
+        // Get input
+        Integer flightNumber = (Integer) console.read(Integer.class);
+
+        // Check that flight exists
+        int statusGet = tester.test("GET", "/flights/"+flightNumber);
+        if (statusGet >= 200 && statusGet < 300){
+
+            // Ask for confirmation
+            boolean answerConfirmation = console.ask("\nDo you want to delete this flight?");
+            if(answerConfirmation) {
+
+                // Run request & show result
+                tester.test("DELETE", "/flights/"+flightNumber);
+            }
+        }
+
+        // Ask next action
+        boolean answerRepeat = console.ask("\nDo you want to delete another flight?");
+        if(answerRepeat) goToMenuFlightDelete();
+        else goToMenuFlight();
     }
 
     private void goToMenuUser() {
@@ -125,8 +145,8 @@ public class Interface {
         tester.test("GET", "/users/"+userId);
 
         // Ask next action
-        boolean answer = console.ask("\nDo you want to read another user?");
-        if(answer) goToMenuUserRead();
+        boolean answerRepeat = console.ask("\nDo you want to read another user?");
+        if(answerRepeat) goToMenuUserRead();
         else goToMenuUser();
     }
 
@@ -137,8 +157,28 @@ public class Interface {
     }
 
     private void goToMenuUserDelete() {
-        console.write("\nDelete User menu");
-        console.write("Work in progress, try again in next update.");
-        goToMenuUser();
+        // Display instructions
+        console.write("\nEnter a userId:");
+
+        // Get input
+        Integer userId = (Integer) console.read(Integer.class);
+
+        // Check that user exists
+        int statusGet = tester.test("GET", "/users/"+userId);
+        if (statusGet >= 200 && statusGet < 300){
+
+            // Ask for confirmation
+            boolean answerConfirmation = console.ask("\nDo you want to delete this user?");
+            if(answerConfirmation) {
+
+                // Run request & show result
+                tester.test("DELETE", "/users/"+userId);
+            }
+        }
+
+        // Ask next action
+        boolean answerRepeat = console.ask("\nDo you want to delete another user?");
+        if(answerRepeat) goToMenuUserDelete();
+        else goToMenuUser();
     }
 }
