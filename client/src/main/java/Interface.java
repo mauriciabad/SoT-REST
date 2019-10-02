@@ -36,6 +36,7 @@ public class Interface {
 
     private void goToMenuFlight() {
         console.write("\nWhat do you want to do?");
+        console.write("  A. Read all flights");
         console.write("  C. Create a flight");
         console.write("  R. Read a flight");
         console.write("  U. Update a flight");
@@ -46,12 +47,20 @@ public class Interface {
         switch (console.read().toLowerCase()){
             case "exit": return;
             case "back": goToMenuMain(); break;
+            case "a": goToMenuFlightAll(); break;
             case "c": goToMenuFlightCreate(); break;
             case "r": goToMenuFlightRead(); break;
             case "u": goToMenuFlightUpdate(); break;
             case "d": goToMenuFlightDelete(); break;
             default: console.write("Invalid option, try again\n"); goToMenuFlight(); break;
         }
+    }
+
+    private void goToMenuFlightAll() {
+        // Run request & show result
+        tester.test("GET", "/flight");
+
+        goToMenuFlight();
     }
 
     private void goToMenuFlightCreate() {
@@ -225,6 +234,7 @@ public class Interface {
 
     private void goToMenuUser() {
         console.write("\nWhat do you want to do?");
+        console.write("  A. Read all users");
         console.write("  C. Create a user");
         console.write("  R. Read a user");
         console.write("  U. Update a user");
@@ -235,12 +245,20 @@ public class Interface {
         switch (console.read().toLowerCase()){
             case "exit": return;
             case "back": goToMenuMain(); break;
+            case "a": goToMenuUserAll(); break;
             case "c": goToMenuUserCreate(); break;
             case "r": goToMenuUserRead(); break;
             case "u": goToMenuUserUpdate(); break;
             case "d": goToMenuUserDelete(); break;
             default: console.write("Invalid option, try again\n"); goToMenuFlight(); break;
         }
+    }
+
+    private void goToMenuUserAll() {
+        // Run request & show result
+        tester.test("GET", "/users");
+
+        goToMenuUser();
     }
 
     private void goToMenuUserCreate() {
