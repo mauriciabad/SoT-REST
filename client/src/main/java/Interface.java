@@ -58,7 +58,7 @@ public class Interface {
 
     private void goToMenuFlightAll() {
         // Run request & show result
-        tester.test("GET", "/flight");
+        tester.test("GET", "/flights");
 
         goToMenuFlight();
     }
