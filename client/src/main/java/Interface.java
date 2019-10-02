@@ -77,18 +77,20 @@ public class Interface {
 
         String query = "?";
 
-        if(!flightNumber.equals("-")) query += "flightNumber=" + flightNumber + ";";
-        if(!origin.equals("-")) query += "origin=" + origin + ";";
-        if(!destination.equals("-")) query += "destination=" + destination + ";";
-        if(!departure.equals("-")) query += "departure=" + departure + ";";
-        if(!departureBefore.equals("-")) query += "departureBefore=" + departureBefore + ";";
-        if(!departureAfter.equals("-")) query += "departureAfter=" + departureAfter + ";";
-        if(!arrival.equals("-")) query += "arrival=" + arrival + ";";
-        if(!arrivalBefore.equals("-")) query += "arrivalBefore=" + arrivalBefore + ";";
-        if(!arrivalAfter.equals("-")) query += "arrivalAfter=" + arrivalAfter + ";";
-        if(!price.equals("-")) query += "price=" + price + ";";
-        if(!maxPrice.equals("-")) query += "maxPrice=" + maxPrice + ";";
-        if(!airline.equals("-")) query += "airline=" + airline + ";";
+        if(!flightNumber.equals("-")) query += "flightNumber=" + flightNumber + "&";
+        if(!origin.equals("-")) query += "origin=" + origin + "&";
+        if(!destination.equals("-")) query += "destination=" + destination + "&";
+        if(!departure.equals("-")) query += "departure=" + departure + "&";
+        if(!departureBefore.equals("-")) query += "departureBefore=" + departureBefore + "&";
+        if(!departureAfter.equals("-")) query += "departureAfter=" + departureAfter + "&";
+        if(!arrival.equals("-")) query += "arrival=" + arrival + "&";
+        if(!arrivalBefore.equals("-")) query += "arrivalBefore=" + arrivalBefore + "&";
+        if(!arrivalAfter.equals("-")) query += "arrivalAfter=" + arrivalAfter + "&";
+        if(!price.equals("-")) query += "price=" + price + "&";
+        if(!maxPrice.equals("-")) query += "maxPrice=" + maxPrice + "&";
+        if(!airline.equals("-")) query += "airline=" + airline + "&";
+
+        console.write("Searching...");
 
         // Run request & show result
         tester.test("GET", "/flights"+query);

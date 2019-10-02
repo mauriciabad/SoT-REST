@@ -115,7 +115,7 @@ public class Flight {
     private List<Ticket> buildTickets(Integer amountOfTickets, Integer pricePerTickets) {
         List<Ticket> tickets = new ArrayList<>();
         for (int i = 0; i < amountOfTickets; i++) {
-            tickets.add(new Ticket(i, flightNumber, pricePerTickets, ""+(char)('A'+(i%6))+(i/6 + 1)));
+            tickets.add(new Ticket(i, pricePerTickets, ""+(char)('A'+(i%6))+(i/6 + 1)));
         }
         return tickets;
     }

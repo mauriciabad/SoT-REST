@@ -6,7 +6,6 @@ public class Ticket {
 
     // Attributes
     private int ref;
-    private int flightNumber;
     private int price;
     private String seat;
     private Integer buyerId = null;
@@ -15,17 +14,15 @@ public class Ticket {
 
     // Constructors
     public Ticket() {}
-    public Ticket(int ref, int flightNumber, int price, String seat, Integer buyerId, boolean forSale) {
+    public Ticket(int ref, int price, String seat, Integer buyerId, boolean forSale) {
         this.ref = ref;
-        this.flightNumber = flightNumber;
         this.price = price;
         this.seat = seat;
         this.buyerId = buyerId;
         this.forSale = forSale;
     }
-    public Ticket(int ref, int flightNumber, int price, String seat) {
+    public Ticket(int ref, int price, String seat) {
         this.ref = ref;
-        this.flightNumber = flightNumber;
         this.price = price;
         this.seat = seat;
     }
@@ -33,8 +30,6 @@ public class Ticket {
     // Default Getters and Setters
     public int getRef() { return ref; }
     public void setRef(int ref) { this.ref = ref; }
-    public int getFlightNumber() { return flightNumber; }
-    public void setFlightNumber(int flightNumber) { this.flightNumber = flightNumber; }
     public int getPrice() { return price; }
     public void setPrice(int price) { this.price = price; }
     public String getSeat() { return seat; }
