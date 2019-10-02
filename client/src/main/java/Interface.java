@@ -55,9 +55,40 @@ public class Interface {
     }
 
     private void goToMenuFlightCreate() {
-        console.write("\nCreate Flight menu");
-        console.write("Work in progress‍, try again in next update.");
-        goToMenuFlight();
+        // Display instructions
+        console.write("\nEnter the following values:");
+        console.write("airline:"); String airline = console.read();
+        console.write("arrival:"); String arrival = console.read();
+        console.write("departure:"); String departure = console.read();
+        console.write("destination:"); String destination = console.read();
+        console.write("origin:"); String origin = console.read();
+
+        console.write("\nYou entered this values:");
+        console.write("airline: "+airline);
+        console.write("arrival: "+arrival);
+        console.write("departure: "+departure);
+        console.write("destination: "+destination);
+        console.write("origin: "+origin);
+        // Ask for confirmation
+        boolean answerConfirmation = console.ask("\nDo you want to create a flight with this values?");
+        if(answerConfirmation) {
+
+            String body = "{"+
+                    "\"airline\":\""+airline+"\","+
+                    "\"arrival\":\""+arrival+"\","+
+                    "\"departure\":\""+departure+"\","+
+                    "\"destination\":\""+destination+"\","+
+                    "\"origin\":\""+origin+"\""+
+                    "}";
+
+            // Run request & show result
+            tester.test("POST", "/flights", body);
+        }
+
+        // Ask next action
+        boolean answerRepeat = console.ask("\nDo you want to create another flight?");
+        if(answerRepeat) goToMenuFlightCreate();
+        else goToMenuFlight();
     }
 
     private void goToMenuFlightRead() {
@@ -91,7 +122,7 @@ public class Interface {
             boolean answerConfirmation = console.ask("\nDo you want to update this flight?");
             if(answerConfirmation) {
 
-                console.write("\nWhat do you want to update?");
+                console.write("\nWhat attribute do you want to update?");
                 console.write("  airline. Airline name");
                 console.write("  arrival. Arrival date (YYYY-MM-dd hh:mm)");
                 console.write("  departure. Departure date (YYYY-MM-dd hh:mm)");
@@ -182,9 +213,27 @@ public class Interface {
     }
 
     private void goToMenuUserCreate() {
-        console.write("\nCreate User menu");
-        console.write("Work in progress‍, try again in next update.");
-        goToMenuUser();
+        // Display instructions
+        console.write("\nEnter the following values:");
+        console.write("name:"); String name = console.read();
+
+        console.write("\nYou entered this values:");
+        console.write("name: "+name);
+
+        // Ask for confirmation
+        boolean answerConfirmation = console.ask("\nDo you want to create a user with this values?");
+        if(answerConfirmation) {
+
+            String body = "{\"name\":\""+name+"\"}";
+
+            // Run request & show result
+            tester.test("POST", "/users", body);
+        }
+
+        // Ask next action
+        boolean answerRepeat = console.ask("\nDo you want to create another user?");
+        if(answerRepeat) goToMenuUserCreate();
+        else goToMenuUser();
     }
 
     private void goToMenuUserRead() {
@@ -218,7 +267,7 @@ public class Interface {
             boolean answerConfirmation = console.ask("\nDo you want to update this user?");
             if(answerConfirmation) {
 
-                console.write("\nWhat do you want to update?");
+                console.write("\nWhat attribute do you want to update?");
                 console.write("  name. User's name");
                 console.write("  cancel. Don't update any attribute");
 
