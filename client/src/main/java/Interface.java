@@ -91,9 +91,8 @@ public class Interface {
         if(!maxPrice.equals("-")) query += "maxPrice=" + maxPrice + "&";
         if(!airline.equals("-")) query += "airline=" + airline + "&";
 
-        console.write("Searching...");
-
         // Run request & show result
+        console.write("Waiting response...");
         tester.test("GET", "/flights"+query);
 
         // Ask next action
@@ -104,6 +103,7 @@ public class Interface {
 
     private void goToMenuFlightAll() {
         // Run request & show result
+        console.write("Waiting response...");
         tester.test("GET", "/flights");
 
         goToMenuFlight();
@@ -143,6 +143,7 @@ public class Interface {
                     "}";
 
             // Run request & show result
+            console.write("Waiting response...");
             tester.test("POST", "/flights", body);
         }
 
@@ -174,6 +175,7 @@ public class Interface {
         Integer flightNumber = (Integer) console.read(Integer.class);
 
         // Run request & show result
+        console.write("Waiting response...");
         tester.test("GET", "/flights/"+flightNumber);
 
         // Ask next action
@@ -221,6 +223,7 @@ public class Interface {
                         body = "{\""+attribute+"\":"+ticketsJson+"}";
 
                         // Run request & show result
+                        console.write("Waiting response...);
                         tester.test("PUT", "/flights/"+flightNumber, body);
                         break; */
                     case "arrival":
@@ -235,6 +238,7 @@ public class Interface {
                         body = "{\""+attribute+"\":\""+value+"\"}";
 
                         // Run request & show result
+                        console.write("Waiting response...");
                         tester.test("PUT", "/flights/"+flightNumber, body);
                         break;
                     case "cancel":
@@ -268,6 +272,7 @@ public class Interface {
             if(answerConfirmation) {
 
                 // Run request & show result
+                console.write("Waiting response...");
                 tester.test("DELETE", "/flights/"+flightNumber);
             }
         }
@@ -302,6 +307,7 @@ public class Interface {
 
     private void goToMenuUserAll() {
         // Run request & show result
+        console.write("Waiting response...");
         tester.test("GET", "/users");
 
         goToMenuUser();
@@ -322,6 +328,7 @@ public class Interface {
             String body = "{\"name\":\""+name+"\"}";
 
             // Run request & show result
+            console.write("Waiting response...");
             tester.test("POST", "/users", body);
         }
 
@@ -339,6 +346,7 @@ public class Interface {
         Integer userId = (Integer) console.read(Integer.class);
 
         // Run request & show result
+        console.write("Waiting response...");
         tester.test("GET", "/users/"+userId);
 
         // Ask next action
@@ -376,6 +384,7 @@ public class Interface {
                         String body = "{\""+attribute+"\":\""+value+"\"}";
 
                         // Run request & show result
+                        console.write("Waiting response...");
                         tester.test("PUT", "/users/"+userId, body);
                         break;
                     case "cancel":
@@ -409,6 +418,7 @@ public class Interface {
             if(answerConfirmation) {
 
                 // Run request & show result
+                console.write("Waiting response...");
                 tester.test("DELETE", "/users/"+userId);
             }
         }
