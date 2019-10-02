@@ -42,6 +42,7 @@ public class Interface {
         console.write("  R. Read a flight");
         console.write("  U. Update a flight");
         console.write("  D. Delete a flight");
+        console.write("  B. Buy a ticket");
         console.write("  back. Go to flight's menu");
         console.write("  exit. Close");
 
@@ -54,8 +55,30 @@ public class Interface {
             case "r": goToMenuFlightRead(); break;
             case "u": goToMenuFlightUpdate(); break;
             case "d": goToMenuFlightDelete(); break;
+            case "b": goToMenuFlightTicketBuy(); break;
             default: console.write("Invalid option, try again\n"); goToMenuFlight(); break;
         }
+    }
+
+    private void goToMenuFlightTicketBuy() {
+
+        console.write("\nEnter a flightNumber:");
+        Integer flightNumber = (Integer) console.read(Integer.class);
+
+        console.write("Enter a ticketId:");
+        Integer ticketId = (Integer) console.read(Integer.class);
+
+        console.write("Enter a buyerId:");
+        Integer buyerId = (Integer) console.read(Integer.class);
+
+        // Run request & show result
+        console.write("Waiting response...");
+        tester.test("POST", "/flights/"+flightNumber+"/tickets/"+ticketId+"/buy?buyerId="+buyerId);
+
+        // Ask next action
+        boolean answerRepeat = console.ask("\nDo you want to buy another ticket?");
+        if(answerRepeat) goToMenuFlightTicketBuy();
+        else goToMenuFlight();
     }
 
     private void goToMenuFlightSearch() {
