@@ -59,7 +59,7 @@ public class Interface {
     }
 
     private void goToMenuFlightSearch() {
-// Display instructions
+        // Display instructions
         console.write("\nEnter the following values: ");
         console.write("Note: write a dash (-) to skip field\n");
         console.write("flightNumber"); String flightNumber = console.read();
@@ -77,6 +77,7 @@ public class Interface {
 
         String query = "?";
 
+        // I know i repeat myself, but there's no need for a fancier solution
         if(!flightNumber.equals("-")) query += "flightNumber=" + flightNumber + "&";
         if(!origin.equals("-")) query += "origin=" + origin + "&";
         if(!destination.equals("-")) query += "destination=" + destination + "&";
