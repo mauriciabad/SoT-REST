@@ -62,8 +62,8 @@ public class Interface {
         console.write("departure:"); String departure = console.read();
         console.write("destination:"); String destination = console.read();
         console.write("origin:"); String origin = console.read();
-        console.write("number of tickets:"); Integer numberOfTickets = (Integer) console.read(Integer.class);
-        console.write("price of tickets: (EUR)"); Integer priceOfTickets = (Integer) console.read(Integer.class);
+        console.write("amount of tickets:"); Integer amountOfTickets = (Integer) console.read(Integer.class);
+        console.write("price per ticket: (EUR)"); Integer pricePerTickets = (Integer) console.read(Integer.class);
 
         console.write("\nYou entered this values:");
         console.write("airline: "+airline);
@@ -71,21 +71,12 @@ public class Interface {
         console.write("departure: "+departure);
         console.write("destination: "+destination);
         console.write("origin: "+origin);
-        console.write("tickets: "+numberOfTickets+" tickets of "+priceOfTickets+"€ each");
+        console.write("tickets: "+amountOfTickets+" tickets of "+pricePerTickets+"€ each");
         // Ask for confirmation
         boolean answerConfirmation = console.ask("\nDo you want to create a flight with this values?");
         if(answerConfirmation) {
 
-            String ticketsJson = "[";
-            for (int i = 0; i < numberOfTickets; i++) {
-                ticketsJson += "{"+
-                        "\"ref\":\"TK000"+i+"\","+
-                        "\"price\":\""+priceOfTickets+"\","+
-                        "\"seat\":\""+(char)('A'+(i%6))+(i/6 + 1)+"\""+
-                        "}";
-                if (i < numberOfTickets -1) ticketsJson += ",";
-            }
-            ticketsJson += "]";
+            String ticketsJson = buildTicketsJson(amountOfTickets, pricePerTickets);
 
             String body = "{"+
                     "\"airline\":\""+airline+"\","+
@@ -104,6 +95,20 @@ public class Interface {
         boolean answerRepeat = console.ask("\nDo you want to create another flight?");
         if(answerRepeat) goToMenuFlightCreate();
         else goToMenuFlight();
+    }
+
+    private String buildTicketsJson(Integer amountOfTickets, Integer pricePerTickets) {
+        String ticketsJson = "[";
+        for (int i = 0; i < amountOfTickets; i++) {
+            ticketsJson += "{"+
+                    "\"ref\":\"TK000"+i+"\","+
+                    "\"price\":\""+pricePerTickets+"\","+
+                    "\"seat\":\""+(char)('A'+(i%6))+(i/6 + 1)+"\""+
+                    "}";
+            if (i < amountOfTickets -1) ticketsJson += ",";
+        }
+        ticketsJson += "]";
+        return ticketsJson;
     }
 
     private void goToMenuFlightRead() {
@@ -150,7 +155,16 @@ public class Interface {
                 String askValueMessage = "\nEnter the new value for "+attribute;
                 switch (attribute){
                     case "tickets":
-                        console.write("\nFeature unavailable, try again in a future version");
+                        console.write("Enter the amount of tickets:");
+                        Integer amountOfTickets = (Integer) console.read(Integer.class);
+                        console.write("Enter the price per ticket: (EUR)");
+                        Integer pricePerTickets = (Integer) console.read(Integer.class);
+                        String ticketsJson = buildTicketsJson(amountOfTickets, pricePerTickets);
+
+                        String body = "{\""+attribute+"\":\""+ticketsJson+"\"}";
+
+                        // Run request & show result
+                        tester.test("PUT", "/flights/"+flightNumber, body);
                         break;
                     case "arrival":
                     case "departure":
