@@ -1,6 +1,4 @@
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import org.glassfish.jersey.client.ClientConfig;
 
@@ -10,19 +8,21 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
 
-public class Tester {
+public class RequestManager {
 
+    // Attributes
     private String baseUrl;
     private Client client = ClientBuilder.newClient(new ClientConfig());
 
-
-    public Tester(String baseUrl) {
+    // Constructors
+    public RequestManager(String baseUrl) {
         this.baseUrl = baseUrl;
     }
 
-    public int test(String url) { return test("GET", url, ""); }
-    public int test(String method, String url) { return test(method, url, ""); }
-    public int test(String method, String url, String body){
+    // Methods
+    public int request(String url) { return request("GET", url, ""); }
+    public int request(String method, String url) { return request(method, url, ""); }
+    public int request(String method, String url, String body){
         URI baseURI = UriBuilder.fromUri(baseUrl+url).build();
         Invocation.Builder requestBuilder = client.target(baseURI).request();
 
@@ -48,6 +48,7 @@ public class Tester {
         return response.getStatus();
     }
 
+    // Helper methods
     private String prettifyJson(String rawJson) {
         return new GsonBuilder().setPrettyPrinting().create().toJson(new JsonParser().parse(rawJson));
     }

@@ -27,7 +27,7 @@ jar {
     }
 }
 
-// Allow use of emojis in the code! :D
+// Allow use of emojis in the code! :D (Not working in Intellij console :/ )
 apply plugin: 'java'
 compileJava {options.encoding = "UTF-8"}
 compileTestJava {options.encoding = "UTF-8"}

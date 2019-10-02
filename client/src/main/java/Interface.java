@@ -1,7 +1,7 @@
 public class Interface {
 
     private Console console = new Console();
-    private Tester tester = new Tester("http://localhost:8080/airline/v1");
+    private RequestManager requestManager = new RequestManager("http://localhost:8080/airline/v1");
 
     public Interface() {}
 
@@ -73,7 +73,7 @@ public class Interface {
 
         // Run request & show result
         console.write("Waiting response...");
-        tester.test("POST", "/flights/"+flightNumber+"/tickets/"+ticketId+"/buy?buyerId="+buyerId);
+        requestManager.request("POST", "/flights/"+flightNumber+"/tickets/"+ticketId+"/buy?buyerId="+buyerId);
 
         // Ask next action
         boolean answerRepeat = console.ask("\nDo you want to buy another ticket?");
@@ -116,7 +116,7 @@ public class Interface {
 
         // Run request & show result
         console.write("Waiting response...");
-        tester.test("GET", "/flights"+query);
+        requestManager.request("GET", "/flights"+query);
 
         // Ask next action
         boolean answerRepeat = console.ask("\nDo you want to search flights again?");
@@ -127,7 +127,7 @@ public class Interface {
     private void goToMenuFlightAll() {
         // Run request & show result
         console.write("Waiting response...");
-        tester.test("GET", "/flights");
+        requestManager.request("GET", "/flights");
 
         goToMenuFlight();
     }
@@ -167,7 +167,7 @@ public class Interface {
 
             // Run request & show result
             console.write("Waiting response...");
-            tester.test("POST", "/flights", body);
+            requestManager.request("POST", "/flights", body);
         }
 
         // Ask next action
@@ -199,7 +199,7 @@ public class Interface {
 
         // Run request & show result
         console.write("Waiting response...");
-        tester.test("GET", "/flights/"+flightNumber);
+        requestManager.request("GET", "/flights/"+flightNumber);
 
         // Ask next action
         boolean answerRepeat = console.ask("\nDo you want to read another flight?");
@@ -215,7 +215,7 @@ public class Interface {
         Integer flightNumber = (Integer) console.read(Integer.class);
 
         // Check that flight exists
-        int statusGet = tester.test("GET", "/flights/"+flightNumber);
+        int statusGet = requestManager.request("GET", "/flights/"+flightNumber);
         if (statusGet >= 200 && statusGet < 300){
 
             // Ask for confirmation
@@ -247,7 +247,7 @@ public class Interface {
 
                         // Run request & show result
                         console.write("Waiting response...);
-                        tester.test("PUT", "/flights/"+flightNumber, body);
+                        requestManager.test("PUT", "/flights/"+flightNumber, body);
                         break; */
                     case "arrival":
                     case "departure":
@@ -262,7 +262,7 @@ public class Interface {
 
                         // Run request & show result
                         console.write("Waiting response...");
-                        tester.test("PUT", "/flights/"+flightNumber, body);
+                        requestManager.request("PUT", "/flights/"+flightNumber, body);
                         break;
                     case "cancel":
                         break;
@@ -287,7 +287,7 @@ public class Interface {
         Integer flightNumber = (Integer) console.read(Integer.class);
 
         // Check that flight exists
-        int statusGet = tester.test("GET", "/flights/"+flightNumber);
+        int statusGet = requestManager.request("GET", "/flights/"+flightNumber);
         if (statusGet >= 200 && statusGet < 300){
 
             // Ask for confirmation
@@ -296,7 +296,7 @@ public class Interface {
 
                 // Run request & show result
                 console.write("Waiting response...");
-                tester.test("DELETE", "/flights/"+flightNumber);
+                requestManager.request("DELETE", "/flights/"+flightNumber);
             }
         }
 
@@ -331,7 +331,7 @@ public class Interface {
     private void goToMenuUserAll() {
         // Run request & show result
         console.write("Waiting response...");
-        tester.test("GET", "/users");
+        requestManager.request("GET", "/users");
 
         goToMenuUser();
     }
@@ -352,7 +352,7 @@ public class Interface {
 
             // Run request & show result
             console.write("Waiting response...");
-            tester.test("POST", "/users", body);
+            requestManager.request("POST", "/users", body);
         }
 
         // Ask next action
@@ -370,7 +370,7 @@ public class Interface {
 
         // Run request & show result
         console.write("Waiting response...");
-        tester.test("GET", "/users/"+userId);
+        requestManager.request("GET", "/users/"+userId);
 
         // Ask next action
         boolean answerRepeat = console.ask("\nDo you want to read another user?");
@@ -386,7 +386,7 @@ public class Interface {
         Integer userId = (Integer) console.read(Integer.class);
 
         // Check that user exists
-        int statusGet = tester.test("GET", "/users/"+userId);
+        int statusGet = requestManager.request("GET", "/users/"+userId);
         if (statusGet >= 200 && statusGet < 300){
 
             // Ask for confirmation
@@ -408,7 +408,7 @@ public class Interface {
 
                         // Run request & show result
                         console.write("Waiting response...");
-                        tester.test("PUT", "/users/"+userId, body);
+                        requestManager.request("PUT", "/users/"+userId, body);
                         break;
                     case "cancel":
                         break;
@@ -433,7 +433,7 @@ public class Interface {
         Integer userId = (Integer) console.read(Integer.class);
 
         // Check that user exists
-        int statusGet = tester.test("GET", "/users/"+userId);
+        int statusGet = requestManager.request("GET", "/users/"+userId);
         if (statusGet >= 200 && statusGet < 300){
 
             // Ask for confirmation
@@ -442,7 +442,7 @@ public class Interface {
 
                 // Run request & show result
                 console.write("Waiting response...");
-                tester.test("DELETE", "/users/"+userId);
+                requestManager.request("DELETE", "/users/"+userId);
             }
         }
 
