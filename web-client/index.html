@@ -5,17 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Airline API</title>
-  <style>body{background: #0C6291; color: #fff;}</style>
+  <style>body{background: #0C6291; color: #fff; font-family: 'Quicksand', -apple-system, sans-serif;}</style>
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <h2>GET /flights</h2>
   <pre id="flights"></pre>
+
+  <h2>GET /users</h2>
+  <pre id="users"></pre>
 
   <script>
     fetch('http://localhost:8080/airline/v1/flights')
     .then(response => response.json())
     .then(flights => {
       document.getElementById("flights").textContent = JSON.stringify(flights,null,2);
+    });
+    fetch('http://localhost:8080/airline/v1/users')
+    .then(response => response.json())
+    .then(users => {
+      document.getElementById("users").textContent = JSON.stringify(users,null,2);
     });
   </script>
 </body>
