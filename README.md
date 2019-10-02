@@ -2,6 +2,8 @@
 
 ✈ First assignment for SoT 2019 in Fontys.
 
+The code is here: https://github.com/mauriciabad/SoT-REST
+
 ## Assignment statement
 
 Make a REST service and client(s) for the required case: **searching and buying flight tickets (for travelling with an airplane)**. You may make it simple or advanced, for example: clients can create account, search for flight tickets and buy them, etc.
