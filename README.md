@@ -2,13 +2,13 @@
 
 ✈ First REST assignment for SoT 2019 Q1 B1 in Fontys ICT.
 
-The code is here: https://github.com/mauriciabad/SoT-REST
+The source code is here: https://github.com/mauriciabad/SoT-REST
 
 ## Assignment statement
 
 Make a REST service and client(s) for the required case: **searching and buying flight tickets (for travelling with an airplane)**. You may make it simple or advanced, for example: clients can create account, search for flight tickets and buy them, etc.
 
-Detailed assessment criteria can be found here: [SOT Module Description and Assignments](documentation/SOT_Module_Description_and_Assignments.pdf) 
+Detailed assessment criteria can be found here: [SOT Module Description and Assignments](https://github.com/mauriciabad/SoT-REST/blob/master/documentation/SOT_Module_Description_and_Assignments.pdf) 
 
 ## API Reference
 
@@ -58,13 +58,18 @@ This are all the available resources for Airline's API 1.0.
 | arrival | String `YYYYY-MM-ddThh:mm` |
 | airline | String |
 | tickets | Array\<Ticket\> |
+| *price* | int |
+| *cheapestTicket* | Ticket |
+
+> The attribute `price` is the price of the cheapest ticket.
+
+> The attributes `price` and `cheapestTicket` are rebundant information.
 
 #### Ticket
 
 | Name | Type |
 |------|------|
 | ref | int |
-| flightNumber | int |
 | price | int |
 | seat | String |
 | buyerId | int |
@@ -98,8 +103,9 @@ Some errors can occur when:
 - A required parameter is missing.
 - The specified item does not exist.
 - Date parameter has wrong format.
+- Try to buy a ticket not for sale.
 
-Example custom error messages:
+### Example custom error message
 
 ```json
 {
