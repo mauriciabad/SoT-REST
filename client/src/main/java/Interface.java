@@ -62,6 +62,8 @@ public class Interface {
         console.write("departure:"); String departure = console.read();
         console.write("destination:"); String destination = console.read();
         console.write("origin:"); String origin = console.read();
+        console.write("number of tickets:"); Integer numberOfTickets = (Integer) console.read(Integer.class);
+        console.write("price of tickets: (EUR)"); Integer priceOfTickets = (Integer) console.read(Integer.class);
 
         console.write("\nYou entered this values:");
         console.write("airline: "+airline);
@@ -69,16 +71,29 @@ public class Interface {
         console.write("departure: "+departure);
         console.write("destination: "+destination);
         console.write("origin: "+origin);
+        console.write("tickets: "+numberOfTickets+" tickets of "+priceOfTickets+"€ each");
         // Ask for confirmation
         boolean answerConfirmation = console.ask("\nDo you want to create a flight with this values?");
         if(answerConfirmation) {
+
+            String ticketsJson = "[";
+            for (int i = 0; i < numberOfTickets; i++) {
+                ticketsJson += "{"+
+                        "\"ref\":\"TK000"+i+"\","+
+                        "\"price\":\""+priceOfTickets+"\","+
+                        "\"seat\":\""+(char)('A'+(i%6))+(i/6 + 1)+"\""+
+                        "}";
+                if (i < numberOfTickets -1) ticketsJson += ",";
+            }
+            ticketsJson += "]";
 
             String body = "{"+
                     "\"airline\":\""+airline+"\","+
                     "\"arrival\":\""+arrival+"\","+
                     "\"departure\":\""+departure+"\","+
                     "\"destination\":\""+destination+"\","+
-                    "\"origin\":\""+origin+"\""+
+                    "\"origin\":\""+origin+"\","+
+                    "\"tickets\":"+ticketsJson+""+
                     "}";
 
             // Run request & show result
