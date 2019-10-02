@@ -28,8 +28,8 @@ public class Interface {
 
         switch (console.read().toLowerCase()){
             case "exit": return;
-            case "1": goToMenuFlight(); break;
-            case "2": goToMenuUser(); break;
+            case "f": goToMenuFlight(); break;
+            case "u": goToMenuUser(); break;
             default: console.write("Invalid option, try again\n"); goToMenuMain(); break;
         }
     }
