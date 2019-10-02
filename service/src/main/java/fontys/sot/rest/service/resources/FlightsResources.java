@@ -169,27 +169,20 @@ public class FlightsResources {
     @Path("{flightNumber}/tickets/{ticketId}/buy")
     @Produces({MediaType.APPLICATION_JSON})
     public Response getFlightTicketsById(@PathParam("flightNumber") int flightNumber, @PathParam("ticketId") int ticketId, @QueryParam("buyerId") Integer buyerId) {
-        if (flights.exists(flightNumber)) {
-            Flight flight = flights.get(flightNumber);
-            List<Ticket> tickets = flight.getTickets();
-            if (tickets.size() > ticketId){
-                Ticket ticket = tickets.get(ticketId);
-                if (ticket.isForSale()){
-                    UsersCollection users = UsersCollection.getInstance();
-                    if (users.exists(buyerId)){
-                        ticket.buy(buyerId);
-                        return Response.ok().entity(ticket).header("Access-Control-Allow-Origin", "*").build();
-                    }else{
-                        return new ResponseError(404, "User with userId " + buyerId + " doesn't exist").build();
-                    }
-                }else{
-                    return new ResponseError(400, "Ticket with ticketId " + ticketId + " is not for sale").build();
-                }
-            }else{
-                return new ResponseError(404, "Ticket with ticketId " + ticketId + " doesn't exist").build();
-            }
-        } else {
-            return new ResponseError(404, "Flight with flightNumber " + flightNumber + " doesn't exist").build();
-        }
+        if (buyerId == null) return new ResponseError(422, "Missing 'buyerId' parameter").build();
+
+        if (!flights.exists(flightNumber)) return new ResponseError(404, "Flight with flightNumber " + flightNumber + " doesn't exist").build();
+        Flight flight = flights.get(flightNumber);
+        List<Ticket> tickets = flight.getTickets();
+
+        if (ticketId >= tickets.size()) return new ResponseError(404, "Ticket with ticketId " + ticketId + " doesn't exist").build();
+        Ticket ticket = tickets.get(ticketId);
+
+        if (!ticket.isForSale()) return new ResponseError(400, "Ticket with ticketId " + ticketId + " is not for sale").build();
+        UsersCollection users = UsersCollection.getInstance();
+
+        if (!users.exists(buyerId)) return new ResponseError(404, "User with userId " + buyerId + " doesn't exist").build();
+        ticket.buy(buyerId);
+        return Response.ok().entity(ticket).header("Access-Control-Allow-Origin", "*").build();
     }
 }
