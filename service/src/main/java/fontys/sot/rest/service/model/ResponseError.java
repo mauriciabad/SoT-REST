@@ -12,7 +12,7 @@ public class ResponseError {
     }
 
     public Response build(){
-        return Response.status(status).entity(this).header("Access-Control-Allow-Origin", "*").build();
+        return Response.status(status).entity(this).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
     }
 
     public int getStatus() { return status; }

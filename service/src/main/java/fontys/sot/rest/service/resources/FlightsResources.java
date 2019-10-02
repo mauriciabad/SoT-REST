@@ -77,7 +77,7 @@ public class FlightsResources {
             filteredFlights = filteredFlights.filter(flight -> Flight.getDateFromString(arrivalAfter).before(Flight.getDateFromString(flight.getArrival())));
         }
 
-        return Response.ok().entity(filteredFlights.collect(Collectors.toList())).header("Access-Control-Allow-Origin", "*").build();
+        return Response.ok().entity(filteredFlights.collect(Collectors.toList())).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
     }
 
     @POST
@@ -93,7 +93,7 @@ public class FlightsResources {
 
         int flightNumber = flights.add(flight);
 
-        return Response.ok().entity(flights.get(flightNumber)).header("Access-Control-Allow-Origin", "*").build();
+        return Response.ok().entity(flights.get(flightNumber)).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
     }
 
     @POST
@@ -109,7 +109,7 @@ public class FlightsResources {
 
         int flightNumber = flights.add(new Flight(origin, destination, departure, arrival, airline));
 
-        return Response.ok().entity(flights.get(flightNumber)).header("Access-Control-Allow-Origin", "*").build();
+        return Response.ok().entity(flights.get(flightNumber)).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
     }
 
     @PUT
@@ -130,7 +130,7 @@ public class FlightsResources {
 
             flights.update(oldFlight);
 
-            return Response.ok().entity(flights.get(flightNumber)).header("Access-Control-Allow-Origin", "*").build();
+            return Response.ok().entity(flights.get(flightNumber)).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
         }else{
             return new ResponseError(404, "Flight with flightNumber " + flightNumber + " doesn't exist").build();
         }
@@ -141,7 +141,7 @@ public class FlightsResources {
     @Produces({MediaType.APPLICATION_JSON})
     public Response getFlightById(@PathParam("flightNumber") int flightNumber) {
         if (flights.exists(flightNumber)) {
-            return Response.ok().entity(flights.get(flightNumber)).header("Access-Control-Allow-Origin", "*").build();
+            return Response.ok().entity(flights.get(flightNumber)).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
         } else {
             return new ResponseError(404, "Flight with flightNumber " + flightNumber + " doesn't exist").build();
         }
@@ -159,7 +159,7 @@ public class FlightsResources {
     @Produces({MediaType.APPLICATION_JSON})
     public Response getFlightTicketsById(@PathParam("flightNumber") int flightNumber) {
         if (flights.exists(flightNumber)) {
-            return Response.ok().entity(flights.get(flightNumber).getTickets()).header("Access-Control-Allow-Origin", "*").build();
+            return Response.ok().entity(flights.get(flightNumber).getTickets()).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
         } else {
             return new ResponseError(404, "Flight with flightNumber " + flightNumber + " doesn't exist").build();
         }
@@ -183,6 +183,6 @@ public class FlightsResources {
 
         if (!users.exists(buyerId)) return new ResponseError(404, "User with userId " + buyerId + " doesn't exist").build();
         ticket.buy(buyerId);
-        return Response.ok().entity(ticket).header("Access-Control-Allow-Origin", "*").build();
+        return Response.ok().entity(ticket).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
     }
 }

@@ -23,7 +23,7 @@ public class UsersResources {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Response getUserByQuery() {
-        return Response.ok().entity(users.getAll()).header("Access-Control-Allow-Origin", "*").build();
+        return Response.ok().entity(users.getAll()).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
     }
 
     @POST
@@ -33,7 +33,7 @@ public class UsersResources {
 
         int userId = users.add(user);
 
-        return Response.ok().entity(users.get(userId)).header("Access-Control-Allow-Origin", "*").build();
+        return Response.ok().entity(users.get(userId)).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
     }
 
     @POST
@@ -43,7 +43,7 @@ public class UsersResources {
 
         int userId = users.add(new User(name));
 
-        return Response.ok().entity(users.get(userId)).header("Access-Control-Allow-Origin", "*").build();
+        return Response.ok().entity(users.get(userId)).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
     }
 
     @PUT
@@ -57,7 +57,7 @@ public class UsersResources {
 
             users.update(oldUser);
 
-            return Response.ok().entity(users.get(userId)).header("Access-Control-Allow-Origin", "*").build();
+            return Response.ok().entity(users.get(userId)).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
         }else{
             return new ResponseError(404, "User with userId " + userId + " doesn't exist").build();
         }
@@ -68,7 +68,7 @@ public class UsersResources {
     @Produces({MediaType.APPLICATION_JSON})
     public Response getUserById(@PathParam("userId") int userId) {
         if (users.exists(userId)) {
-            return Response.ok().entity(users.get(userId)).header("Access-Control-Allow-Origin", "*").build();
+            return Response.ok().entity(users.get(userId)).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
         } else {
             return new ResponseError(404, "User with userId " + userId + " doesn't exist").build();
         }
@@ -78,6 +78,6 @@ public class UsersResources {
     @Path("{userId}")
     public Response deleteUser(@PathParam("userId") int userId) {
         users.remove(userId);
-        return Response.noContent().header("Access-Control-Allow-Origin", "*").build();
+        return Response.noContent().header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
     }
 }
