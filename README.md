@@ -31,7 +31,7 @@ This are all the available resources for Airline's API 1.0.
 | Method | Endpoint | Description | Response |
 |--------|----------|-------------|----------|
 | GET    | /flights/{flightNumber}/tickets | Get all tickets | Array\<Ticket\> |
-| POST   | /flights/{flightNumber}/tickets/{ticketId}/buy?buyerId={userId} | Buy a specific ticket. <br>Needs `buyerId` Query parameter | |
+| POST   | /flights/{flightNumber}/tickets/{ticketId}/buy?buyerId={userId} | Buy a specific ticket. <br>Needs `buyerId` Query parameter | Ticket |
 
 #### Users
 
