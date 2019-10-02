@@ -148,25 +148,26 @@ public class Interface {
                 console.write("  departure. Departure date (YYYY-MM-ddThh:mm)");
                 console.write("  destination. Destination airport IATA code");
                 console.write("  origin. Origin airport IATA code");
-                console.write("  tickets. Tickets");
+                //console.write("  tickets. Tickets");
                 console.write("  cancel. Don't update any attribute");
 
                 String attribute = console.read().toLowerCase();
                 String askValueMessage = "\nEnter the new value for "+attribute;
                 String body;
                 switch (attribute){
-                    case "tickets":
+                    // The API doesn't support updating tickets, because of a serialization bug, but the code from the client sends a valid request
+                    /* case "tickets":
                         console.write("Enter the amount of tickets:");
                         Integer amountOfTickets = (Integer) console.read(Integer.class);
                         console.write("Enter the price per ticket: (EUR)");
                         Integer pricePerTickets = (Integer) console.read(Integer.class);
                         String ticketsJson = buildTicketsJson(amountOfTickets, pricePerTickets);
 
-                        body = "{\""+attribute+"\":\""+ticketsJson+"\"}";
+                        body = "{\""+attribute+"\":"+ticketsJson+"}";
 
                         // Run request & show result
                         tester.test("PUT", "/flights/"+flightNumber, body);
-                        break;
+                        break; */
                     case "arrival":
                     case "departure":
                         askValueMessage += " with this format: YYYY-MM-ddThh:mm";
