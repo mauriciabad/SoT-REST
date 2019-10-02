@@ -82,7 +82,7 @@ This are all the available resources for Airline's API 1.0.
 - All the data is encoded in `json` format.
 - ID's are generated automatically, if you provide one in a POST or PUT request this will be ignored.
 
-## Java console client
+## 1st Client - Java console
 
 ![Client demo](documentation/client-demo.gif)
 
