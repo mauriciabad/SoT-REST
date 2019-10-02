@@ -22,8 +22,8 @@ public class Interface {
 
     private void goToMenuMain() {
         console.write("\nWhat Entity you want to work with?");
-        console.write("  1. Flights");
-        console.write("  2. Users");
+        console.write("  F. Flights");
+        console.write("  U. Users");
         console.write("  exit. Close");
 
         switch (console.read().toLowerCase()){
@@ -75,7 +75,7 @@ public class Interface {
         console.write("maxPrice"); String maxPrice = console.read();
         console.write("airline"); String airline = console.read();
 
-        String query = "";
+        String query = "?";
 
         if(!flightNumber.equals("-")) query += "flightNumber=" + flightNumber + ";";
         if(!origin.equals("-")) query += "origin=" + origin + ";";
@@ -94,7 +94,7 @@ public class Interface {
         tester.test("GET", "/flights"+query);
 
         // Ask next action
-        boolean answerRepeat = console.ask("\nDo you want to create another flight?");
+        boolean answerRepeat = console.ask("\nDo you want to search flights again?");
         if(answerRepeat) goToMenuFlightCreate();
         else goToMenuFlight();
     }
