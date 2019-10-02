@@ -1,12 +1,12 @@
 package fontys.sot.rest.service.resources;
 
-import fontys.sot.rest.service.model.Flight;
-import fontys.sot.rest.service.model.FlightsCollection;
-import fontys.sot.rest.service.model.ResponseError;
+import fontys.sot.rest.service.model.*;
 
+import javax.validation.constraints.Max;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -152,5 +152,44 @@ public class FlightsResources {
     public Response deleteFlight(@PathParam("flightNumber") int flightNumber) {
         flights.remove(flightNumber);
         return Response.noContent().build();
+    }
+
+    @GET
+    @Path("{flightNumber}/tickets")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response getFlightTicketsById(@PathParam("flightNumber") int flightNumber) {
+        if (flights.exists(flightNumber)) {
+            return Response.ok().entity(flights.get(flightNumber).getTickets()).header("Access-Control-Allow-Origin", "*").build();
+        } else {
+            return new ResponseError(404, "Flight with flightNumber " + flightNumber + " doesn't exist").build();
+        }
+    }
+
+    @POST
+    @Path("{flightNumber}/tickets/{ticketId}/buy")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response getFlightTicketsById(@PathParam("flightNumber") int flightNumber, @PathParam("ticketId") int ticketId, @QueryParam("buyerId") Integer buyerId) {
+        if (flights.exists(flightNumber)) {
+            Flight flight = flights.get(flightNumber);
+            List<Ticket> tickets = flight.getTickets();
+            if (tickets.size() > ticketId){
+                Ticket ticket = tickets.get(ticketId);
+                if (ticket.isForSale()){
+                    UsersCollection users = UsersCollection.getInstance();
+                    if (users.exists(buyerId)){
+                        ticket.buy(buyerId);
+                        return Response.ok().entity(ticket).header("Access-Control-Allow-Origin", "*").build();
+                    }else{
+                        return new ResponseError(404, "User with userId " + buyerId + " doesn't exist").build();
+                    }
+                }else{
+                    return new ResponseError(400, "Ticket with ticketId " + ticketId + " is not for sale").build();
+                }
+            }else{
+                return new ResponseError(404, "Ticket with ticketId " + ticketId + " doesn't exist").build();
+            }
+        } else {
+            return new ResponseError(404, "Flight with flightNumber " + flightNumber + " doesn't exist").build();
+        }
     }
 }
