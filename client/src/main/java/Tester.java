@@ -56,7 +56,10 @@ public class Tester {
         }
 
         String rawJson = response.readEntity(String.class);
-        String prettyJson = prettifyJson(rawJson);
+
+        String prettyJson;
+        try{ prettyJson = prettifyJson(rawJson);
+        }catch (Exception e){ prettyJson = rawJson; }
 
         System.out.println("\n" + method + " " + url);
         System.out.println(response.getStatus() + " " + response.getStatusInfo().getReasonPhrase());
