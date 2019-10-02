@@ -1,14 +1,24 @@
 # SoT REST assignment | Airline | 2019 Q1 B1 - Fontys ICT
 
-✈ First REST assignment for SoT 2019 Q1 B1 in Fontys ICT.
+```
+     _    _      _ _                 _    ____ ___ 
+    / \  (_)_ __| (_)_ __   ___     / \  |  _ \_ _|
+   / _ \ | | '__| | | '_ \ / _ \   / _ \ | |_) | | 
+  / ___ \| | |  | | | | | |  __/  / ___ \|  __/| | 
+ /_/   \_\_|_|  |_|_|_| |_|\___| /_/   \_\_|  |___|
+                                                   
+```
 
-The source code is here: https://github.com/mauriciabad/SoT-REST
+This project was fully develop in GitHub.<br>
+**Source code**: https://github.com/mauriciabad/SoT-REST
+
+**Author**: [Maurici Abad Gutierrez](https://mauriciabad.com)
 
 ## Assignment statement
 
 Make a REST service and client(s) for the required case: **searching and buying flight tickets (for travelling with an airplane)**. You may make it simple or advanced, for example: clients can create account, search for flight tickets and buy them, etc.
 
-Detailed assessment criteria can be found here: [SOT Module Description and Assignments](https://github.com/mauriciabad/SoT-REST/blob/master/documentation/SOT_Module_Description_and_Assignments.pdf) 
+Detailed assessment criteria can be found here: [SOT Module Description and Assignments](https://github.com/mauriciabad/SoT-REST/blob/master/documentation/SOT_Module_Description_and_Assignments.pdf).
 
 ## API Reference
 
@@ -61,9 +71,9 @@ This are all the available resources for Airline's API 1.0.
 | *price* | int |
 | *cheapestTicket* | Ticket |
 
-> The attribute `price` is the price of the cheapest ticket.
-
-> The attributes `price` and `cheapestTicket` are rebundant information.
+Notice:
+- The attribute `price` is the price of the cheapest ticket.
+- The attributes `price` and `cheapestTicket` are rebundant information.
 
 #### Ticket
 
@@ -90,6 +100,8 @@ This are all the available resources for Airline's API 1.0.
 ## 1st Client - Java console
 
 ![Client demo](documentation/client-demo.gif)
+
+Run the class [`Main`](https://github.com/mauriciabad/SoT-REST/blob/master/client/src/main/java/Main.java) inside `client` module.
 
 ## 2nd Client - Web
 
