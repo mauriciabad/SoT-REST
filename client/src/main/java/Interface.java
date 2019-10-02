@@ -37,6 +37,7 @@ public class Interface {
     private void goToMenuFlight() {
         console.write("\nWhat do you want to do?");
         console.write("  A. Read all flights");
+        console.write("  S. Search flights");
         console.write("  C. Create a flight");
         console.write("  R. Read a flight");
         console.write("  U. Update a flight");
@@ -48,12 +49,54 @@ public class Interface {
             case "exit": return;
             case "back": goToMenuMain(); break;
             case "a": goToMenuFlightAll(); break;
+            case "s": goToMenuFlightSearch(); break;
             case "c": goToMenuFlightCreate(); break;
             case "r": goToMenuFlightRead(); break;
             case "u": goToMenuFlightUpdate(); break;
             case "d": goToMenuFlightDelete(); break;
             default: console.write("Invalid option, try again\n"); goToMenuFlight(); break;
         }
+    }
+
+    private void goToMenuFlightSearch() {
+// Display instructions
+        console.write("\nEnter the following values: ");
+        console.write("Note: write a dash (-) to skip field\n");
+        console.write("flightNumber"); String flightNumber = console.read();
+        console.write("origin"); String origin = console.read();
+        console.write("destination"); String destination = console.read();
+        console.write("departure"); String departure = console.read();
+        console.write("departureBefore"); String departureBefore = console.read();
+        console.write("departureAfter"); String departureAfter = console.read();
+        console.write("arrival"); String arrival = console.read();
+        console.write("arrivalBefore"); String arrivalBefore = console.read();
+        console.write("arrivalAfter"); String arrivalAfter = console.read();
+        console.write("price"); String price = console.read();
+        console.write("maxPrice"); String maxPrice = console.read();
+        console.write("airline"); String airline = console.read();
+
+        String query = "";
+
+        if(!flightNumber.equals("-")) query += "flightNumber=" + flightNumber + ";";
+        if(!origin.equals("-")) query += "origin=" + origin + ";";
+        if(!destination.equals("-")) query += "destination=" + destination + ";";
+        if(!departure.equals("-")) query += "departure=" + departure + ";";
+        if(!departureBefore.equals("-")) query += "departureBefore=" + departureBefore + ";";
+        if(!departureAfter.equals("-")) query += "departureAfter=" + departureAfter + ";";
+        if(!arrival.equals("-")) query += "arrival=" + arrival + ";";
+        if(!arrivalBefore.equals("-")) query += "arrivalBefore=" + arrivalBefore + ";";
+        if(!arrivalAfter.equals("-")) query += "arrivalAfter=" + arrivalAfter + ";";
+        if(!price.equals("-")) query += "price=" + price + ";";
+        if(!maxPrice.equals("-")) query += "maxPrice=" + maxPrice + ";";
+        if(!airline.equals("-")) query += "airline=" + airline + ";";
+
+        // Run request & show result
+        tester.test("GET", "/flights"+query);
+
+        // Ask next action
+        boolean answerRepeat = console.ask("\nDo you want to create another flight?");
+        if(answerRepeat) goToMenuFlightCreate();
+        else goToMenuFlight();
     }
 
     private void goToMenuFlightAll() {
