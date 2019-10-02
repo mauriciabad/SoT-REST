@@ -20,26 +20,6 @@ public class Tester {
         this.baseUrl = baseUrl;
     }
 
-    public void run(){
-        // test("/flights");
-        // test("/flights/2");
-        // test("/flights?origin=BCN");
-        // test("DELETE", "/flights/2");
-        /* test("POST", "/flights", "{\n" +
-                "  \"airline\": \"Ryanair\",\n" +
-                "  \"arrival\": \"2020-9-28 10:20\",\n" +
-                "  \"departure\": \"2020-9-28 8:20\",\n" +
-                "  \"destination\": \"GRO\",\n" +
-                "  \"origin\": \"MAD\",\n" +
-                "  \"tickets\": []\n" +
-                "}");
-        */
-        /* test("PUT", "/flights/1", "{\n" +
-                "  \"airline\": \"New Airline\",\n" +
-                "}");
-        */
-    }
-
     public int test(String url) { return test("GET", url, ""); }
     public int test(String method, String url) { return test(method, url, ""); }
     public int test(String method, String url, String body){

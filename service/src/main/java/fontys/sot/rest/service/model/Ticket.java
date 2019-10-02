@@ -23,6 +23,12 @@ public class Ticket {
         this.buyerId = buyerId;
         this.forSale = forSale;
     }
+    public Ticket(int ref, int flightNumber, int price, String seat) {
+        this.ref = ref;
+        this.flightNumber = flightNumber;
+        this.price = price;
+        this.seat = seat;
+    }
 
     // Default Getters and Setters
     public int getRef() { return ref; }

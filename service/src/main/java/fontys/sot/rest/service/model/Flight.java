@@ -33,6 +33,17 @@ public class Flight {
         this.arrival = arrival;
         this.airline = airline;
     }
+    public Flight(String origin, String destination, String departure, String arrival, String airline, int amountOfTickets, int pricePerTicket) {
+        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-ddThh:mm");
+        // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: YYYY-MM-ddThh:mm");
+
+        this.origin = origin;
+        this.destination = destination;
+        this.departure = departure;
+        this.arrival = arrival;
+        this.airline = airline;
+        this.tickets = buildTickets(amountOfTickets, pricePerTicket);
+    }
     public Flight(int flightNumber, String origin, String destination, String departure, String arrival, String airline) {
         // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-ddThh:mm");
         // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: YYYY-MM-ddThh:mm");
@@ -99,6 +110,14 @@ public class Flight {
                 return null;
             }
         }
+    }
+
+    private List<Ticket> buildTickets(Integer amountOfTickets, Integer pricePerTickets) {
+        List<Ticket> tickets = new ArrayList<>();
+        for (int i = 0; i < amountOfTickets; i++) {
+            tickets.add(new Ticket(i, flightNumber, pricePerTickets, ""+(char)('A'+(i%6))+(i/6 + 1)));
+        }
+        return tickets;
     }
 
 
