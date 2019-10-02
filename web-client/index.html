@@ -5,28 +5,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Airline API</title>
-  <style>body{background: #0C6291; color: #fff; font-family: 'Quicksand', -apple-system, sans-serif;}</style>
   <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
+  <style>
+    body{
+      background: #0C6291; 
+      color: #fff; 
+      font-family: 'Quicksand', -apple-system, sans-serif;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+    }
+    section{
+      box-sizing: border-box;
+      max-width: 100%;
+      padding: 1rem;
+      flex-basis: 15rem;
+      flex-grow: 1;
+    }
+    pre{
+      max-width: 100%;
+      max-height: 20rem;
+      overflow: auto;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      color: #000;
+      background: rgba(255, 255, 255, 0.8);
+    }
+    .input{
+      color: #fff;
+      background: rgba(30, 30, 30, 0.8);
+    }
+    .input:empty{display: none !important;}
+    .small{
+      height: 10rem;
+    }
+    span:focus{
+      outline: none;
+      border-bottom: solid currentColor 0.1em;
+    }
+  </style>
 </head>
 <body>
-
-  <h2>GET /flights</h2>
-  <pre id="flights"></pre>
-
-  <h2>GET /users</h2>
-  <pre id="users"></pre>
-
   <script>
-    fetch('http://localhost:8080/airline/v1/flights')
-    .then(response => response.json())
-    .then(flights => {
-      document.getElementById("flights").textContent = JSON.stringify(flights,null,2);
-    });
-    fetch('http://localhost:8080/airline/v1/users')
-    .then(response => response.json())
-    .then(users => {
-      document.getElementById("users").textContent = JSON.stringify(users,null,2);
-    });
+    function run(){
+      let parent = document.currentScript.parentElement;
+      let method = parent.querySelector('.method').textContent;
+      let url = parent.querySelector('.url').textContent;
+      let inputElem = parent.querySelector('.input');
+      let needsBody = method === 'POST' || method === 'PUT' || method === 'PATCH' || method === 'CREATE';
+
+      if(needsBody) inputElem.style.display = 'block';
+      else inputElem.style.display = 'none';
+      fetch('http://localhost:8080/airline/v1'+url, {
+        method: method,
+        mode: 'cors',
+        body: needsBody ? inputElem.textContent : undefined
+      })
+      .then(response => response.json())
+      .then(data => {
+        parent.querySelector('.output').textContent = JSON.stringify(data,null,2);
+      });
+    }
   </script>
+
+  <section>
+    <h2><span class="method">GET</span> <span class="url">/flights</span></h2>
+    <pre class="input"></pre>
+    <pre class="output"></pre>
+    <script>run();</script>
+  </section>
+
+  <!-- <section>
+    <h2><span class="method">POST</span> <span class="url">/flights</span></h2>
+    <pre class="input">
+{
+  "airline": "MMMMMM",
+  "arrival": "2020-09-28T10:20",
+  "departure": "2020-09-28T08:20",
+  "destination": "ZZZ",
+  "origin": "AAA"
+}</pre>
+    <pre class="output"></pre>
+    <script>run();</script>
+  </section> -->
+
+  <section>
+    <h2><span class="method">GET</span> <span class="url">/flights/1</span></h2>
+    <pre class="input"></pre>
+    <pre class="output"></pre>
+    <script>run();</script>
+  </section>
+
+  <section>
+    <h2><span class="method">POST</span> <span class="url">/flights/4/tickets/3/buy?buyerId=1</span></h2>
+    <pre class="input"></pre>
+    <pre class="output"></pre>
+    <script>run();</script>
+  </section>
+
+  <section>
+    <h2><span class="method">POST</span> <span class="url">/flights/9999/tickets/9999/buy?buyerId=1</span></h2>
+    <pre class="input"></pre>
+    <pre class="output"></pre>
+    <script>run();</script>
+  </section>
+
+  <section>
+    <h2><span class="method">GET</span> <span class="url">/users</span></h2>
+    <pre class="input"></pre>
+    <pre class="output"></pre>
+    <script>run();</script>
+  </section>
+
 </body>
 </html>
