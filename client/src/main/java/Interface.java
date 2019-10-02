@@ -144,8 +144,8 @@ public class Interface {
 
                 console.write("\nWhat attribute do you want to update?");
                 console.write("  airline. Airline name");
-                console.write("  arrival. Arrival date (YYYY-MM-dd hh:mm)");
-                console.write("  departure. Departure date (YYYY-MM-dd hh:mm)");
+                console.write("  arrival. Arrival date (YYYY-MM-ddThh:mm)");
+                console.write("  departure. Departure date (YYYY-MM-ddThh:mm)");
                 console.write("  destination. Destination airport IATA code");
                 console.write("  origin. Origin airport IATA code");
                 console.write("  tickets. Tickets");
@@ -153,6 +153,7 @@ public class Interface {
 
                 String attribute = console.read().toLowerCase();
                 String askValueMessage = "\nEnter the new value for "+attribute;
+                String body;
                 switch (attribute){
                     case "tickets":
                         console.write("Enter the amount of tickets:");
@@ -161,21 +162,21 @@ public class Interface {
                         Integer pricePerTickets = (Integer) console.read(Integer.class);
                         String ticketsJson = buildTicketsJson(amountOfTickets, pricePerTickets);
 
-                        String body = "{\""+attribute+"\":\""+ticketsJson+"\"}";
+                        body = "{\""+attribute+"\":\""+ticketsJson+"\"}";
 
                         // Run request & show result
                         tester.test("PUT", "/flights/"+flightNumber, body);
                         break;
                     case "arrival":
                     case "departure":
-                        askValueMessage += " with this format: YYYY-MM-dd hh:mm";
+                        askValueMessage += " with this format: YYYY-MM-ddThh:mm";
                     case "airline":
                     case "destination":
                     case "origin":
                         console.write(askValueMessage);
                         String value = console.read();
 
-                        String body = "{\""+attribute+"\":\""+value+"\"}";
+                        body = "{\""+attribute+"\":\""+value+"\"}";
 
                         // Run request & show result
                         tester.test("PUT", "/flights/"+flightNumber, body);

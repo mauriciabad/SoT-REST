@@ -56,8 +56,8 @@ This are all the available resources for Airline's API 1.0.
 | flightNumber | int |
 | origin | String |
 | destination | String |
-| departure | String `YYYYY-MM-dd hh:mm` |
-| arrival | String `YYYYY-MM-dd hh:mm` |
+| departure | String `YYYYY-MM-ddThh:mm` |
+| arrival | String `YYYYY-MM-ddThh:mm` |
 | airline | String |
 | tickets | Array\<Ticket\> |
 
