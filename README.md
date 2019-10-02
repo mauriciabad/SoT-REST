@@ -88,7 +88,7 @@ This are all the available resources for Airline's API 1.0.
 
 ## 2nd Client - Web
 
-It's in side the `/web-client` folder. You can use it from the link below:
+It's in side the `/web-client` folder. You can use it from the link below if you are running the backend in localhost:
 
 [/web-client/index.html](https://mauriciabad.github.io/SoT-REST/web-client/)
 
