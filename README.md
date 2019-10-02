@@ -31,11 +31,7 @@ This are all the available resources for Airline's API 1.0.
 | Method | Endpoint | Description | Response |
 |--------|----------|-------------|----------|
 | GET    | /flights/{flightNumber}/tickets | Get all tickets | Array\<Ticket\> |
-| POST   | /flights/{flightNumber}/tickets | Create a new ticket | Ticket |
-| GET    | /flights/{flightNumber}/tickets/{ticketId} | Get information about a specific ticket | Ticket |
-| PUT    | /flights/{flightNumber}/tickets/{ticketId} | Update a ticket | Ticket |
-| DELETE | /flights/{flightNumber}/tickets/{ticketId} | Delete a ticket | |
-| POST   | /flights/{flightNumber}/tickets/{ticketId}/buy | Buy a specific ticket | |
+| POST   | /flights/{flightNumber}/tickets/{ticketId}/buy?buyerId={userId} | Buy a specific ticket. <br>Needs `buyerId` Query parameter | |
 
 #### Users
 
