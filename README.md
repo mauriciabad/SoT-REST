@@ -1,6 +1,6 @@
-﻿# SoT REST assignment | Airline
+# SoT REST assignment | Airline | 2019 Q1 B1 - Fontys ICT
 
-✈ First assignment for SoT 2019 in Fontys.
+✈ First REST assignment for SoT 2019 Q1 B1 in Fontys ICT.
 
 The code is here: https://github.com/mauriciabad/SoT-REST
 
