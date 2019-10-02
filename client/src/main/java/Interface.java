@@ -85,34 +85,34 @@ public class Interface {
         // Display instructions
         console.write("\nEnter the following values: ");
         console.write("Note: write a dash (-) to skip field\n");
-        console.write("flightNumber"); String flightNumber = console.read();
-        console.write("origin"); String origin = console.read();
-        console.write("destination"); String destination = console.read();
-        console.write("departure"); String departure = console.read();
+        console.write("flightNumber");    String flightNumber = console.read();
+        console.write("origin");          String origin = console.read();
+        console.write("destination");     String destination = console.read();
+        console.write("departure");       String departure = console.read();
         console.write("departureBefore"); String departureBefore = console.read();
-        console.write("departureAfter"); String departureAfter = console.read();
-        console.write("arrival"); String arrival = console.read();
-        console.write("arrivalBefore"); String arrivalBefore = console.read();
-        console.write("arrivalAfter"); String arrivalAfter = console.read();
-        console.write("price"); String price = console.read();
-        console.write("maxPrice"); String maxPrice = console.read();
-        console.write("airline"); String airline = console.read();
+        console.write("departureAfter");  String departureAfter = console.read();
+        console.write("arrival");         String arrival = console.read();
+        console.write("arrivalBefore");   String arrivalBefore = console.read();
+        console.write("arrivalAfter");    String arrivalAfter = console.read();
+        console.write("price");           String price = console.read();
+        console.write("maxPrice");        String maxPrice = console.read();
+        console.write("airline");         String airline = console.read();
 
         String query = "?";
 
         // I know i repeat myself, but there's no need for a fancier solution
-        if(!flightNumber.equals("-")) query += "flightNumber=" + flightNumber + "&";
-        if(!origin.equals("-")) query += "origin=" + origin + "&";
-        if(!destination.equals("-")) query += "destination=" + destination + "&";
-        if(!departure.equals("-")) query += "departure=" + departure + "&";
+        if(!flightNumber.equals("-"))    query += "flightNumber=" + flightNumber + "&";
+        if(!origin.equals("-"))          query += "origin=" + origin + "&";
+        if(!destination.equals("-"))     query += "destination=" + destination + "&";
+        if(!departure.equals("-"))       query += "departure=" + departure + "&";
         if(!departureBefore.equals("-")) query += "departureBefore=" + departureBefore + "&";
-        if(!departureAfter.equals("-")) query += "departureAfter=" + departureAfter + "&";
-        if(!arrival.equals("-")) query += "arrival=" + arrival + "&";
-        if(!arrivalBefore.equals("-")) query += "arrivalBefore=" + arrivalBefore + "&";
-        if(!arrivalAfter.equals("-")) query += "arrivalAfter=" + arrivalAfter + "&";
-        if(!price.equals("-")) query += "price=" + price + "&";
-        if(!maxPrice.equals("-")) query += "maxPrice=" + maxPrice + "&";
-        if(!airline.equals("-")) query += "airline=" + airline + "&";
+        if(!departureAfter.equals("-"))  query += "departureAfter=" + departureAfter + "&";
+        if(!arrival.equals("-"))         query += "arrival=" + arrival + "&";
+        if(!arrivalBefore.equals("-"))   query += "arrivalBefore=" + arrivalBefore + "&";
+        if(!arrivalAfter.equals("-"))    query += "arrivalAfter=" + arrivalAfter + "&";
+        if(!price.equals("-"))           query += "price=" + price + "&";
+        if(!maxPrice.equals("-"))        query += "maxPrice=" + maxPrice + "&";
+        if(!airline.equals("-"))         query += "airline=" + airline + "&";
 
         // Run request & show result
         console.write("Waiting response...");
@@ -120,7 +120,7 @@ public class Interface {
 
         // Ask next action
         boolean answerRepeat = console.ask("\nDo you want to search flights again?");
-        if(answerRepeat) goToMenuFlightCreate();
+        if(answerRepeat) goToMenuFlightSearch();
         else goToMenuFlight();
     }
 
@@ -135,12 +135,12 @@ public class Interface {
     private void goToMenuFlightCreate() {
         // Display instructions
         console.write("\nEnter the following values:");
-        console.write("airline:"); String airline = console.read();
-        console.write("arrival:"); String arrival = console.read();
-        console.write("departure:"); String departure = console.read();
+        console.write("airline:");     String airline = console.read();
+        console.write("arrival:");     String arrival = console.read();
+        console.write("departure:");   String departure = console.read();
         console.write("destination:"); String destination = console.read();
-        console.write("origin:"); String origin = console.read();
-        console.write("amount of tickets:"); Integer amountOfTickets = (Integer) console.read(Integer.class);
+        console.write("origin:");      String origin = console.read();
+        console.write("amount of tickets:");      Integer amountOfTickets = (Integer) console.read(Integer.class);
         console.write("price per ticket: (EUR)"); Integer pricePerTickets = (Integer) console.read(Integer.class);
 
         console.write("\nYou entered this values:");
@@ -324,7 +324,7 @@ public class Interface {
             case "r": goToMenuUserRead(); break;
             case "u": goToMenuUserUpdate(); break;
             case "d": goToMenuUserDelete(); break;
-            default: console.write("Invalid option, try again\n"); goToMenuFlight(); break;
+            default: console.write("Invalid option, try again\n"); goToMenuUser(); break;
         }
     }
 
