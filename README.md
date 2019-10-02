@@ -73,7 +73,7 @@ This are all the available resources for Airline's API 1.0.
 
 Notice:
 - The attribute `price` is the price of the cheapest ticket.
-- The attributes `price` and `cheapestTicket` are rebundant information.
+- The attributes `price` and `cheapestTicket` are redundant information.
 
 #### Ticket
 
@@ -121,10 +121,10 @@ Some errors can occur when:
 
 ```json
 {
-    "error": true,
-    "message": "Flight with flightNumber 999 doesn't exist",
-    "status": 404,
-    "statusName": "Not Found"
+  "error": true,
+  "message": "Flight with flightNumber 999 doesn't exist",
+  "status": 404,
+  "statusName": "Not Found"
 }
 ```
 
