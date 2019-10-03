@@ -3,23 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Page Redirection</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background: #0C6291;
+            color: #fff;
+            font-family: 'Quicksand', -apple-system, sans-serif;
+        }
+        a{color: currentColor;}
+    </style>
 </head>
 <body>
 
-<p>To run the web client run in the console:</p>
+<h1>To run the web client</h1>
+
+<h2>1nd option (NOOB)</h2>
 <ol>
-    <li>Go to "/web-client" folder</li>
-    <li><pre>npm install</pre></li>
-    <li><pre>npm run start</pre></li>
+    <li>open the file "/web-client/build/index.html"</li>
+</ol>
+
+<h2>2st option (PRO)</h2>
+<ol>
+    <li>Go to "/web-client" folder with the console</li>
+    <li>Run: <pre>npm install</pre></li>
+    <li>Run: <pre>npm run start</pre></li>
     <li><a href='http://localhost:3000/'>The client</a> will open automatically once ready</li>
 </ol>
 
-<script>
-    fetch("http://localhost:3000").then(function(response) {
-        if(response.status == 200){
-            window.location.href = "http://localhost:3000"
-        }
-    });
-</script>
+<h2>3st option (BOSS)</h2>
+<ol>
+    <li>Follow steps 2</li>
+    <li>If the server is running in <a href='http://localhost:3000/'>http://localhost:3000/</a> this page will redirect you automatically</li>
+</ol>
+
+<img style="visibility:hidden" src="http://localhost:3000/logo192.png" onload="window.location.href = 'http://localhost:3000'"/>
+
 </body>
 </html>
