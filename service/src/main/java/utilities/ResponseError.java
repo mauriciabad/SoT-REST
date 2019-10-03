@@ -12,7 +12,7 @@ public class ResponseError {
     }
 
     public Response build(){
-        return Response.status(status).entity(this).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS").build();
+        return ResponseCustom.build(status, this);
     }
 
     public int getStatus() { return status; }
@@ -47,7 +47,7 @@ public class ResponseError {
             case 428: return "Precondition Required";
             case 429: return "Too Many Requests";
             case 431: return "Request Header Fields Too Large";
-            case 444: return "Connection Closed Without Response";
+            case 444: return "Connection Closed Without ResponseCustom";
             case 451: return "Unavailable For Legal Reasons";
             case 499: return "Client Closed Request";
             case 500: return "Internal Server Error";
