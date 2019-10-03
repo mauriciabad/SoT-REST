@@ -22,7 +22,7 @@ public class UsersResources {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Response getUserByQuery() {
-        return ResponseCustom.build(200, users.getAll());
+        return ResponseCustom.build(200, users.getAll(), users.total());
     }
 
     @POST
@@ -78,5 +78,10 @@ public class UsersResources {
     public Response deleteUser(@PathParam("userId") int userId) {
         users.remove(userId);
         return ResponseCustom.build();
+    }
+
+    @OPTIONS
+    public Response optionsUser() {
+        return ResponseCustom.build(200,"GET, PUT, POST, DELETE");
     }
 }

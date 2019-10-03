@@ -80,7 +80,8 @@ public class FlightsResources {
             filteredFlights = filteredFlights.filter(flight -> Flight.getDateFromString(arrivalAfter).before(Flight.getDateFromString(flight.getArrival())));
         }
 
-        return ResponseCustom.build(200, filteredFlights.collect(Collectors.toList()));
+        List<Flight> flights = filteredFlights.collect(Collectors.toList());
+        return ResponseCustom.build(200, flights, flights.size());
     }
 
     @POST
@@ -162,7 +163,8 @@ public class FlightsResources {
     @Produces({MediaType.APPLICATION_JSON})
     public Response getFlightTicketsById(@PathParam("flightNumber") int flightNumber) {
         if (flights.exists(flightNumber)) {
-            return ResponseCustom.build(200, flights.get(flightNumber).getTickets());
+            List<Ticket> tickets = flights.get(flightNumber).getTickets();
+            return ResponseCustom.build(200, tickets, tickets.size());
         } else {
             return new ResponseError(404, "Flight with flightNumber " + flightNumber + " doesn't exist").build();
         }
@@ -187,5 +189,10 @@ public class FlightsResources {
         if (!users.exists(buyerId)) return new ResponseError(404, "User with userId " + buyerId + " doesn't exist").build();
         ticket.buy(buyerId);
         return ResponseCustom.build(200, ticket);
+    }
+
+    @OPTIONS
+    public Response optionsFlight() {
+        return ResponseCustom.build(200,"GET, PUT, POST, DELETE");
     }
 }
