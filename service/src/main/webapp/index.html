@@ -2,13 +2,24 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=https://mauriciabad.github.io/SoT-REST/web-client/build/">
-    <script type="text/javascript">
-        window.location.href = "https://mauriciabad.github.io/SoT-REST/web-client/build/"
-    </script>
     <title>Page Redirection</title>
 </head>
 <body>
-If you are not redirected automatically, follow this <a href='https://mauriciabad.github.io/SoT-REST/web-client/build/'>link to client</a>.
+
+<p>To run the web client run in the console:</p>
+<ol>
+    <li>Go to "/web-client" folder</li>
+    <li><pre>npm install</pre></li>
+    <li><pre>npm run start</pre></li>
+    <li><a href='http://localhost:3000/'>The client</a> will open automatically once ready</li>
+</ol>
+
+<script>
+    fetch("http://localhost:3000").then(function(response) {
+        if(response.status == 200){
+            window.location.href = "http://localhost:3000"
+        }
+    });
+</script>
 </body>
 </html>
