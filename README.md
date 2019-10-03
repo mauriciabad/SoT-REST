@@ -105,11 +105,16 @@ Notice:
 
 Run the class [`Main`](https://github.com/mauriciabad/SoT-REST/blob/master/client/src/main/java/Main.java) inside `client` module.
 
-## 2nd Client - Web
+## 2nd Client - Web React.js
 
-It's in side the `/web-client` folder. You can use it from the link below if you are running the backend in localhost:
+> I used the [react-admin](https://marmelab.com/react-admin/) framework to build it.
 
-[/web-client/index.html](https://mauriciabad.github.io/SoT-REST/web-client/)
+- The source code is inside the `/web-client` folder. 
+- The compiled files are inside the `/web-client/public` folder. 
+
+You can use it from the link below if you are running the backend in localhost:
+
+[/web-client/public/index.html](https://mauriciabad.github.io/SoT-REST/web-client/public/)
 
 ## Error handling
 
