@@ -1,6 +1,7 @@
 {
   "name": "airline-api-client",
   "version": "0.1.0",
+  "homepage": "./",
   "private": true,
   "dependencies": {
     "ra-data-json-server": "^2.9.6",
