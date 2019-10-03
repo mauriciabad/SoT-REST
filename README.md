@@ -107,14 +107,16 @@ Run the class [`Main`](https://github.com/mauriciabad/SoT-REST/blob/master/clien
 
 ## 2nd Client - Web React.js
 
-_When you deploy the apache tomcat server it will give you nice instructions about how to run the 2nd client._
-
 You MUST run the app in localhost, or open the file `[/web-client/build/index.html](https://github.com/mauriciabad/SoT-REST/blob/master/web-client/build/index.html)` from the computer.
 
 - The source code is inside the `/web-client` folder. 
 - The compiled files are inside the `/web-client/build` folder. 
 
 > I used the [react-admin](https://marmelab.com/react-admin/) framework to build it.
+
+![2nd client run instructions](documentation/run-second-client-instructions.png)
+
+_When you deploy the apache tomcat server it will give you nice instructions about how to run the 2nd client._
 
 ## Error handling
 
