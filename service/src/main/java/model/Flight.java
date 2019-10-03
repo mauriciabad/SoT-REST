@@ -99,15 +99,21 @@ public class Flight {
     public static Date getDateFromString(String dateString) {
         try {
             DateFormat df = new SimpleDateFormat("YYYY-MM-ddThh:mm");
-            df.setLenient(false);
+            // df.setLenient(false);
             return df.parse(dateString);
         } catch (ParseException e) {
             try {
-                DateFormat df = new SimpleDateFormat("YYYY-MM-dd");
-                df.setLenient(false);
+                DateFormat df = new SimpleDateFormat("YYYY-MM-dd hh:mm");
+                // df.setLenient(false);
                 return df.parse(dateString);
             } catch (ParseException e2) {
-                return null;
+                try {
+                    DateFormat df = new SimpleDateFormat("YYYY-MM-dd");
+                    // df.setLenient(false);
+                    return df.parse(dateString);
+                } catch (ParseException e3) {
+                    return null;
+                }
             }
         }
     }

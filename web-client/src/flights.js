@@ -16,7 +16,11 @@ import {
   BooleanInput,
   NumberInput,
   ArrayInput,
-  SimpleFormIterator
+  SimpleFormIterator,
+  DisabledInput,
+  ReferenceInput,
+  SelectInput,
+  Create,
 } from 'react-admin';
 
 export const FlightList = props => (
@@ -32,10 +36,10 @@ export const FlightList = props => (
       <TextField source="airline" />
       {/* <ArrayField source="tickets">
             <Datagrid>
-              <NumberField source="id" />
-              <NumberField source="price" />
-              <TextField source="seat" />
-              <BooleanField source="forSale" />
+            <NumberField source="id" />
+            <NumberField source="price" />
+            <TextField source="seat" />
+            <BooleanField source="forSale" />
             </Datagrid>
           </ArrayField> */}
       <ArrayField source="tickets"><SingleFieldList><ChipField source="seat" /></SingleFieldList></ArrayField>
@@ -47,18 +51,47 @@ export const FlightList = props => (
 export const FlightEdit = props => (
   <Edit {...props}>
     <SimpleForm>
-      <TextInput source="airline" />
-      <DateInput source="arrival" />
-      <BooleanInput source="cheapestTicket.forSale" />
-      <DateInput source="departure" />
+      <DisabledInput source="id" />
       <TextInput source="destination" />
-      <TextInput source="id" />
       <TextInput source="origin" />
+      <DateInput source="departure" />
+      <DateInput source="arrival" />
+      <TextInput source="airline" />
       <NumberInput source="price" />
-      <ArrayInput source="tickets"><SimpleFormIterator><BooleanInput source="forSale" />
-        <TextInput source="id" />
-        <NumberInput source="price" />
-        <TextInput source="seat" /></SimpleFormIterator></ArrayInput>
+      <ArrayInput source="tickets">
+        <SimpleFormIterator>
+          <DisabledInput source="id" />
+          <NumberInput source="price" />
+          <TextInput source="seat" />
+          <ReferenceInput source="userId" reference="users">
+            <SelectInput optionText="name" />
+          </ReferenceInput>
+          <BooleanInput source="forSale" />
+        </SimpleFormIterator>
+      </ArrayInput>
     </SimpleForm>
   </Edit>
+);
+
+export const FlightCreate = props => (
+  <Create {...props}>
+    <SimpleForm>
+      <TextInput source="destination" />
+      <TextInput source="origin" />
+      <DateInput source="departure" />
+      <DateInput source="arrival" />
+      <TextInput source="airline" />
+      <ArrayInput source="tickets">
+        <SimpleFormIterator>
+          <NumberInput source="id" />
+          <NumberInput source="price" />
+          <TextInput source="seat" />
+          <ReferenceInput source="userId" reference="users">
+            <SelectInput optionText="name" />
+          </ReferenceInput>
+          <BooleanInput source="forSale" />
+        </SimpleFormIterator>
+      </ArrayInput>
+    </SimpleForm>
+  </Create>
 );
