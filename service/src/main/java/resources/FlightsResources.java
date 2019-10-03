@@ -27,7 +27,7 @@ public class FlightsResources {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Response getFlightByQuery(
-            @QueryParam("flightNumber") Integer flightNumber,
+            @QueryParam("flightId") Integer flightId,
             @QueryParam("origin") String origin,
             @QueryParam("destination") String destination,
             @QueryParam("departure") String departure,
@@ -41,7 +41,7 @@ public class FlightsResources {
             @QueryParam("airline") String airline) {
         Stream<Flight> filteredFlights = flights.getAll().stream();
 
-        if (flightNumber != null) filteredFlights = filteredFlights.filter(flight -> flightNumber == flight.getFlightNumber());
+        if (flightId != null) filteredFlights = filteredFlights.filter(flight -> flightId == flight.getId());
         if (origin != null)        filteredFlights = filteredFlights.filter(flight -> origin.equals(flight.getOrigin()));
         if (destination != null)   filteredFlights = filteredFlights.filter(flight -> destination.equals(flight.getDestination()));
         if (airline != null)       filteredFlights = filteredFlights.filter(flight -> airline.equals(flight.getAirline()));
@@ -95,9 +95,9 @@ public class FlightsResources {
         if (flight.getDeparture() != null && !Flight.isValidDate(flight.getDeparture())) return new ResponseError(422, "Parameter 'departure' must be in this format: YYYY-MM-ddThh:mm").build();
         if (flight.getArrival() != null && !Flight.isValidDate(flight.getArrival())) return new ResponseError(422, "Parameter 'arrival' must be in this format: YYYY-MM-ddThh:mm").build();
 
-        int flightNumber = flights.add(flight);
+        int flightId = flights.add(flight);
 
-        return ResponseCustom.build(200, flights.get(flightNumber));
+        return ResponseCustom.build(200, flights.get(flightId));
     }
 
     @POST
@@ -111,20 +111,20 @@ public class FlightsResources {
         if (!Flight.isValidDate(departure)) return new ResponseError(422, "Parameter 'departure' must be in this format: YYYY-MM-ddThh:mm").build();
         if (!Flight.isValidDate(arrival)) return new ResponseError(422, "Parameter 'arrival' must be in this format: YYYY-MM-ddThh:mm").build();
 
-        int flightNumber = flights.add(new Flight(origin, destination, departure, arrival, airline));
+        int flightId = flights.add(new Flight(origin, destination, departure, arrival, airline));
 
-        return ResponseCustom.build(200, flights.get(flightNumber));
+        return ResponseCustom.build(200, flights.get(flightId));
     }
 
     @PUT
-    @Path("{flightNumber}")
+    @Path("{flightId}")
     @Consumes({MediaType.APPLICATION_JSON})
-    public Response updateFlight(Flight flight, @PathParam("flightNumber") int flightNumber) {
-        if (flights.exists(flightNumber)){
+    public Response updateFlight(Flight flight, @PathParam("flightId") int flightId) {
+        if (flights.exists(flightId)){
             if (flight.getDeparture() != null && !Flight.isValidDate(flight.getDeparture())) return new ResponseError(422, "Parameter 'departure' must be in this format: YYYY-MM-ddThh:mm").build();
             if (flight.getArrival() != null && !Flight.isValidDate(flight.getArrival())) return new ResponseError(422, "Parameter 'arrival' must be in this format: YYYY-MM-ddThh:mm").build();
 
-            Flight oldFlight = flights.get(flightNumber);
+            Flight oldFlight = flights.get(flightId);
 
             if (flight.getOrigin() != null) oldFlight.setOrigin(flight.getOrigin());
             if (flight.getDestination() != null) oldFlight.setDestination(flight.getDestination());
@@ -134,50 +134,50 @@ public class FlightsResources {
 
             flights.update(oldFlight);
 
-            return ResponseCustom.build(200, flights.get(flightNumber));
+            return ResponseCustom.build(200, flights.get(flightId));
         }else{
-            return new ResponseError(404, "Flight with flightNumber " + flightNumber + " doesn't exist").build();
+            return new ResponseError(404, "Flight with flightId " + flightId + " doesn't exist").build();
         }
     }
 
     @GET
-    @Path("{flightNumber}")
+    @Path("{flightId}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response getFlightById(@PathParam("flightNumber") int flightNumber) {
-        if (flights.exists(flightNumber)) {
-            return ResponseCustom.build(200, flights.get(flightNumber));
+    public Response getFlightById(@PathParam("flightId") int flightId) {
+        if (flights.exists(flightId)) {
+            return ResponseCustom.build(200, flights.get(flightId));
         } else {
-            return new ResponseError(404, "Flight with flightNumber " + flightNumber + " doesn't exist").build();
+            return new ResponseError(404, "Flight with flightId " + flightId + " doesn't exist").build();
         }
     }
 
     @DELETE
-    @Path("{flightNumber}")
-    public Response deleteFlight(@PathParam("flightNumber") int flightNumber) {
-        flights.remove(flightNumber);
+    @Path("{flightId}")
+    public Response deleteFlight(@PathParam("flightId") int flightId) {
+        flights.remove(flightId);
         return ResponseCustom.build();
     }
 
     @GET
-    @Path("{flightNumber}/tickets")
+    @Path("{flightId}/tickets")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response getFlightTicketsById(@PathParam("flightNumber") int flightNumber) {
-        if (flights.exists(flightNumber)) {
-            List<Ticket> tickets = flights.get(flightNumber).getTickets();
+    public Response getFlightTicketsById(@PathParam("flightId") int flightId) {
+        if (flights.exists(flightId)) {
+            List<Ticket> tickets = flights.get(flightId).getTickets();
             return ResponseCustom.build(200, tickets, tickets.size());
         } else {
-            return new ResponseError(404, "Flight with flightNumber " + flightNumber + " doesn't exist").build();
+            return new ResponseError(404, "Flight with flightId " + flightId + " doesn't exist").build();
         }
     }
 
     @POST
-    @Path("{flightNumber}/tickets/{ticketId}/buy")
+    @Path("{flightId}/tickets/{ticketId}/buy")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response getFlightTicketsById(@PathParam("flightNumber") int flightNumber, @PathParam("ticketId") int ticketId, @QueryParam("buyerId") Integer buyerId) {
+    public Response getFlightTicketsById(@PathParam("flightId") int flightId, @PathParam("ticketId") int ticketId, @QueryParam("buyerId") Integer buyerId) {
         if (buyerId == null) return new ResponseError(422, "Missing 'buyerId' parameter").build();
 
-        if (!flights.exists(flightNumber)) return new ResponseError(404, "Flight with flightNumber " + flightNumber + " doesn't exist").build();
-        Flight flight = flights.get(flightNumber);
+        if (!flights.exists(flightId)) return new ResponseError(404, "Flight with flightId " + flightId + " doesn't exist").build();
+        Flight flight = flights.get(flightId);
         List<Ticket> tickets = flight.getTickets();
 
         if (ticketId >= tickets.size()) return new ResponseError(404, "Ticket with ticketId " + ticketId + " doesn't exist").build();

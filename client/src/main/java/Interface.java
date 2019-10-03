@@ -62,8 +62,8 @@ public class Interface {
 
     private void goToMenuFlightTicketBuy() {
 
-        console.write("\nEnter a flightNumber:");
-        Integer flightNumber = (Integer) console.read(Integer.class);
+        console.write("\nEnter a flightId:");
+        Integer flightId = (Integer) console.read(Integer.class);
 
         console.write("Enter a ticketId:");
         Integer ticketId = (Integer) console.read(Integer.class);
@@ -73,7 +73,7 @@ public class Interface {
 
         // Run request & show result
         console.write("Waiting response...");
-        requestManager.request("POST", "/flights/"+flightNumber+"/tickets/"+ticketId+"/buy?buyerId="+buyerId);
+        requestManager.request("POST", "/flights/"+flightId+"/tickets/"+ticketId+"/buy?buyerId="+buyerId);
 
         // Ask next action
         boolean answerRepeat = console.ask("\nDo you want to buy another ticket?");
@@ -85,7 +85,7 @@ public class Interface {
         // Display instructions
         console.write("\nEnter the following values: ");
         console.write("Note: write a dash (-) to skip field\n");
-        console.write("flightNumber");    String flightNumber = console.read();
+        console.write("flightId");    String flightId = console.read();
         console.write("origin");          String origin = console.read();
         console.write("destination");     String destination = console.read();
         console.write("departure");       String departure = console.read();
@@ -101,7 +101,7 @@ public class Interface {
         String query = "?";
 
         // I know i repeat myself, but there's no need for a fancier solution
-        if(!flightNumber.equals("-"))    query += "flightNumber=" + flightNumber + "&";
+        if(!flightId.equals("-"))    query += "flightId=" + flightId + "&";
         if(!origin.equals("-"))          query += "origin=" + origin + "&";
         if(!destination.equals("-"))     query += "destination=" + destination + "&";
         if(!departure.equals("-"))       query += "departure=" + departure + "&";
@@ -192,14 +192,14 @@ public class Interface {
 
     private void goToMenuFlightRead() {
         // Display instructions
-        console.write("\nEnter a flightNumber:");
+        console.write("\nEnter a flightId:");
 
         // Get input
-        Integer flightNumber = (Integer) console.read(Integer.class);
+        Integer flightId = (Integer) console.read(Integer.class);
 
         // Run request & show result
         console.write("Waiting response...");
-        requestManager.request("GET", "/flights/"+flightNumber);
+        requestManager.request("GET", "/flights/"+flightId);
 
         // Ask next action
         boolean answerRepeat = console.ask("\nDo you want to read another flight?");
@@ -209,13 +209,13 @@ public class Interface {
 
     private void goToMenuFlightUpdate() {
         // Display instructions
-        console.write("\nEnter a flightNumber:");
+        console.write("\nEnter a flightId:");
 
         // Get input
-        Integer flightNumber = (Integer) console.read(Integer.class);
+        Integer flightId = (Integer) console.read(Integer.class);
 
         // Check that flight exists
-        int statusGet = requestManager.request("GET", "/flights/"+flightNumber);
+        int statusGet = requestManager.request("GET", "/flights/"+flightId);
         if (statusGet >= 200 && statusGet < 300){
 
             // Ask for confirmation
@@ -247,7 +247,7 @@ public class Interface {
 
                         // Run request & show result
                         console.write("Waiting response...);
-                        requestManager.test("PUT", "/flights/"+flightNumber, body);
+                        requestManager.test("PUT", "/flights/"+flightId, body);
                         break; */
                     case "arrival":
                     case "departure":
@@ -262,7 +262,7 @@ public class Interface {
 
                         // Run request & show result
                         console.write("Waiting response...");
-                        requestManager.request("PUT", "/flights/"+flightNumber, body);
+                        requestManager.request("PUT", "/flights/"+flightId, body);
                         break;
                     case "cancel":
                         break;
@@ -281,13 +281,13 @@ public class Interface {
 
     private void goToMenuFlightDelete() {
         // Display instructions
-        console.write("\nEnter a flightNumber:");
+        console.write("\nEnter a flightId:");
 
         // Get input
-        Integer flightNumber = (Integer) console.read(Integer.class);
+        Integer flightId = (Integer) console.read(Integer.class);
 
         // Check that flight exists
-        int statusGet = requestManager.request("GET", "/flights/"+flightNumber);
+        int statusGet = requestManager.request("GET", "/flights/"+flightId);
         if (statusGet >= 200 && statusGet < 300){
 
             // Ask for confirmation
@@ -296,7 +296,7 @@ public class Interface {
 
                 // Run request & show result
                 console.write("Waiting response...");
-                requestManager.request("DELETE", "/flights/"+flightNumber);
+                requestManager.request("DELETE", "/flights/"+flightId);
             }
         }
 

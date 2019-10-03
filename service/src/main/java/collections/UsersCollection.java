@@ -45,12 +45,12 @@ public class UsersCollection {
         users.remove(userId);
     }
     public int add(User user) {
-        user.setUserId(getNewId());
-        users.putIfAbsent(user.getUserId(), user);
-        return user.getUserId();
+        user.setId(getNewId());
+        users.putIfAbsent(user.getId(), user);
+        return user.getId();
     }
     public User update(User user) {
-        return users.replace(user.getUserId(), user);
+        return users.replace(user.getId(), user);
     }
     public int getNewId() { return ++idCount; }
 }

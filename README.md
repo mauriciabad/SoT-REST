@@ -32,18 +32,18 @@ This are all the available resources for Airline's API 1.0.
 
 | Method | Endpoint | Description | Response |
 |--------|----------|-------------|----------|
-| GET    | /flights | Get all flights filtered by the Query parameters: <br>`flightNumber`, `origin`, `destination`, `departure`, `departureBefore`, `departureAfter`, `arrival`, `arrivalBefore`, `arrivalAfter`, `price`, `maxPrice` and/or `airline`. <br>This dates must have this format: `YYYYY-MM-dd` | Array\<Flight\> |
+| GET    | /flights | Get all flights filtered by the Query parameters: <br>`flightId`, `origin`, `destination`, `departure`, `departureBefore`, `departureAfter`, `arrival`, `arrivalBefore`, `arrivalAfter`, `price`, `maxPrice` and/or `airline`. <br>This dates must have this format: `YYYYY-MM-dd` | Array\<Flight\> |
 | POST   | /flights | Create a new flight <br>Also accepts `x-www-form-urlencoded` | Flight |
-| GET    | /flights/{flightNumber} | Get information about a specific flight | Flight |
-| PUT    | /flights/{flightNumber} | Update `origin`, `destination`, `departure`, `arrival` and/or `airline` of a flight. | Flight |
-| DELETE | /flights/{flightNumber} | Delete a flight | |
+| GET    | /flights/{flightId} | Get information about a specific flight | Flight |
+| PUT    | /flights/{flightId} | Update `origin`, `destination`, `departure`, `arrival` and/or `airline` of a flight. | Flight |
+| DELETE | /flights/{flightId} | Delete a flight | |
 
 #### Flights Tickets
 
 | Method | Endpoint | Description | Response |
 |--------|----------|-------------|----------|
-| GET    | /flights/{flightNumber}/tickets | Get all tickets | Array\<Ticket\> |
-| POST   | /flights/{flightNumber}/tickets/{ticketId}/buy?buyerId={userId} | Buy a specific ticket. <br>Needs `buyerId` Query parameter | Ticket |
+| GET    | /flights/{flightId}/tickets | Get all tickets | Array\<Ticket\> |
+| POST   | /flights/{flightId}/tickets/{ticketId}/buy?buyerId={userId} | Buy a specific ticket. <br>Needs `buyerId` Query parameter | Ticket |
 
 #### Users
 
@@ -61,7 +61,7 @@ This are all the available resources for Airline's API 1.0.
 
 | Name | Type |
 |------|------|
-| flightNumber | int |
+| id | int |
 | origin | String |
 | destination | String |
 | departure | String `YYYYY-MM-ddThh:mm` |
@@ -79,7 +79,7 @@ Notice:
 
 | Name | Type |
 |------|------|
-| ref | int |
+| id | int |
 | price | int |
 | seat | String |
 | buyerId | int |
@@ -89,13 +89,15 @@ Notice:
 
 | Name | Type |
 |------|------|
-| userId | int |
+| id | int |
 | name | String |
 
 ### General comments
 
 - All the data is encoded in `json` format.
 - ID's are generated automatically, if you provide one in a POST or PUT request this will be ignored.
+- When a list is requested the response contains the header `X-Total-Count` with the amount of items in the list.
+- CORS enabled with header `Access-Control-Allow-Origin: *`.
 
 ## 1st Client - Java console
 
@@ -122,7 +124,7 @@ Some errors can occur when:
 ```json
 {
   "error": true,
-  "message": "Flight with flightNumber 999 doesn't exist",
+  "message": "Flight with flightId 999 doesn't exist",
   "status": 404,
   "statusName": "Not Found"
 }

@@ -38,22 +38,22 @@ public class FlightsCollection {
     public int total() {
         return flights.size();
     }
-    public Flight get(int flightNumber) {
-        return flights.get(flightNumber);
+    public Flight get(int flightId) {
+        return flights.get(flightId);
     }
-    public boolean exists(int flightNumber) {
-        return flights.containsKey(flightNumber);
+    public boolean exists(int flightId) {
+        return flights.containsKey(flightId);
     }
-    public void remove(int flightNumber) {
-        flights.remove(flightNumber);
+    public void remove(int flightId) {
+        flights.remove(flightId);
     }
     public int add(Flight flight) {
-        flight.setFlightNumber(getNewId());
-        flights.putIfAbsent(flight.getFlightNumber(), flight);
-        return flight.getFlightNumber();
+        flight.setId(getNewId());
+        flights.putIfAbsent(flight.getId(), flight);
+        return flight.getId();
     }
     public Flight update(Flight flight) {
-        return flights.replace(flight.getFlightNumber(), flight);
+        return flights.replace(flight.getId(), flight);
     }
     public int getNewId() {
         return ++idCount;

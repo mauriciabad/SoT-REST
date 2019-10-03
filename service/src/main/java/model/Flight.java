@@ -8,7 +8,7 @@ import java.util.*;
 public class Flight {
 
     // Attributes
-    private int flightNumber;
+    private int id;
     private String origin;
     private String destination;
     private String departure;
@@ -44,11 +44,11 @@ public class Flight {
         this.airline = airline;
         this.tickets = buildTickets(amountOfTickets, pricePerTicket);
     }
-    public Flight(int flightNumber, String origin, String destination, String departure, String arrival, String airline) {
+    public Flight(int id, String origin, String destination, String departure, String arrival, String airline) {
         // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-ddThh:mm");
         // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: YYYY-MM-ddThh:mm");
 
-        this.flightNumber = flightNumber;
+        this.id = id;
         this.origin = origin;
         this.destination = destination;
         this.departure = departure;
@@ -58,8 +58,8 @@ public class Flight {
 
 
     // Default Getters and Setters
-    public int getFlightNumber() { return flightNumber; }
-    public void setFlightNumber(int flightNumber) { this.flightNumber = flightNumber; }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public String getOrigin() { return origin; }
     public void setOrigin(String origin) { this.origin = origin; }
     public String getDestination() { return destination; }
@@ -89,8 +89,6 @@ public class Flight {
         Ticket cheapestTicket = getCheapestTicket();
         return cheapestTicket != null ? cheapestTicket.getPrice() : null;
     }
-    public int getId() { return flightNumber; }
-
 
 
     // Methods

@@ -3,7 +3,7 @@ package model;
 public class Ticket {
 
     // Attributes
-    private int ref;
+    private int id;
     private int price;
     private String seat;
     private Integer buyerId = null;
@@ -12,22 +12,22 @@ public class Ticket {
 
     // Constructors
     public Ticket() {}
-    public Ticket(int ref, int price, String seat, Integer buyerId, boolean forSale) {
-        this.ref = ref;
+    public Ticket(int id, int price, String seat, Integer buyerId, boolean forSale) {
+        this.id = id;
         this.price = price;
         this.seat = seat;
         this.buyerId = buyerId;
         this.forSale = forSale;
     }
-    public Ticket(int ref, int price, String seat) {
-        this.ref = ref;
+    public Ticket(int id, int price, String seat) {
+        this.id = id;
         this.price = price;
         this.seat = seat;
     }
 
     // Default Getters and Setters
-    public int getRef() { return ref; }
-    public void setRef(int ref) { this.ref = ref; }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public int getPrice() { return price; }
     public void setPrice(int price) { this.price = price; }
     public String getSeat() { return seat; }
@@ -36,8 +36,6 @@ public class Ticket {
     public void setBuyerId(Integer buyerId) { this.buyerId = buyerId; }
     public boolean isForSale() { return forSale; }
     public void setForSale(boolean forSale) { this.forSale = forSale; }
-
-    public int getId() { return ref; }
 
     // Methods
     public boolean buy(int buyerId){
