@@ -1,4 +1,6 @@
-package fontys.sot.rest.service.model;
+package collections;
+
+import model.Flight;
 
 import java.util.ArrayList;
 import java.util.HashMap;

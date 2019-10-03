@@ -1,4 +1,4 @@
-package fontys.sot.rest.service.model;
+package model;
 
 public class User {
     private int userId;

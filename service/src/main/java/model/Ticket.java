@@ -1,6 +1,4 @@
-package fontys.sot.rest.service.model;
-
-import java.util.Objects;
+package model;
 
 public class Ticket {
 

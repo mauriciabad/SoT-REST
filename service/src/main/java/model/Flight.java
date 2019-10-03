@@ -1,4 +1,4 @@
-package fontys.sot.rest.service.model;
+package model;
 
 import java.text.DateFormat;
 import java.text.ParseException;

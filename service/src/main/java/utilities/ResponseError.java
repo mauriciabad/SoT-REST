@@ -1,4 +1,4 @@
-package fontys.sot.rest.service.model;
+package utilities;
 
 import javax.ws.rs.core.Response;
 

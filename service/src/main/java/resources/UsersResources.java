@@ -1,14 +1,12 @@
-package fontys.sot.rest.service.resources;
+package resources;
 
-import fontys.sot.rest.service.model.User;
-import fontys.sot.rest.service.model.UsersCollection;
-import fontys.sot.rest.service.model.ResponseError;
+import model.User;
+import collections.UsersCollection;
+import utilities.ResponseError;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Path("users")
 public class UsersResources {
