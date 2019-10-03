@@ -180,8 +180,8 @@ public class FlightsResources {
     @POST
     @Path("{flightId}/tickets/{ticketId}/buy")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response getFlightTicketsById(@PathParam("flightId") int flightId, @PathParam("ticketId") int ticketId, @QueryParam("buyerId") Integer buyerId) {
-        if (buyerId == null) return new ResponseError(422, "Missing 'buyerId' parameter").build();
+    public Response getFlightTicketsById(@PathParam("flightId") int flightId, @PathParam("ticketId") int ticketId, @QueryParam("userId") Integer userId) {
+        if (userId == null) return new ResponseError(422, "Missing 'userId' parameter").build();
 
         if (!flights.exists(flightId)) return new ResponseError(404, "Flight with flightId " + flightId + " doesn't exist").build();
         Flight flight = flights.get(flightId);
@@ -193,8 +193,8 @@ public class FlightsResources {
         if (!ticket.isForSale()) return new ResponseError(400, "Ticket with ticketId " + ticketId + " is not for sale").build();
         UsersCollection users = UsersCollection.getInstance();
 
-        if (!users.exists(buyerId)) return new ResponseError(404, "User with userId " + buyerId + " doesn't exist").build();
-        ticket.buy(buyerId);
+        if (!users.exists(userId)) return new ResponseError(404, "User with userId " + userId + " doesn't exist").build();
+        ticket.buy(userId);
         return ResponseCustom.build(200, ticket);
     }
 }

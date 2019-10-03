@@ -68,12 +68,12 @@ public class Interface {
         console.write("Enter a ticketId:");
         Integer ticketId = (Integer) console.read(Integer.class);
 
-        console.write("Enter a buyerId:");
-        Integer buyerId = (Integer) console.read(Integer.class);
+        console.write("Enter a userId:");
+        Integer userId = (Integer) console.read(Integer.class);
 
         // Run request & show result
         console.write("Waiting response...");
-        requestManager.request("POST", "/flights/"+flightId+"/tickets/"+ticketId+"/buy?buyerId="+buyerId);
+        requestManager.request("POST", "/flights/"+flightId+"/tickets/"+ticketId+"/buy?userId="+userId);
 
         // Ask next action
         boolean answerRepeat = console.ask("\nDo you want to buy another ticket?");
