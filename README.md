@@ -110,11 +110,11 @@ Run the class [`Main`](https://github.com/mauriciabad/SoT-REST/blob/master/clien
 > I used the [react-admin](https://marmelab.com/react-admin/) framework to build it.
 
 - The source code is inside the `/web-client` folder. 
-- The compiled files are inside the `/web-client/public` folder. 
+- The compiled files are inside the `/web-client/build` folder. 
 
 You can use it from the link below if you are running the backend in localhost:
 
-[/web-client/public/index.html](https://mauriciabad.github.io/SoT-REST/web-client/public/)
+[/web-client/build/index.html](https://mauriciabad.github.io/SoT-REST/web-client/build/)
 
 ## Error handling
 
