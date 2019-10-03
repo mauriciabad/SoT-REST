@@ -37,6 +37,8 @@ public class Ticket {
     public boolean isForSale() { return forSale; }
     public void setForSale(boolean forSale) { this.forSale = forSale; }
 
+    public int getId() { return ref; }
+
     // Methods
     public boolean buy(int buyerId){
         if(forSale) {

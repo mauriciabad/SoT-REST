@@ -89,6 +89,8 @@ public class Flight {
         Ticket cheapestTicket = getCheapestTicket();
         return cheapestTicket != null ? cheapestTicket.getPrice() : null;
     }
+    public int getId() { return flightNumber; }
+
 
 
     // Methods
