@@ -9,7 +9,7 @@
                                                    
 ```
 
-:octocat: This project was fully develop in GitHub and Intellij Idea.<br>
+🛠 This project was develop with GitHub, Intellij Idea and Java 11.<br>
 **Source code**: https://github.com/mauriciabad/SoT-REST
 
 **Author**: [Maurici Abad Gutierrez](https://mauriciabad.com)
