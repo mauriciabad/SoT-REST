@@ -16,7 +16,7 @@ public class ResponseCustom {
                 .status(status)
                 .entity(entity)
                 .header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE")
+                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
                 .header("Access-Control-Allow-Headers", "*")
                 .build();
     }
@@ -26,7 +26,7 @@ public class ResponseCustom {
                 .status(status)
                 .entity(entity)
                 .header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE")
+                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
                 .header("Access-Control-Allow-Headers", "x-requested-with,Content-Type")
 
                 .header("Access-Control-Expose-Headers", "*")

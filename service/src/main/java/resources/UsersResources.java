@@ -19,6 +19,9 @@ public class UsersResources {
 
     /*  - - - - - - - - - -  Endpoints  - - - - - - - - - -  */
 
+    @OPTIONS
+    public Response optionsUser() { return ResponseCustom.build(200,"GET, POST, OPTIONS"); }
+
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Response getUserByQuery() {
@@ -44,6 +47,10 @@ public class UsersResources {
 
         return ResponseCustom.build(200, users.get(userId));
     }
+
+    @OPTIONS
+    @Path("{userId}")
+    public Response optionsUserId() { return ResponseCustom.build(200,"GET, PUT, POST, DELETE, OPTIONS"); }
 
     @PUT
     @Path("{userId}")
@@ -78,10 +85,5 @@ public class UsersResources {
     public Response deleteUser(@PathParam("userId") int userId) {
         users.remove(userId);
         return ResponseCustom.build();
-    }
-
-    @OPTIONS
-    public Response optionsUser() {
-        return ResponseCustom.build(200,"GET, PUT, POST, DELETE");
     }
 }

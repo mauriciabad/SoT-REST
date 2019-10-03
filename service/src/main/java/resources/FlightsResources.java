@@ -24,6 +24,9 @@ public class FlightsResources {
 
     /*  - - - - - - - - - -  Endpoints  - - - - - - - - - -  */
 
+    @OPTIONS
+    public Response optionsFlight() { return ResponseCustom.build(200,"GET, POST, OPTIONS"); }
+
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Response getFlightByQuery(
@@ -116,6 +119,10 @@ public class FlightsResources {
         return ResponseCustom.build(200, flights.get(flightId));
     }
 
+    @OPTIONS
+    @Path("{flightId}")
+    public Response optionsFlightId() { return ResponseCustom.build(200,"GET, PUT, POST, DELETE, OPTIONS"); }
+
     @PUT
     @Path("{flightId}")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -189,10 +196,5 @@ public class FlightsResources {
         if (!users.exists(buyerId)) return new ResponseError(404, "User with userId " + buyerId + " doesn't exist").build();
         ticket.buy(buyerId);
         return ResponseCustom.build(200, ticket);
-    }
-
-    @OPTIONS
-    public Response optionsFlight() {
-        return ResponseCustom.build(200,"GET, PUT, POST, DELETE");
     }
 }
