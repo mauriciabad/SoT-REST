@@ -138,6 +138,7 @@ public class FlightsResources {
             if (flight.getDeparture() != null) oldFlight.setDeparture(flight.getDeparture());
             if (flight.getArrival() != null) oldFlight.setArrival(flight.getArrival());
             if (flight.getAirline() != null) oldFlight.setAirline(flight.getAirline());
+            if (flight.getTickets() != null) oldFlight.setTickets(flight.getTickets());
 
             flights.update(oldFlight);
 
