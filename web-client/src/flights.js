@@ -9,6 +9,7 @@ import {
   SingleFieldList,
   ChipField,
   EditButton,
+  DeleteButton,
   Edit,
   SimpleForm,
   TextInput,
@@ -21,10 +22,11 @@ import {
   ReferenceInput,
   SelectInput,
   Create,
+  Filter,
 } from 'react-admin';
 
 export const FlightList = props => (
-  <List {...props}>
+<List {...props} filters={<FlightFilter />}>
     <Datagrid rowClick="edit">
       <NumberField source="id" />
       <TextField source="origin" />
@@ -44,6 +46,7 @@ export const FlightList = props => (
           </ArrayField> */}
       <ArrayField source="tickets"><SingleFieldList><ChipField source="seat" /></SingleFieldList></ArrayField>
       <EditButton />
+      <DeleteButton />
     </Datagrid>
   </List>
 );
@@ -94,4 +97,21 @@ export const FlightCreate = props => (
       </ArrayInput>
     </SimpleForm>
   </Create>
+);
+
+const FlightFilter = (props) => (
+  <Filter {...props}>
+      <TextInput label="FlightId" source="flightId" allowEmpty />
+      <TextInput label="Origin" source="origin" allowEmpty />
+      <TextInput label="Destination" source="destination" allowEmpty />
+      <TextInput label="Departure" source="departure" allowEmpty />
+      <TextInput label="DepartureBefore" source="departureBefore" allowEmpty />
+      <TextInput label="DepartureAfter" source="departureAfter" allowEmpty />
+      <TextInput label="Arrival" source="arrival" allowEmpty />
+      <TextInput label="ArrivalBefore" source="arrivalBefore" allowEmpty />
+      <TextInput label="ArrivalAfter" source="arrivalAfter" allowEmpty />
+      <TextInput label="Price" source="price" allowEmpty />
+      <TextInput label="MaxPrice" source="maxPrice" allowEmpty />
+      <TextInput label="Airline" source="airline" allowEmpty />
+  </Filter>
 );

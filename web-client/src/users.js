@@ -9,6 +9,8 @@ import {
   DisabledInput,
   TextInput,
   Create,
+  EditButton,
+  DeleteButton,
 } from 'react-admin';
 
 export const UserList = props => (
@@ -16,6 +18,8 @@ export const UserList = props => (
     <Datagrid rowClick="edit">
       <NumberField source="id" />
       <TextField source="name" />
+      <EditButton />
+      <DeleteButton />
     </Datagrid>
   </List>
 );
