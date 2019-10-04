@@ -224,8 +224,8 @@ public class Interface {
 
                 console.write("\nWhat attribute do you want to update?");
                 console.write("  airline. Airline name");
-                console.write("  arrival. Arrival date (YYYY-MM-dd hh:mm)");
-                console.write("  departure. Departure date (YYYY-MM-dd hh:mm)");
+                console.write("  arrival. Arrival date (yyyy-MM-dd HH:mm)");
+                console.write("  departure. Departure date (yyyy-MM-dd HH:mm)");
                 console.write("  destination. Destination airport IATA code");
                 console.write("  origin. Origin airport IATA code");
                 //console.write("  tickets. Tickets");
@@ -251,7 +251,7 @@ public class Interface {
                         break; */
                     case "arrival":
                     case "departure":
-                        askValueMessage += " with this format: YYYY-MM-dd hh:mm";
+                        askValueMessage += " with this format: yyyy-MM-dd HH:mm";
                     case "airline":
                     case "destination":
                     case "origin":

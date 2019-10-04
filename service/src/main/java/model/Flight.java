@@ -24,8 +24,8 @@ public class Flight {
     // Constructors
     public Flight() {}
     public Flight(String origin, String destination, String departure, String arrival, String airline) {
-        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-dd hh:mm");
-        // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: YYYY-MM-dd hh:mm");
+        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: yyyy-MM-dd HH:mm");
+        // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: yyyy-MM-dd HH:mm");
 
         this.origin = origin;
         this.destination = destination;
@@ -34,8 +34,8 @@ public class Flight {
         this.airline = airline;
     }
     public Flight(String origin, String destination, String departure, String arrival, String airline, int amountOfTickets, int pricePerTicket) {
-        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-dd hh:mm");
-        // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: YYYY-MM-dd hh:mm");
+        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: yyyy-MM-dd HH:mm");
+        // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: yyyy-MM-dd HH:mm");
 
         this.origin = origin;
         this.destination = destination;
@@ -45,8 +45,8 @@ public class Flight {
         this.tickets = buildTickets(amountOfTickets, pricePerTicket);
     }
     public Flight(int id, String origin, String destination, String departure, String arrival, String airline) {
-        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-dd hh:mm");
-        // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: YYYY-MM-dd hh:mm");
+        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: yyyy-MM-dd HH:mm");
+        // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: yyyy-MM-dd HH:mm");
 
         this.id = id;
         this.origin = origin;
@@ -66,12 +66,12 @@ public class Flight {
     public void setDestination(String destination) { this.destination = destination; }
     public String getDeparture() { return departure; }
     public void setDeparture(String departure) {
-        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-dd hh:mm");
+        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: yyyy-MM-dd HH:mm");
         this.departure = formatDate(departure);
     }
     public String getArrival() { return arrival; }
     public void setArrival(String arrival) {
-        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-dd hh:mm");
+        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: yyyy-MM-dd HH:mm");
         this.arrival = formatDate(arrival);
     }
     public String getAirline() { return airline; }
@@ -97,19 +97,19 @@ public class Flight {
     }
 
     public static String formatDate(String dateString){
-        DateFormat df = new SimpleDateFormat("YYYY-MM-dd hh:mm");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         df.setLenient(false);
         return df.format(getDateFromString(dateString));
     }
 
     public static Date getDateFromString(String dateString) {
         try {
-            DateFormat df = new SimpleDateFormat("YYYY-MM-dd hh:mm");
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             df.setLenient(false);
             return df.parse(dateString);
         } catch (ParseException e) {
             try {
-                DateFormat df = new SimpleDateFormat("YYYY-MM-dd");
+                DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                 df.setLenient(false);
                 return df.parse(dateString);
             } catch (ParseException e2) {

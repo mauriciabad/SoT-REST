@@ -64,8 +64,8 @@ This are all the available resources for Airline's API 1.0.
 | id | int |
 | origin | String |
 | destination | String |
-| departure | String `YYYY-MM-dd hh:mm` |
-| arrival | String `YYYY-MM-dd hh:mm` |
+| departure | String `yyyy-MM-dd HH:mm` |
+| arrival | String `yyyy-MM-dd HH:mm` |
 | airline | String |
 | tickets | Array\<Ticket\> |
 | *price* | int |
