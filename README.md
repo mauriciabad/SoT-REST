@@ -105,6 +105,17 @@ Notice:
 
 Run the class [`Main`](https://github.com/mauriciabad/SoT-REST/blob/master/client/src/main/java/Main.java) inside `client` module.
 
+> **Note**: you can write the options in lowercase and will still work.
+
+> **Disclaimer 1**: I wanted to make a preatier display of the entities, instead of just writing the JSON. But because working with JSON in Java is a nightmare I left like this.
+
+> **Disclaimer 2**: *The Intellij Idea console made me code dirty workarrounds*. 
+> - No Unicode support.
+> - The `Console` class is incompatible.
+> - The graddle run button doesn't work straight away. 
+> 
+> So I couldn't use fancy Emojis, I had to make my own Console class, and running the code must be done from the regular Intellij Play button...
+
 ## 2nd Client - Web React.js
 
 ![Web client demo](documentation/web-client-demo.gif)
