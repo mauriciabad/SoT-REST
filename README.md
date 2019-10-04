@@ -101,11 +101,15 @@ Notice:
 
 ## 1st Client - Java console
 
-![Client demo](documentation/client-demo.gif)
+![Console client demo](documentation/console-client-demo.gif)
 
 Run the class [`Main`](https://github.com/mauriciabad/SoT-REST/blob/master/client/src/main/java/Main.java) inside `client` module.
 
 ## 2nd Client - Web React.js
+
+![Web client demo](documentation/web-client-demo.gif)
+
+![Web client run instructions](documentation/web-client-instructions.png)
 
 You MUST run the app in localhost, or open the file `[/web-client/build/index.html](https://github.com/mauriciabad/SoT-REST/blob/master/web-client/build/index.html)` from the computer.
 
@@ -113,8 +117,6 @@ You MUST run the app in localhost, or open the file `[/web-client/build/index.ht
 - The compiled files are inside the `/web-client/build` folder. 
 
 > I used the [react-admin](https://marmelab.com/react-admin/) framework to build it.
-
-![2nd client run instructions](documentation/run-second-client-instructions.png)
 
 _When you deploy the apache tomcat server it will give you nice instructions about how to run the 2nd client._
 
