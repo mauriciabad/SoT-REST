@@ -14,6 +14,8 @@
 
 **Author**: [Maurici Abad Gutierrez](https://mauriciabad.com)
 
+Done entirely in only 5 days.
+
 ## Assignment statement
 
 Make a REST service and client(s) for the required case: **searching and buying flight tickets (for travelling with an airplane)**. You may make it simple or advanced, for example: clients can create account, search for flight tickets and buy them, etc.
