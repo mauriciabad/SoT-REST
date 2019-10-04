@@ -9,7 +9,7 @@
                                                    
 ```
 
-🛠 This project was develop with GitHub, Intellij Idea and Java 11.<br>
+🛠 This project was develop with GitHub, Intellij Idea, Java 11 and React.js.<br>
 **Source code**: https://github.com/mauriciabad/SoT-REST
 
 **Author**: [Maurici Abad Gutierrez](https://mauriciabad.com)
@@ -92,12 +92,14 @@ Notice:
 | id | int |
 | name | String |
 
-### General comments
+## General comments
 
 - All the data is encoded in `json` format.
 - ID's are generated automatically, if you provide one in a POST or PUT request this will be ignored.
 - When a list is requested the response contains the header `X-Total-Count` with the amount of items in the list.
 - CORS enabled with header `Access-Control-Allow-Origin: *`.
+- `OPTIONS` method is also implemented.
+- Flights can be filtered by all this parameters: `flightId`, `origin`, `destination`, `departure`, `departureBefore`, `departureAfter`, `arrival`, `arrivalBefore`, `arrivalAfter`, `price`, `maxPrice` and/or `airline`.
 
 ## 1st Client - Java console
 
@@ -149,6 +151,19 @@ Some errors can occur when:
   "statusName": "Not Found"
 }
 ```
+
+### Implementing a Composite service
+
+The idea I had is the **Custom Flights Recomendation**. 
+
+One use case would be:
+1. Ask the costumer's favorite football team.
+1. Call a `Football API` to know when and where is the next match.
+1. Call our `Airline API` to get the flights there.
+1. Check in a `Weather API` the weather for the departure and arival times.
+1. Send a recomendation emailthrought `Mailing API` with all that information to the costumer.
+
+This would call several services from one service.
 
 ## HTTP messages
 
