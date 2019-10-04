@@ -71,9 +71,9 @@ This are all the available resources for Airline's API 1.0.
 | *price* | int |
 | *cheapestTicket* | Ticket |
 
-Notice:
-- The attribute `price` is the price of the cheapest ticket.
-- The attributes `price` and `cheapestTicket` are redundant information.
+> **Notice**:
+> - The attribute `price` is the price of the cheapest ticket.
+> - The attributes `price` and `cheapestTicket` are redundant information.
 
 #### Ticket
 
