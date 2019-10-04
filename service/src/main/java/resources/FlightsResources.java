@@ -59,27 +59,27 @@ public class FlightsResources {
 
         // For each date we need to check if it has correct format. This is why there are so many lines...
         if (departure != null) {
-            if (!Flight.isValidDate(departure)) return new ResponseError(422, "Parameter 'departure' must be in this format: YYYY-MM-ddThh:mm").build();
+            if (!Flight.isValidDate(departure)) return new ResponseError(422, "Parameter 'departure' must be in this format: YYYY-MM-dd hh:mm").build();
             filteredFlights = filteredFlights.filter(flight -> Flight.getDateFromString(departure).equals(Flight.getDateFromString(flight.getDeparture())));
         }
         if (arrival != null) {
-            if (!Flight.isValidDate(arrival)) return new ResponseError(422, "Parameter 'arrival' must be in this format: YYYY-MM-ddThh:mm").build();
+            if (!Flight.isValidDate(arrival)) return new ResponseError(422, "Parameter 'arrival' must be in this format: YYYY-MM-dd hh:mm").build();
             filteredFlights = filteredFlights.filter(flight -> Flight.getDateFromString(arrival).equals(Flight.getDateFromString(flight.getArrival())));
         }
         if (departureBefore != null) {
-            if (!Flight.isValidDate(departureBefore)) return new ResponseError(422, "Parameter 'departureBefore' must be in this format: YYYY-MM-ddThh:mm").build();
+            if (!Flight.isValidDate(departureBefore)) return new ResponseError(422, "Parameter 'departureBefore' must be in this format: YYYY-MM-dd hh:mm").build();
             filteredFlights = filteredFlights.filter(flight -> Flight.getDateFromString(departureBefore).after(Flight.getDateFromString(flight.getDeparture())));
         }
         if (departureAfter != null) {
-            if (!Flight.isValidDate(departureAfter)) return new ResponseError(422, "Parameter 'departureAfter' must be in this format: YYYY-MM-ddThh:mm").build();
+            if (!Flight.isValidDate(departureAfter)) return new ResponseError(422, "Parameter 'departureAfter' must be in this format: YYYY-MM-dd hh:mm").build();
             filteredFlights = filteredFlights.filter(flight -> Flight.getDateFromString(departureAfter).before(Flight.getDateFromString(flight.getDeparture())));
         }
         if (arrivalBefore != null) {
-            if (!Flight.isValidDate(arrivalBefore)) return new ResponseError(422, "Parameter 'arrivalBefore' must be in this format: YYYY-MM-ddThh:mm").build();
+            if (!Flight.isValidDate(arrivalBefore)) return new ResponseError(422, "Parameter 'arrivalBefore' must be in this format: YYYY-MM-dd hh:mm").build();
             filteredFlights = filteredFlights.filter(flight -> Flight.getDateFromString(arrivalBefore).after(Flight.getDateFromString(flight.getArrival())));
         }
         if (arrivalAfter != null) {
-            if (!Flight.isValidDate(arrivalAfter)) return new ResponseError(422, "Parameter 'arrivalAfter' must be in this format: YYYY-MM-ddThh:mm").build();
+            if (!Flight.isValidDate(arrivalAfter)) return new ResponseError(422, "Parameter 'arrivalAfter' must be in this format: YYYY-MM-dd hh:mm").build();
             filteredFlights = filteredFlights.filter(flight -> Flight.getDateFromString(arrivalAfter).before(Flight.getDateFromString(flight.getArrival())));
         }
 
@@ -95,8 +95,8 @@ public class FlightsResources {
         if (flight.getDeparture() == null) return new ResponseError(422, "Missing 'departure' parameter").build();
         if (flight.getArrival() == null) return new ResponseError(422, "Missing 'arrival' parameter").build();
         if (flight.getAirline() == null) return new ResponseError(422, "Missing 'airline' parameter").build();
-        if (flight.getDeparture() != null && !Flight.isValidDate(flight.getDeparture())) return new ResponseError(422, "Parameter 'departure' must be in this format: YYYY-MM-ddThh:mm").build();
-        if (flight.getArrival() != null && !Flight.isValidDate(flight.getArrival())) return new ResponseError(422, "Parameter 'arrival' must be in this format: YYYY-MM-ddThh:mm").build();
+        if (flight.getDeparture() != null && !Flight.isValidDate(flight.getDeparture())) return new ResponseError(422, "Parameter 'departure' must be in this format: YYYY-MM-dd hh:mm").build();
+        if (flight.getArrival() != null && !Flight.isValidDate(flight.getArrival())) return new ResponseError(422, "Parameter 'arrival' must be in this format: YYYY-MM-dd hh:mm").build();
 
         int flightId = flights.add(flight);
 
@@ -111,8 +111,8 @@ public class FlightsResources {
         if (departure == null) return new ResponseError(422, "Missing 'departure' parameter").build();
         if (arrival == null) return new ResponseError(422, "Missing 'arrival' parameter").build();
         if (airline == null) return new ResponseError(422, "Missing 'airline' parameter").build();
-        if (!Flight.isValidDate(departure)) return new ResponseError(422, "Parameter 'departure' must be in this format: YYYY-MM-ddThh:mm").build();
-        if (!Flight.isValidDate(arrival)) return new ResponseError(422, "Parameter 'arrival' must be in this format: YYYY-MM-ddThh:mm").build();
+        if (!Flight.isValidDate(departure)) return new ResponseError(422, "Parameter 'departure' must be in this format: YYYY-MM-dd hh:mm").build();
+        if (!Flight.isValidDate(arrival)) return new ResponseError(422, "Parameter 'arrival' must be in this format: YYYY-MM-dd hh:mm").build();
 
         int flightId = flights.add(new Flight(origin, destination, departure, arrival, airline));
 
@@ -128,8 +128,8 @@ public class FlightsResources {
     @Consumes({MediaType.APPLICATION_JSON})
     public Response updateFlight(Flight flight, @PathParam("flightId") int flightId) {
         if (flights.exists(flightId)){
-            if (flight.getDeparture() != null && !Flight.isValidDate(flight.getDeparture())) return new ResponseError(422, "Parameter 'departure' must be in this format: YYYY-MM-ddThh:mm").build();
-            if (flight.getArrival() != null && !Flight.isValidDate(flight.getArrival())) return new ResponseError(422, "Parameter 'arrival' must be in this format: YYYY-MM-ddThh:mm").build();
+            if (flight.getDeparture() != null && !Flight.isValidDate(flight.getDeparture())) return new ResponseError(422, "Parameter 'departure' must be in this format: YYYY-MM-dd hh:mm").build();
+            if (flight.getArrival() != null && !Flight.isValidDate(flight.getArrival())) return new ResponseError(422, "Parameter 'arrival' must be in this format: YYYY-MM-dd hh:mm").build();
 
             Flight oldFlight = flights.get(flightId);
 

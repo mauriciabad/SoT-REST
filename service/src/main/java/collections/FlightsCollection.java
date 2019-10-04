@@ -24,7 +24,7 @@ public class FlightsCollection {
         this.add(new Flight("ATL", "BCN", "2019-10-01 21:50", "2019-10-01 22:50", "Vueling", 1, 120));
         this.add(new Flight("HND", "PVG", "2019-10-13 17:30", "2019-10-13 108:0", "Vueling", 2, 95));
         this.add(new Flight("BCN", "MAD", "2019-10-25 12:15", "2019-10-25 13:30", "Transavia", 2, 15));
-        this.add(new Flight("EIN", "BCN", "2020-10-19 06:45", "2019-10-19 15:30", "Ryanair", 23, 30));
+        this.add(new Flight("EIN", "BCN", "2020-10-19 06:45", "2019-10-19 15:30", "Ryanair", 10, 30));
     }
 
     // Data structure containing flights

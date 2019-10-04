@@ -24,8 +24,8 @@ public class Flight {
     // Constructors
     public Flight() {}
     public Flight(String origin, String destination, String departure, String arrival, String airline) {
-        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-ddThh:mm");
-        // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: YYYY-MM-ddThh:mm");
+        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-dd hh:mm");
+        // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: YYYY-MM-dd hh:mm");
 
         this.origin = origin;
         this.destination = destination;
@@ -34,8 +34,8 @@ public class Flight {
         this.airline = airline;
     }
     public Flight(String origin, String destination, String departure, String arrival, String airline, int amountOfTickets, int pricePerTicket) {
-        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-ddThh:mm");
-        // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: YYYY-MM-ddThh:mm");
+        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-dd hh:mm");
+        // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: YYYY-MM-dd hh:mm");
 
         this.origin = origin;
         this.destination = destination;
@@ -45,8 +45,8 @@ public class Flight {
         this.tickets = buildTickets(amountOfTickets, pricePerTicket);
     }
     public Flight(int id, String origin, String destination, String departure, String arrival, String airline) {
-        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-ddThh:mm");
-        // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: YYYY-MM-ddThh:mm");
+        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-dd hh:mm");
+        // if (!isValidDate(arrival)) throw new Exception("arrival date must have this format: YYYY-MM-dd hh:mm");
 
         this.id = id;
         this.origin = origin;
@@ -66,12 +66,12 @@ public class Flight {
     public void setDestination(String destination) { this.destination = destination; }
     public String getDeparture() { return departure; }
     public void setDeparture(String departure) {
-        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-ddThh:mm");
+        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-dd hh:mm");
         this.departure = formatDate(departure);
     }
     public String getArrival() { return arrival; }
     public void setArrival(String arrival) {
-        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-ddThh:mm");
+        // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-dd hh:mm");
         this.arrival = formatDate(arrival);
     }
     public String getAirline() { return airline; }
