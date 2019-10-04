@@ -29,8 +29,8 @@ public class Flight {
 
         this.origin = origin;
         this.destination = destination;
-        this.departure = departure;
-        this.arrival = arrival;
+        this.departure = formatDate(departure);
+        this.arrival = formatDate(arrival);
         this.airline = airline;
     }
     public Flight(String origin, String destination, String departure, String arrival, String airline, int amountOfTickets, int pricePerTicket) {
@@ -39,8 +39,8 @@ public class Flight {
 
         this.origin = origin;
         this.destination = destination;
-        this.departure = departure;
-        this.arrival = arrival;
+        this.departure = formatDate(departure);
+        this.arrival = formatDate(arrival);
         this.airline = airline;
         this.tickets = buildTickets(amountOfTickets, pricePerTicket);
     }
@@ -51,8 +51,8 @@ public class Flight {
         this.id = id;
         this.origin = origin;
         this.destination = destination;
-        this.departure = departure;
-        this.arrival = arrival;
+        this.departure = formatDate(departure);
+        this.arrival = formatDate(arrival);
         this.airline = airline;
     }
 
@@ -67,12 +67,12 @@ public class Flight {
     public String getDeparture() { return departure; }
     public void setDeparture(String departure) {
         // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-ddThh:mm");
-        this.departure = departure;
+        this.departure = formatDate(departure);
     }
     public String getArrival() { return arrival; }
     public void setArrival(String arrival) {
         // if (!isValidDate(departure)) throw new Exception("departure date must have this format: YYYY-MM-ddThh:mm");
-        this.arrival = arrival;
+        this.arrival = formatDate(arrival);
     }
     public String getAirline() { return airline; }
     public void setAirline(String airline) { this.airline = airline; }
@@ -96,24 +96,24 @@ public class Flight {
         return getDateFromString(dateStr) != null;
     }
 
+    public static String formatDate(String dateString){
+        DateFormat df = new SimpleDateFormat("YYYY-MM-dd hh:mm");
+        df.setLenient(false);
+        return df.format(getDateFromString(dateString));
+    }
+
     public static Date getDateFromString(String dateString) {
         try {
-            DateFormat df = new SimpleDateFormat("YYYY-MM-ddThh:mm");
-            // df.setLenient(false);
+            DateFormat df = new SimpleDateFormat("YYYY-MM-dd hh:mm");
+            df.setLenient(false);
             return df.parse(dateString);
         } catch (ParseException e) {
             try {
-                DateFormat df = new SimpleDateFormat("YYYY-MM-dd hh:mm");
-                // df.setLenient(false);
+                DateFormat df = new SimpleDateFormat("YYYY-MM-dd");
+                df.setLenient(false);
                 return df.parse(dateString);
             } catch (ParseException e2) {
-                try {
-                    DateFormat df = new SimpleDateFormat("YYYY-MM-dd");
-                    // df.setLenient(false);
-                    return df.parse(dateString);
-                } catch (ParseException e3) {
-                    return null;
-                }
+                return null;
             }
         }
     }
