@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ac54f0a2-9cf5-4172-bb4b-52bec0ce0f73" name="Default Changelist" comment="" />
+    <list default="true" id="ac54f0a2-9cf5-4172-bb4b-52bec0ce0f73" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,54 +147,15 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Tomcat Server.Service">
+    <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="rest-gradle.client.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="client [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/client" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="run" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="service [war]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/service" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="war" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Tomcat 9.0.26" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.26" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/airline/" />
+    <configuration name="Service" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.26" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <file path="$PROJECT_DIR$/service/build/libs/airline.war">
@@ -262,18 +225,9 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Gradle.client [run]" />
-      <item itemvalue="Gradle.service [war]" />
-      <item itemvalue="Tomcat Server.Tomcat 9.0.26" />
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Tomcat Server.Service" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.client [run]" />
-        <item itemvalue="Gradle.service [war]" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -293,14 +247,8 @@
       <workItem from="1570124729644" duration="27103000" />
       <workItem from="1570188187145" duration="1061000" />
       <workItem from="1570536529450" duration="931000" />
-      <workItem from="1570537886697" duration="648000" />
-    </task>
-    <task id="LOCAL-00044" summary="Can't edit tickets">
-      <created>1569977525048</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1569977525049</updated>
+      <workItem from="1570537886697" duration="1357000" />
+      <workItem from="1570542825152" duration="42000" />
     </task>
     <task id="LOCAL-00045" summary="Done get ALL">
       <created>1569977866027</created>
@@ -638,7 +586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570538623791</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Remove .gitignore 2">
+      <created>1570538934860</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1570538934861</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -659,7 +614,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Create ResponseCustom class" />
     <MESSAGE value="Add headers" />
     <MESSAGE value="react-admin can read data!" />
     <MESSAGE value="Renamed ids to id.&#10;Add extra info in readme&#10;&#10;(react-admin works!!!!)" />
@@ -684,6 +638,7 @@
     <MESSAGE value="Export README as pdf" />
     <MESSAGE value="Remove eextra code" />
     <MESSAGE value="Remove .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove .gitignore" />
+    <MESSAGE value="Remove .gitignore 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove .gitignore 2" />
   </component>
 </project>
