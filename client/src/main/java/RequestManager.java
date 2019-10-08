@@ -1,18 +1,15 @@
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
-import org.glassfish.jersey.client.ClientConfig;
 
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
-import java.net.URI;
 
 public class RequestManager {
 
     // Attributes
     private String baseUrl;
-    private Client client = ClientBuilder.newClient(new ClientConfig());
+    private Client client = ClientBuilder.newClient();
 
     // Constructors
     public RequestManager(String baseUrl) {
@@ -23,8 +20,7 @@ public class RequestManager {
     public int request(String url) { return request("GET", url, ""); }
     public int request(String method, String url) { return request(method, url, ""); }
     public int request(String method, String url, String body){
-        URI baseURI = UriBuilder.fromUri(baseUrl+url).build();
-        Invocation.Builder requestBuilder = client.target(baseURI).request();
+        Invocation.Builder requestBuilder = client.target(baseUrl+url).request();
 
         Response response;
         switch (method){
