@@ -1,7 +1,7 @@
 # Project exclude paths
-/client/.gradle/
-/client/build/
-/client/build/classes/java/main/
-/service/.gradle/
-/service/build/
-/service/build/classes/java/main/
+# /client/.gradle/
+# /client/build/
+# /client/build/classes/java/main/
+# /service/.gradle/
+# /service/build/
+# /service/build/classes/java/main/
