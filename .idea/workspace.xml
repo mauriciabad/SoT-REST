@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ac54f0a2-9cf5-4172-bb4b-52bec0ce0f73" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/client">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/service">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/service">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/client">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="client" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="client" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="client" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="service" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="service" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="service" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\mauri\IdeaProjects\SoT-REST" />
+        <option value="C:\Users\mauri\IdeaProjects\SoT-REST\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1RT2yA0uRckFa6GiQYLZiZgvmWZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="jdk.selected.JAVA_MODULE" value="11" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mauri\IdeaProjects\SoT-REST\client" />
+      <recent name="C:\Users\mauri\IdeaProjects\SoT-REST\client\src\main\java" />
+      <recent name="C:\Users\mauri\IdeaProjects\SoT-REST\service" />
+      <recent name="C:\Users\mauri\IdeaProjects\SoT-REST\service\src\main\java" />
+      <recent name="C:\Users\mauri\IdeaProjects\SoT-REST\service\src\main\webapp" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mauri\IdeaProjects\SoT-REST\client\src\main\java\models" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="fontys.sot.rest.service.model" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="fontys.sot.rest.service.model" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="rest-gradle.client.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="client [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/client" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="service [war]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/service" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="war" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tomcat 9.0.26" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.26" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/airline/" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <file path="$PROJECT_DIR$/service/build/libs/airline.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/airline" />
+          </settings>
+        </file>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_SoT-REST" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="53108" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Gradle.BeforeRunTask" enabled="true" tasks="war" externalProjectPath="$PROJECT_DIR$/service" vmOptions="" scriptParameters="" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.client [run]" />
+      <item itemvalue="Gradle.service [war]" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.26" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.client [run]" />
+        <item itemvalue="Gradle.service [war]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ac54f0a2-9cf5-4172-bb4b-52bec0ce0f73" name="Default Changelist" comment="" />
+      <created>1569677016739</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1569677016739</updated>
+      <workItem from="1569677018171" duration="5729000" />
+      <workItem from="1569683744561" duration="47917000" />
+      <workItem from="1569934493390" duration="983000" />
+      <workItem from="1569939132149" duration="34807000" />
+      <workItem from="1570031103170" duration="6298000" />
+      <workItem from="1570124729644" duration="27103000" />
+      <workItem from="1570188187145" duration="1061000" />
+      <workItem from="1570536529450" duration="931000" />
+      <workItem from="1570537886697" duration="384000" />
+    </task>
+    <task id="LOCAL-00043" summary="Refactor dates to be one-word">
+      <created>1569976877531</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1569976877531</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Can't edit tickets">
+      <created>1569977525048</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1569977525049</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Done get ALL">
+      <created>1569977866027</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1569977866027</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Dont crash when 500 error">
+      <created>1569978018526</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1569978018526</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Fix typo in url">
+      <created>1569978112333</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1569978112333</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Add initial tickets">
+      <created>1569978730677</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1569978730678</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Add ticket functions">
+      <created>1569979626107</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1569979626108</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Refactor">
+      <created>1569979963748</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1569979963751</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Add search flights">
+      <created>1569981080597</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1569981080597</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Fix search silly error">
+      <created>1569981202573</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1569981202574</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Fix another silly error">
+      <created>1569981256216</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1569981256217</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Search works!">
+      <created>1569981701557</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1569981701559</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Add comments">
+      <created>1569981815233</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1569981815233</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Add console.write(&quot;Waiting response...&quot;);">
+      <created>1569981989234</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1569981989234</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Now you can buy tickets">
+      <created>1569983975762</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1569983975762</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Add font and users">
+      <created>1569985371479</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1569985371481</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Fix CORS in users resources">
+      <created>1569985659783</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1569985659783</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Add .header(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, PUT, DELETE, OPTIONS&quot;)">
+      <created>1569985919110</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1569985919111</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Refactor: Rename class Tester to RequestManager">
+      <created>1570045197890</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1570045197891</updated>
+    </task>
+    <task id="LOCAL-00062" summary="README typos">
+      <created>1570045381101</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1570045381101</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Fix flow bugs and prettify code">
+      <created>1570045788088</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1570045788088</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Reformat dates to &quot;YYYY-MM-dd hh:mm:ss&quot;">
+      <created>1570047085005</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1570047085005</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Update client">
+      <created>1570052345736</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1570052345736</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Improve package structure">
+      <created>1570127054328</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1570127054331</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Create ResponseCustom class">
+      <created>1570127979287</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1570127979291</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Add headers">
+      <created>1570130999226</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1570130999227</updated>
+    </task>
+    <task id="LOCAL-00069" summary="react-admin can read data!">
+      <created>1570133296462</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1570133296466</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Renamed ids to id.&#10;Add extra info in readme&#10;&#10;(react-admin works!!!!)">
+      <created>1570134408370</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1570134408382</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Add react-admin to readme">
+      <created>1570136009533</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1570136009535</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Add redirect to client">
+      <created>1570136628935</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1570136628939</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Improve redirect to client">
+      <created>1570138241093</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1570138241099</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Improve redirect to client">
+      <created>1570139799569</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1570139799575</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Cool redirect to client">
+      <created>1570140647276</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1570140647311</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Cool redirect to client 2">
+      <created>1570140706371</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1570140706372</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Add instructions to readme">
+      <created>1570140971261</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1570140971263</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Fix CORS one more time XD">
+      <created>1570142174714</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1570142174718</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Add options again">
+      <created>1570143236735</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1570143236736</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Replace buyerId by userId">
+      <created>1570146467126</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1570146467129</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Allow all dates">
+      <created>1570146889494</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1570146889496</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Reformat wrong dates">
+      <created>1570147968941</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1570147968944</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Update initial flights">
+      <created>1570148674759</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1570148674761</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Add filters to client">
+      <created>1570149579152</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1570149579156</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Allow editing tickets">
+      <created>1570150028338</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1570150028340</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Dates don't allow T">
+      <created>1570152913449</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1570152913450</updated>
+    </task>
+    <task id="LOCAL-00087" summary="New date format yyyy-MM-dd HH:mm">
+      <created>1570153700019</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1570153700020</updated>
+    </task>
+    <task id="LOCAL-00088" summary="typo">
+      <created>1570153811516</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1570153811518</updated>
+    </task>
+    <task id="LOCAL-00089" summary="console cliend date format updated">
+      <created>1570155120615</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1570155120616</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Export README as pdf">
+      <created>1570158326706</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1570158326717</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Remove eextra code">
+      <created>1570536704709</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1570536704710</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Improve package structure" />
+    <MESSAGE value="Create ResponseCustom class" />
+    <MESSAGE value="Add headers" />
+    <MESSAGE value="react-admin can read data!" />
+    <MESSAGE value="Renamed ids to id.&#10;Add extra info in readme&#10;&#10;(react-admin works!!!!)" />
+    <MESSAGE value="Add react-admin to readme" />
+    <MESSAGE value="Add redirect to client" />
+    <MESSAGE value="Improve redirect to client" />
+    <MESSAGE value="Cool redirect to client" />
+    <MESSAGE value="Cool redirect to client 2" />
+    <MESSAGE value="Add instructions to readme" />
+    <MESSAGE value="Fix CORS one more time XD" />
+    <MESSAGE value="Add options again" />
+    <MESSAGE value="Replace buyerId by userId" />
+    <MESSAGE value="Allow all dates" />
+    <MESSAGE value="Reformat wrong dates" />
+    <MESSAGE value="Update initial flights" />
+    <MESSAGE value="Add filters to client" />
+    <MESSAGE value="Allow editing tickets" />
+    <MESSAGE value="Dates don't allow T" />
+    <MESSAGE value="New date format yyyy-MM-dd HH:mm" />
+    <MESSAGE value="typo" />
+    <MESSAGE value="console cliend date format updated" />
+    <MESSAGE value="Export README as pdf" />
+    <MESSAGE value="Remove eextra code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove eextra code" />
+  </component>
+</project>
